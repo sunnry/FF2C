@@ -14,6 +14,7 @@
 		A38214091C156533006A75C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A38214071C156533006A75C8 /* LaunchScreen.storyboard */; };
 		A38214141C156533006A75C8 /* FF2CTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38214131C156533006A75C8 /* FF2CTests.swift */; };
 		A382141F1C156533006A75C8 /* FF2CUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A382141E1C156533006A75C8 /* FF2CUITests.swift */; };
+		A382142E1C1566F7006A75C8 /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A382142D1C1566F7006A75C8 /* CAPSPageMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		A382141A1C156533006A75C8 /* FF2CUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FF2CUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A382141E1C156533006A75C8 /* FF2CUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FF2CUITests.swift; sourceTree = "<group>"; };
 		A38214201C156533006A75C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A382142D1C1566F7006A75C8 /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAPSPageMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		A38213FD1C156533006A75C8 /* FF2C */ = {
 			isa = PBXGroup;
 			children = (
+				A382142C1C156688006A75C8 /* PageMenu */,
 				A38213FE1C156533006A75C8 /* AppDelegate.swift */,
 				A38214001C156533006A75C8 /* ViewController.swift */,
 				A38214021C156533006A75C8 /* Main.storyboard */,
@@ -123,6 +126,14 @@
 				A38214201C156533006A75C8 /* Info.plist */,
 			);
 			path = FF2CUITests;
+			sourceTree = "<group>";
+		};
+		A382142C1C156688006A75C8 /* PageMenu */ = {
+			isa = PBXGroup;
+			children = (
+				A382142D1C1566F7006A75C8 /* CAPSPageMenu.swift */,
+			);
+			name = PageMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +269,7 @@
 			files = (
 				A38214011C156533006A75C8 /* ViewController.swift in Sources */,
 				A38213FF1C156533006A75C8 /* AppDelegate.swift in Sources */,
+				A382142E1C1566F7006A75C8 /* CAPSPageMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
