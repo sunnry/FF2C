@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A37214051C17D37700EAD891 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37214041C17D37700EAD891 /* SettingTableViewController.swift */; };
+		A37214071C17E02100EAD891 /* SettingTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A37214061C17E02100EAD891 /* SettingTableViewController.xib */; };
+		A37214091C17FD0400EAD891 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37214081C17FD0400EAD891 /* AppConfiguration.swift */; };
+		A372140C1C18012300EAD891 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A372140B1C18012300EAD891 /* SettingTableViewCell.swift */; };
+		A372140E1C18014200EAD891 /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A372140D1C18014200EAD891 /* SettingTableViewCell.xib */; };
 		A38213FF1C156533006A75C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38213FE1C156533006A75C8 /* AppDelegate.swift */; };
 		A38214011C156533006A75C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38214001C156533006A75C8 /* ViewController.swift */; };
 		A38214041C156533006A75C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A38214021C156533006A75C8 /* Main.storyboard */; };
@@ -35,6 +40,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A37214041C17D37700EAD891 /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
+		A37214061C17E02100EAD891 /* SettingTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingTableViewController.xib; sourceTree = "<group>"; };
+		A37214081C17FD0400EAD891 /* AppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		A372140B1C18012300EAD891 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		A372140D1C18014200EAD891 /* SettingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
 		A38213FB1C156533006A75C8 /* FF2C.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FF2C.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A38213FE1C156533006A75C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A38214001C156533006A75C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +86,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A37214031C17D34500EAD891 /* view controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A37214041C17D37700EAD891 /* SettingTableViewController.swift */,
+				A37214061C17E02100EAD891 /* SettingTableViewController.xib */,
+			);
+			name = "view controllers";
+			sourceTree = "<group>";
+		};
+		A372140A1C1800EB00EAD891 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A372140B1C18012300EAD891 /* SettingTableViewCell.swift */,
+				A372140D1C18014200EAD891 /* SettingTableViewCell.xib */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		A38213F21C156532006A75C8 = {
 			isa = PBXGroup;
 			children = (
@@ -99,9 +127,12 @@
 		A38213FD1C156533006A75C8 /* FF2C */ = {
 			isa = PBXGroup;
 			children = (
+				A372140A1C1800EB00EAD891 /* Cells */,
+				A37214031C17D34500EAD891 /* view controllers */,
 				A382142C1C156688006A75C8 /* PageMenu */,
 				A38213FE1C156533006A75C8 /* AppDelegate.swift */,
 				A38214001C156533006A75C8 /* ViewController.swift */,
+				A37214081C17FD0400EAD891 /* AppConfiguration.swift */,
 				A38214021C156533006A75C8 /* Main.storyboard */,
 				A38214051C156533006A75C8 /* Assets.xcassets */,
 				A38214071C156533006A75C8 /* LaunchScreen.storyboard */,
@@ -240,8 +271,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A37214071C17E02100EAD891 /* SettingTableViewController.xib in Resources */,
 				A38214091C156533006A75C8 /* LaunchScreen.storyboard in Resources */,
 				A38214061C156533006A75C8 /* Assets.xcassets in Resources */,
+				A372140E1C18014200EAD891 /* SettingTableViewCell.xib in Resources */,
 				A38214041C156533006A75C8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,7 +300,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A372140C1C18012300EAD891 /* SettingTableViewCell.swift in Sources */,
 				A38214011C156533006A75C8 /* ViewController.swift in Sources */,
+				A37214091C17FD0400EAD891 /* AppConfiguration.swift in Sources */,
+				A37214051C17D37700EAD891 /* SettingTableViewController.swift in Sources */,
 				A38213FF1C156533006A75C8 /* AppDelegate.swift in Sources */,
 				A382142E1C1566F7006A75C8 /* CAPSPageMenu.swift in Sources */,
 			);
@@ -494,6 +530,7 @@
 				A38214251C156533006A75C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A38214261C156533006A75C8 /* Build configuration list for PBXNativeTarget "FF2CTests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +539,7 @@
 				A38214281C156533006A75C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A38214291C156533006A75C8 /* Build configuration list for PBXNativeTarget "FF2CUITests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +548,7 @@
 				A382142B1C156533006A75C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
