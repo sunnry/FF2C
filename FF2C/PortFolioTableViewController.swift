@@ -40,11 +40,8 @@ class PortFolioTableViewController :UITableViewController{
         
         let cell:PortFolioHoldCell = tableView.dequeueReusableCellWithIdentifier("PortFolioHoldCell") as! PortFolioHoldCell
         
-        cell.percentage.layer.cornerRadius = 5
+        cell.percentage.layer.cornerRadius = AppConfiguration.PortFolioTableViewConfig.LabelPercentageCornerRadius
         cell.percentage.clipsToBounds = true
-        
-        //cell.label.text = itemArray[indexPath.row]
-        //cell.imgView.image = UIImage(named: itemImgArray[indexPath.row])
         
         
         return cell
