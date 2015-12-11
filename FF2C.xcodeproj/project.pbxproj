@@ -16,6 +16,8 @@
 		A37F7B931C1A6A8300DD008D /* PortFolioHoldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A37F7B921C1A6A8300DD008D /* PortFolioHoldCell.xib */; };
 		A37F7B951C1A6CD800DD008D /* PortFolioTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37F7B941C1A6CD800DD008D /* PortFolioTableViewController.swift */; };
 		A37F7B9B1C1A786B00DD008D /* PortFolioTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A37F7B9A1C1A786B00DD008D /* PortFolioTableViewController.xib */; };
+		A37F7B9D1C1A948100DD008D /* AddPortFolioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A37F7B9C1C1A948100DD008D /* AddPortFolioCell.xib */; };
+		A37F7B9F1C1A949700DD008D /* AddPortFolioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37F7B9E1C1A949700DD008D /* AddPortFolioCell.swift */; };
 		A38213FF1C156533006A75C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38213FE1C156533006A75C8 /* AppDelegate.swift */; };
 		A38214011C156533006A75C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38214001C156533006A75C8 /* ViewController.swift */; };
 		A38214041C156533006A75C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A38214021C156533006A75C8 /* Main.storyboard */; };
@@ -53,6 +55,8 @@
 		A37F7B921C1A6A8300DD008D /* PortFolioHoldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PortFolioHoldCell.xib; sourceTree = "<group>"; };
 		A37F7B941C1A6CD800DD008D /* PortFolioTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortFolioTableViewController.swift; sourceTree = "<group>"; };
 		A37F7B9A1C1A786B00DD008D /* PortFolioTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PortFolioTableViewController.xib; sourceTree = "<group>"; };
+		A37F7B9C1C1A948100DD008D /* AddPortFolioCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddPortFolioCell.xib; sourceTree = "<group>"; };
+		A37F7B9E1C1A949700DD008D /* AddPortFolioCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPortFolioCell.swift; sourceTree = "<group>"; };
 		A38213FB1C156533006A75C8 /* FF2C.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FF2C.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A38213FE1C156533006A75C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A38214001C156533006A75C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +116,8 @@
 				A372140D1C18014200EAD891 /* SettingTableViewCell.xib */,
 				A37F7B901C1A692200DD008D /* PortFolioHoldCell.swift */,
 				A37F7B921C1A6A8300DD008D /* PortFolioHoldCell.xib */,
+				A37F7B9E1C1A949700DD008D /* AddPortFolioCell.swift */,
+				A37F7B9C1C1A948100DD008D /* AddPortFolioCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -287,6 +293,7 @@
 				A38214091C156533006A75C8 /* LaunchScreen.storyboard in Resources */,
 				A37F7B9B1C1A786B00DD008D /* PortFolioTableViewController.xib in Resources */,
 				A38214061C156533006A75C8 /* Assets.xcassets in Resources */,
+				A37F7B9D1C1A948100DD008D /* AddPortFolioCell.xib in Resources */,
 				A37F7B931C1A6A8300DD008D /* PortFolioHoldCell.xib in Resources */,
 				A372140E1C18014200EAD891 /* SettingTableViewCell.xib in Resources */,
 				A38214041C156533006A75C8 /* Main.storyboard in Resources */,
@@ -316,6 +323,7 @@
 			files = (
 				A372140C1C18012300EAD891 /* SettingTableViewCell.swift in Sources */,
 				A38214011C156533006A75C8 /* ViewController.swift in Sources */,
+				A37F7B9F1C1A949700DD008D /* AddPortFolioCell.swift in Sources */,
 				A37F7B951C1A6CD800DD008D /* PortFolioTableViewController.swift in Sources */,
 				A37214091C17FD0400EAD891 /* AppConfiguration.swift in Sources */,
 				A37F7B911C1A692200DD008D /* PortFolioHoldCell.swift in Sources */,

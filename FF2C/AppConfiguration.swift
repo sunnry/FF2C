@@ -19,9 +19,13 @@ struct AppConfiguration {
     }
     
     struct PortFolioTableViewConfig{
+        static let FirstRow = 0
+        
         static let SectionNum:Int = 1
-        static let DefaultTotalCellNum:Int = 3
+        static let DefaultTotalCellNum:Int = 4
         static let RowHeight:CGFloat = 40.0
         static let LabelPercentageCornerRadius:CGFloat = 5
+        
+        static let AddPortFolioRowHeight:CGFloat = 30
     }
 }

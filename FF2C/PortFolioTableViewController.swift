@@ -20,6 +20,8 @@ class PortFolioTableViewController :UITableViewController{
         
         self.tableView.registerNib(UINib(nibName: "PortFolioHoldCell", bundle: nil), forCellReuseIdentifier: "PortFolioHoldCell")
         
+        self.tableView.registerNib(UINib(nibName: "AddPortFolioCell", bundle: nil), forCellReuseIdentifier: "AddPortFolioCell")
+        
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
     }
     
@@ -33,18 +35,28 @@ class PortFolioTableViewController :UITableViewController{
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath)-> CGFloat {
-        return AppConfiguration.PortFolioTableViewConfig.RowHeight
+        if indexPath.row == AppConfiguration.PortFolioTableViewConfig.FirstRow{
+            return AppConfiguration.PortFolioTableViewConfig.AddPortFolioRowHeight
+        }
+        else{
+            return AppConfiguration.PortFolioTableViewConfig.RowHeight
+        }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell:PortFolioHoldCell = tableView.dequeueReusableCellWithIdentifier("PortFolioHoldCell") as! PortFolioHoldCell
+        if indexPath.row == AppConfiguration.PortFolioTableViewConfig.FirstRow {
+            let cell:AddPortFolioCell = tableView.dequeueReusableCellWithIdentifier("AddPortFolioCell") as! AddPortFolioCell
+            return cell
+        }
+        else{
+            let cell:PortFolioHoldCell = tableView.dequeueReusableCellWithIdentifier("PortFolioHoldCell") as! PortFolioHoldCell
         
-        cell.percentage.layer.cornerRadius = AppConfiguration.PortFolioTableViewConfig.LabelPercentageCornerRadius
-        cell.percentage.clipsToBounds = true
+            cell.percentage.layer.cornerRadius = AppConfiguration.PortFolioTableViewConfig.LabelPercentageCornerRadius
+            cell.percentage.clipsToBounds = true
+            return cell
+        }
         
-        
-        return cell
     }
     
     
