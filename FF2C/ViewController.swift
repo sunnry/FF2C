@@ -17,6 +17,12 @@ class ViewController: UIViewController {
         
         self.title = "菜鸟财经"
         self.navigationController?.navigationBar.barTintColor = UIColor(red:20.0/255.0,green:20.0/255.0,blue:20.0/255.0,alpha:1.0)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.orangeColor(),NSFontAttributeName:UIFont(name: "Heiti SC", size: 24)!]
+        
         
         
         
@@ -32,7 +38,16 @@ class ViewController: UIViewController {
         ctrlArray.append(settingCtrl)
         
         let params:[CAPSPageMenuOption] = [
-            .ScrollMenuBackgroundColor(UIColor(red:20.0/255.0,green:20.0/255.0,blue:20.0/255.0,alpha:1.0))
+            .ScrollMenuBackgroundColor(UIColor(red:20.0/255.0,green:20.0/255.0,blue:20.0/255.0,alpha:1.0)),
+            .ViewBackgroundColor(UIColor(red: 20.0/255.0, green: 20.0/255.0, blue: 20.0/255.0, alpha: 1.0)),
+            .SelectionIndicatorColor(UIColor.orangeColor()),
+            .AddBottomMenuHairline(false),
+            //.MenuItemFont(UIFont(name: "HelveticaNeue", size: 24.0)!),
+            .MenuItemFont(UIFont(name: "Heiti SC", size: 24.0)!),
+            .MenuHeight(50.0),
+            .SelectionIndicatorHeight(0.0),
+            .MenuItemWidthBasedOnTitleTextWidth(true),
+            .SelectedMenuItemLabelColor(UIColor.orangeColor())
         ]
         
         
