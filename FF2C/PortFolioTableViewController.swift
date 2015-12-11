@@ -1,14 +1,16 @@
 //
-//  SettingTableViewController.swift
+//  PortFolioTableViewController.swift
 //  FF2C
 //
-//  Created by sunny sun on 15/12/9.
+//  Created by sunny sun on 15/12/11.
 //  Copyright © 2015年 sunny sun. All rights reserved.
 //
 
 import UIKit
 
-class SettingTableViewController :UITableViewController{
+
+
+class PortFolioTableViewController :UITableViewController{
     
     var itemArray:[String] = ["隐私和条款","报告Bug","点赞","退出","empty"]
     var itemImgArray:[String] = ["term","bugs","love","exit","exit"]
@@ -16,30 +18,33 @@ class SettingTableViewController :UITableViewController{
     override func viewDidLoad(){
         super.viewDidLoad()
         
-        self.tableView.registerNib(UINib(nibName: "SettingTableViewCell", bundle: nil), forCellReuseIdentifier: "SettingTableViewCell")
+        self.tableView.registerNib(UINib(nibName: "PortFolioHoldCell", bundle: nil), forCellReuseIdentifier: "PortFolioHoldCell")
         
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
     }
     
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return AppConfiguration.SettingTableViewConfig.SectionNum
+        return AppConfiguration.PortFolioTableViewConfig.SectionNum
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return AppConfiguration.SettingTableViewConfig.TotoalCellNum
+        return AppConfiguration.PortFolioTableViewConfig.DefaultTotalCellNum
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath)-> CGFloat {
-        return AppConfiguration.SettingTableViewConfig.RowHeight
+        return AppConfiguration.PortFolioTableViewConfig.RowHeight
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell:SettingTableViewCell = tableView.dequeueReusableCellWithIdentifier("SettingTableViewCell") as! SettingTableViewCell
+        let cell:PortFolioHoldCell = tableView.dequeueReusableCellWithIdentifier("PortFolioHoldCell") as! PortFolioHoldCell
         
-        cell.label.text = itemArray[indexPath.row]
-        cell.imgView.image = UIImage(named: itemImgArray[indexPath.row])
+        cell.percentage.layer.cornerRadius = 5
+        cell.percentage.clipsToBounds = true
+        
+        //cell.label.text = itemArray[indexPath.row]
+        //cell.imgView.image = UIImage(named: itemImgArray[indexPath.row])
         
         
         return cell

@@ -17,4 +17,10 @@ struct AppConfiguration {
         static let TotoalCellNum:Int = 5
         static let RowHeight:CGFloat = 64.0
     }
+    
+    struct PortFolioTableViewConfig{
+        static let SectionNum:Int = 1
+        static let DefaultTotalCellNum:Int = 3
+        static let RowHeight:CGFloat = 40.0
+    }
 }

@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         
         var ctrlArray :[UIViewController] = []
         
-        let folioCtrl:UITableViewController = UITableViewController(nibName: nil, bundle: nil)
+        let folioCtrl:UITableViewController = PortFolioTableViewController(nibName: "PortFolioTableViewController", bundle: nil)
         folioCtrl.title = "持仓"
         ctrlArray.append(folioCtrl)
         
