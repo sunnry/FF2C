@@ -45,7 +45,7 @@ class ViewController: UIViewController {
             //.MenuItemFont(UIFont(name: "HelveticaNeue", size: 24.0)!),
             .MenuItemFont(UIFont(name: "Heiti SC", size: 24.0)!),
             .MenuHeight(50.0),
-            .SelectionIndicatorHeight(0.0),
+            .SelectionIndicatorHeight(3.0),
             .MenuItemWidthBasedOnTitleTextWidth(true),
             .SelectedMenuItemLabelColor(UIColor.orangeColor())
         ]

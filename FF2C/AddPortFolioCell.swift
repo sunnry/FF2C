@@ -14,7 +14,7 @@ class AddPortFolioCell: UITableViewCell {
     
     @IBOutlet weak var addButton: UIButton!
     
-    @IBOutlet weak var addLabel: UILabel!
+    @IBOutlet weak var DelButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

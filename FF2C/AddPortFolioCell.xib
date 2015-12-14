@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,27 +15,42 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="29"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XdD-O0-j2o">
-                        <rect key="frame" x="16" y="2" width="29" height="25"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XdD-O0-j2o">
+                        <rect key="frame" x="16" y="3" width="24" height="24"/>
                         <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="24" id="TUW-nX-1xB"/>
+                            <constraint firstAttribute="height" constant="24" id="WgM-vh-gZ3"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="plus"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ikA-9e-et1">
+                        <rect key="frame" x="278" y="3" width="24" height="24"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="193-e3-wAo"/>
+                            <constraint firstAttribute="width" constant="24" id="ACj-OC-w6H"/>
+                        </constraints>
                         <state key="normal" title="Button"/>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="添加..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7DC-CW-3mU">
-                        <rect key="frame" x="60" y="4" width="58" height="21"/>
-                        <animations/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <animations/>
+                <constraints>
+                    <constraint firstItem="XdD-O0-j2o" firstAttribute="leading" secondItem="LVD-2p-4Aq" secondAttribute="leadingMargin" constant="8" id="7du-Rt-szz"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="ikA-9e-et1" secondAttribute="trailing" constant="10" id="HKs-CM-dl7"/>
+                    <constraint firstItem="XdD-O0-j2o" firstAttribute="top" secondItem="LVD-2p-4Aq" secondAttribute="topMargin" constant="-5" id="Zc3-bQ-yuK"/>
+                    <constraint firstItem="ikA-9e-et1" firstAttribute="top" secondItem="LVD-2p-4Aq" secondAttribute="topMargin" constant="-5" id="dOp-HP-cmK"/>
+                </constraints>
             </tableViewCellContentView>
             <animations/>
             <connections>
+                <outlet property="DelButton" destination="ikA-9e-et1" id="d6W-Of-xNn"/>
                 <outlet property="addButton" destination="XdD-O0-j2o" id="Mne-iC-EWc"/>
-                <outlet property="addLabel" destination="7DC-CW-3mU" id="VD2-zB-0nI"/>
             </connections>
             <point key="canvasLocation" x="316" y="288"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="plus" width="128" height="128"/>
+    </resources>
 </document>
