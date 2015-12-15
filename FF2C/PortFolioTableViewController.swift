@@ -9,8 +9,12 @@
 import UIKit
 
 
+protocol quoteDelegate:class{
+    func didShowQuoteController()
+}
 
-class PortFolioTableViewController :UITableViewController{
+
+class PortFolioTableViewController :UITableViewController,quoteDelegate{
     
     var itemArray:[String] = ["隐私和条款","报告Bug","点赞","退出","empty"]
     var itemImgArray:[String] = ["term","bugs","love","exit","exit"]
@@ -47,6 +51,7 @@ class PortFolioTableViewController :UITableViewController{
         
         if indexPath.row == AppConfiguration.PortFolioTableViewConfig.FirstRow {
             let cell:AddPortFolioCell = tableView.dequeueReusableCellWithIdentifier("AddPortFolioCell") as! AddPortFolioCell
+            cell.delegate = self
             return cell
         }
         else{
@@ -57,6 +62,14 @@ class PortFolioTableViewController :UITableViewController{
             return cell
         }
         
+    }
+    
+    func didShowQuoteController() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let quoteVC = storyboard.instantiateViewControllerWithIdentifier("searchVC")
+        
+        self.presentViewController(quoteVC, animated: true, completion: nil)
     }
     
     

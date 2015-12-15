@@ -63,6 +63,10 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        //if you use segue, you can use this function to transfer user define data to other viewController
+    }
 
 
 }

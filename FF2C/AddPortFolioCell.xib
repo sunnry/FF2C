@@ -23,6 +23,9 @@
                             <constraint firstAttribute="height" constant="24" id="WgM-vh-gZ3"/>
                         </constraints>
                         <state key="normal" backgroundImage="plus"/>
+                        <connections>
+                            <action selector="AddButtonAction:" destination="ANH-HS-KqV" eventType="touchUpInside" id="2D5-qd-sRF"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ikA-9e-et1">
                         <rect key="frame" x="278" y="3" width="24" height="24"/>
@@ -32,6 +35,9 @@
                             <constraint firstAttribute="width" constant="24" id="ACj-OC-w6H"/>
                         </constraints>
                         <state key="normal" title="Button"/>
+                        <connections>
+                            <action selector="delButtonAction:" destination="ANH-HS-KqV" eventType="touchUpInside" id="etj-1I-Fcj"/>
+                        </connections>
                     </button>
                 </subviews>
                 <animations/>

@@ -26,7 +26,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FF2C" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainVC" id="BYZ-38-t0r" customClass="ViewController" customModule="FF2C" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DKC-dZ-buP"/>
                         <viewControllerLayoutGuide type="bottom" id="gqJ-VT-CbR"/>
@@ -41,7 +41,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="456" y="193"/>
+            <point key="canvasLocation" x="448" y="193"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="gw6-fp-MnB">
+            <objects>
+                <viewController storyboardIdentifier="searchVC" id="DX8-Al-xAb" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lgh-IT-Kri"/>
+                        <viewControllerLayoutGuide type="bottom" id="Mdr-6x-UwE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="J27-mR-fSZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S84-d8-JGy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1147" y="204"/>
         </scene>
     </scenes>
 </document>

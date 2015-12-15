@@ -16,6 +16,16 @@ class AddPortFolioCell: UITableViewCell {
     
     @IBOutlet weak var DelButton: UIButton!
     
+    weak var delegate:quoteDelegate?
+    
+    @IBAction func AddButtonAction(sender: AnyObject) {
+        
+        delegate?.didShowQuoteController()
+    }
+    
+    @IBAction func delButtonAction(sender: AnyObject) {
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
