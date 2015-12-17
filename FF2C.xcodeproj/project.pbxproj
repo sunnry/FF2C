@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A33A6A581C22561F0034EA87 /* searchSymbolView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A33A6A571C22561F0034EA87 /* searchSymbolView.xib */; };
-		A33A6A5A1C2256960034EA87 /* searchSymbolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A6A591C2256960034EA87 /* searchSymbolViewController.swift */; };
+		A33A6A5C1C227A650034EA87 /* searchSymbolTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A33A6A5B1C227A650034EA87 /* searchSymbolTableView.xib */; };
+		A33A6A5E1C227A960034EA87 /* searchSymbolTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A6A5D1C227A960034EA87 /* searchSymbolTableViewController.swift */; };
+		A33A6A601C227BE50034EA87 /* searchSymbolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A6A5F1C227BE50034EA87 /* searchSymbolCell.swift */; };
+		A33A6A621C227C000034EA87 /* searchSymbolCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A33A6A611C227C000034EA87 /* searchSymbolCell.xib */; };
 		A37214051C17D37700EAD891 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37214041C17D37700EAD891 /* SettingTableViewController.swift */; };
 		A37214071C17E02100EAD891 /* SettingTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A37214061C17E02100EAD891 /* SettingTableViewController.xib */; };
 		A37214091C17FD0400EAD891 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37214081C17FD0400EAD891 /* AppConfiguration.swift */; };
@@ -48,8 +50,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A33A6A571C22561F0034EA87 /* searchSymbolView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = searchSymbolView.xib; sourceTree = "<group>"; };
-		A33A6A591C2256960034EA87 /* searchSymbolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = searchSymbolViewController.swift; sourceTree = "<group>"; };
+		A33A6A5B1C227A650034EA87 /* searchSymbolTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = searchSymbolTableView.xib; sourceTree = "<group>"; };
+		A33A6A5D1C227A960034EA87 /* searchSymbolTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = searchSymbolTableViewController.swift; sourceTree = "<group>"; };
+		A33A6A5F1C227BE50034EA87 /* searchSymbolCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = searchSymbolCell.swift; sourceTree = "<group>"; };
+		A33A6A611C227C000034EA87 /* searchSymbolCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = searchSymbolCell.xib; sourceTree = "<group>"; };
 		A37214041C17D37700EAD891 /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		A37214061C17E02100EAD891 /* SettingTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingTableViewController.xib; sourceTree = "<group>"; };
 		A37214081C17FD0400EAD891 /* AppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
@@ -109,8 +113,8 @@
 				A37214061C17E02100EAD891 /* SettingTableViewController.xib */,
 				A37F7B941C1A6CD800DD008D /* PortFolioTableViewController.swift */,
 				A37F7B9A1C1A786B00DD008D /* PortFolioTableViewController.xib */,
-				A33A6A591C2256960034EA87 /* searchSymbolViewController.swift */,
-				A33A6A571C22561F0034EA87 /* searchSymbolView.xib */,
+				A33A6A5D1C227A960034EA87 /* searchSymbolTableViewController.swift */,
+				A33A6A5B1C227A650034EA87 /* searchSymbolTableView.xib */,
 			);
 			name = "view controllers";
 			sourceTree = "<group>";
@@ -124,6 +128,8 @@
 				A37F7B921C1A6A8300DD008D /* PortFolioHoldCell.xib */,
 				A37F7B9E1C1A949700DD008D /* AddPortFolioCell.swift */,
 				A37F7B9C1C1A948100DD008D /* AddPortFolioCell.xib */,
+				A33A6A5F1C227BE50034EA87 /* searchSymbolCell.swift */,
+				A33A6A611C227C000034EA87 /* searchSymbolCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -297,13 +303,14 @@
 			files = (
 				A37214071C17E02100EAD891 /* SettingTableViewController.xib in Resources */,
 				A38214091C156533006A75C8 /* LaunchScreen.storyboard in Resources */,
-				A33A6A581C22561F0034EA87 /* searchSymbolView.xib in Resources */,
 				A37F7B9B1C1A786B00DD008D /* PortFolioTableViewController.xib in Resources */,
 				A38214061C156533006A75C8 /* Assets.xcassets in Resources */,
 				A37F7B9D1C1A948100DD008D /* AddPortFolioCell.xib in Resources */,
 				A37F7B931C1A6A8300DD008D /* PortFolioHoldCell.xib in Resources */,
 				A372140E1C18014200EAD891 /* SettingTableViewCell.xib in Resources */,
 				A38214041C156533006A75C8 /* Main.storyboard in Resources */,
+				A33A6A621C227C000034EA87 /* searchSymbolCell.xib in Resources */,
+				A33A6A5C1C227A650034EA87 /* searchSymbolTableView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,11 +336,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A372140C1C18012300EAD891 /* SettingTableViewCell.swift in Sources */,
+				A33A6A601C227BE50034EA87 /* searchSymbolCell.swift in Sources */,
 				A38214011C156533006A75C8 /* ViewController.swift in Sources */,
 				A37F7B9F1C1A949700DD008D /* AddPortFolioCell.swift in Sources */,
 				A37F7B951C1A6CD800DD008D /* PortFolioTableViewController.swift in Sources */,
-				A33A6A5A1C2256960034EA87 /* searchSymbolViewController.swift in Sources */,
 				A37214091C17FD0400EAD891 /* AppConfiguration.swift in Sources */,
+				A33A6A5E1C227A960034EA87 /* searchSymbolTableViewController.swift in Sources */,
 				A37F7B911C1A692200DD008D /* PortFolioHoldCell.swift in Sources */,
 				A37214051C17D37700EAD891 /* SettingTableViewController.swift in Sources */,
 				A38213FF1C156533006A75C8 /* AppDelegate.swift in Sources */,

@@ -28,4 +28,10 @@ struct AppConfiguration {
         
         static let AddPortFolioRowHeight:CGFloat = 30
     }
+    
+    struct SearchSymbolTableViewConfig{
+        static let SectionNum:Int = 1
+        static let DefaultTotoalCellNum:Int = 10
+        static let RowHeight:CGFloat = 25.0
+    }
 }
