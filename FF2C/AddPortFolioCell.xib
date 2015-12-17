@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -17,7 +17,6 @@
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XdD-O0-j2o">
                         <rect key="frame" x="16" y="3" width="24" height="24"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="24" id="TUW-nX-1xB"/>
                             <constraint firstAttribute="height" constant="24" id="WgM-vh-gZ3"/>
@@ -29,7 +28,6 @@
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ikA-9e-et1">
                         <rect key="frame" x="278" y="3" width="24" height="24"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="24" id="193-e3-wAo"/>
                             <constraint firstAttribute="width" constant="24" id="ACj-OC-w6H"/>
@@ -40,7 +38,6 @@
                         </connections>
                     </button>
                 </subviews>
-                <animations/>
                 <constraints>
                     <constraint firstItem="XdD-O0-j2o" firstAttribute="leading" secondItem="LVD-2p-4Aq" secondAttribute="leadingMargin" constant="8" id="7du-Rt-szz"/>
                     <constraint firstAttribute="trailingMargin" secondItem="ikA-9e-et1" secondAttribute="trailing" constant="10" id="HKs-CM-dl7"/>
@@ -48,7 +45,6 @@
                     <constraint firstItem="ikA-9e-et1" firstAttribute="top" secondItem="LVD-2p-4Aq" secondAttribute="topMargin" constant="-5" id="dOp-HP-cmK"/>
                 </constraints>
             </tableViewCellContentView>
-            <animations/>
             <connections>
                 <outlet property="DelButton" destination="ikA-9e-et1" id="d6W-Of-xNn"/>
                 <outlet property="addButton" destination="XdD-O0-j2o" id="Mne-iC-EWc"/>

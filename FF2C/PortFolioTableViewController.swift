@@ -65,11 +65,12 @@ class PortFolioTableViewController :UITableViewController,quoteDelegate{
     }
     
     func didShowQuoteController() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        //let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        //let quoteVC = storyboard.instantiateViewControllerWithIdentifier("searchVC")
         
-        let quoteVC = storyboard.instantiateViewControllerWithIdentifier("searchVC")
+        let searchSymbolVC = searchSymbolViewController(nibName: "searchSymbolView", bundle: nil)
         
-        self.presentViewController(quoteVC, animated: true, completion: nil)
+        self.presentViewController(searchSymbolVC, animated: true, completion: nil)
     }
     
     
