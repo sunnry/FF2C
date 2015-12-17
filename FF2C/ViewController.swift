@@ -57,6 +57,8 @@ class ViewController: UIViewController {
         
         self.view.addSubview(pageMenu!.view)
         
+        self.addChildViewController(pageMenu!)
+        
     }
 
     override func didReceiveMemoryWarning() {
