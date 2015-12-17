@@ -18,11 +18,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="35D-Vl-f3t">
-                    <rect key="frame" x="0.0" y="33" width="213" height="44"/>
+                    <rect key="frame" x="8" y="92" width="213" height="44"/>
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wBY-OU-hnX">
-                    <rect key="frame" x="247" y="40" width="61" height="30"/>
+                    <rect key="frame" x="249" y="99" width="61" height="30"/>
                     <state key="normal" title="Cancel"/>
                     <connections>
                         <action selector="cancelAction:" destination="-1" eventType="touchUpInside" id="qID-DY-zGz"/>

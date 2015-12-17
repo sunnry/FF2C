@@ -69,8 +69,11 @@ class PortFolioTableViewController :UITableViewController,quoteDelegate{
         //let quoteVC = storyboard.instantiateViewControllerWithIdentifier("searchVC")
         
         let searchSymbolVC = searchSymbolViewController(nibName: "searchSymbolView", bundle: nil)
+
+        let nvController:UINavigationController = UINavigationController(rootViewController: searchSymbolVC)
+        nvController.navigationBar.barStyle = UIBarStyle.Default
         
-        self.presentViewController(searchSymbolVC, animated: true, completion: nil)
+        self.presentViewController(nvController, animated: true, completion: nil)
     }
     
     
