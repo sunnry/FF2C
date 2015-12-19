@@ -31,7 +31,7 @@ struct AppConfiguration {
     
     struct SearchSymbolTableViewConfig{
         static let SectionNum:Int = 1
-        static let DefaultTotoalCellNum:Int = 10
+        static let DefaultTotoalCellNum:Int = 15
         static let RowHeight:CGFloat = 25.0
     }
 }

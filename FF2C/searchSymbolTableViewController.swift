@@ -10,6 +10,19 @@ import UIKit
 
 class searchSymbolTableViewController: UITableViewController,UISearchBarDelegate {
     
+    var searchSymbolBar:UISearchBar?
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        
+        searchSymbolBar = UISearchBar()
+        searchSymbolBar?.showsCancelButton = true
+        searchSymbolBar?.delegate = self
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +30,11 @@ class searchSymbolTableViewController: UITableViewController,UISearchBarDelegate
         self.tableView.registerNib(UINib(nibName: "searchSymbolCell", bundle: nil), forCellReuseIdentifier: "searchSymbolCell")
 
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
+        
+        self.navigationItem.titleView = searchSymbolBar
+        searchSymbolBar?.placeholder = "请输入股票代码"
+        searchSymbolBar?.becomeFirstResponder()
+        
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -32,16 +50,9 @@ class searchSymbolTableViewController: UITableViewController,UISearchBarDelegate
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if indexPath.row == 0{
-            let cell:searchSymbolCell = tableView.dequeueReusableCellWithIdentifier("searchSymbolCell") as! searchSymbolCell
-            cell.searchSymbolBar.delegate = self
-            cell.searchSymbolBar.becomeFirstResponder()
-            return cell
-        }
-        else{
+        
             let cell:UITableViewCell = UITableViewCell()
             return cell
-        }
     }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
