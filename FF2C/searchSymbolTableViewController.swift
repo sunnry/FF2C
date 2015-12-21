@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class searchSymbolTableViewController: UITableViewController,UISearchBarDelegate {
     
@@ -56,10 +57,26 @@ class searchSymbolTableViewController: UITableViewController,UISearchBarDelegate
     }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        
+        requestSymbol(searchText)
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func requestSymbol(symbol:String){
+        let symbol:String = symbol
+        let urlString:URLStringConvertible = "https://query.yahooapis.com/v1/public/yql"
+        let sql:String = "select * from yahoo.finance.quote where symbol in (\"" + symbol + "\")"
+        
+        let params:[String:AnyObject]? = ["q":sql,"format":"json","diagnostics":"true","env":"store://datatables.org/alltableswithkeys"]
+        
+        Alamofire.request(.GET, urlString, parameters: params).responseJSON{response in
+            //print(response.request)
+            //print(response.response)
+            if let JSON = response.result.value{
+                print("JSON: \(JSON)")
+            }
+        }
     }
 }
