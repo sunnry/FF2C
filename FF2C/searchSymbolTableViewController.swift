@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 class searchSymbolTableViewController: UITableViewController,UISearchBarDelegate {
     
@@ -72,10 +73,15 @@ class searchSymbolTableViewController: UITableViewController,UISearchBarDelegate
         let params:[String:AnyObject]? = ["q":sql,"format":"json","diagnostics":"true","env":"store://datatables.org/alltableswithkeys"]
         
         Alamofire.request(.GET, urlString, parameters: params).responseJSON{response in
-            //print(response.request)
-            //print(response.response)
-            if let JSON = response.result.value{
-                print("JSON: \(JSON)")
+            switch response.result{
+            case .Success(let _):
+                if let value = response.result.value{
+                    let json = JSON(value)
+                    print("JSON: \(json)")
+                }
+                
+            case .Failure(let error):
+                print("\(error)")
             }
         }
     }
