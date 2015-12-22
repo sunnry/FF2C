@@ -10,9 +10,15 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
+struct SimpleQuote {
+    var name:String
+    var symbol:String
+}
+
 class searchSymbolTableViewController: UITableViewController,UISearchBarDelegate {
     
     var searchSymbolBar:UISearchBar?
+    var resultArray:[SimpleQuote]?
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -20,6 +26,8 @@ class searchSymbolTableViewController: UITableViewController,UISearchBarDelegate
         searchSymbolBar = UISearchBar()
         searchSymbolBar?.showsCancelButton = true
         searchSymbolBar?.delegate = self
+        
+        resultArray = Array<SimpleQuote>()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -53,8 +61,17 @@ class searchSymbolTableViewController: UITableViewController,UISearchBarDelegate
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-            let cell:UITableViewCell = UITableViewCell()
-            return cell
+        let cell:UITableViewCell = UITableViewCell()
+        
+        if let count = resultArray?.count{
+            if count > 0 && indexPath.row < count {
+                if let q = resultArray?[indexPath.row]{
+                        cell.textLabel?.text = q.name
+                }
+            }
+        }
+        
+        return cell
     }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
@@ -63,6 +80,24 @@ class searchSymbolTableViewController: UITableViewController,UISearchBarDelegate
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func dealJson(json:JSON){
+        
+        resultArray?.removeAll()
+        
+        if let name = json["query"]["results"]["quote"]["Name"].string{
+            if let symbol = json["query"]["results"]["quote"]["symbol"].string{
+                //print(name)
+                //print(symbol)
+                let t = SimpleQuote(name: name, symbol: symbol)
+                resultArray?.append(t)
+            }
+        }
+        else{
+            print("seach symbol json parse error")
+        }
+        self.tableView.reloadData()
     }
     
     func requestSymbol(symbol:String){
@@ -77,7 +112,7 @@ class searchSymbolTableViewController: UITableViewController,UISearchBarDelegate
             case .Success(let _):
                 if let value = response.result.value{
                     let json = JSON(value)
-                    print("JSON: \(json)")
+                    self.dealJson(json)
                 }
                 
             case .Failure(let error):

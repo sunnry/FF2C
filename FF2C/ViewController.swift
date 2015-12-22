@@ -11,9 +11,13 @@ import UIKit
 class ViewController: UIViewController {
     
     var pageMenu :CAPSPageMenu?
+    
+    var quote:Quote?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        quote = Quote()
         
         self.title = "菜鸟财经"
         self.navigationController?.navigationBar.barTintColor = UIColor(red:20.0/255.0,green:20.0/255.0,blue:20.0/255.0,alpha:1.0)
