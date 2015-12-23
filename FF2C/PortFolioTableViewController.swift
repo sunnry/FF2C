@@ -11,6 +11,7 @@ import UIKit
 
 protocol quoteDelegate:class{
     func didShowQuoteController()
+    func updatePortFolioWithNewQuote(quote:SimpleQuote)
 }
 
 
@@ -56,9 +57,21 @@ class PortFolioTableViewController :UITableViewController,quoteDelegate{
         }
         else{
             let cell:PortFolioHoldCell = tableView.dequeueReusableCellWithIdentifier("PortFolioHoldCell") as! PortFolioHoldCell
-        
             cell.percentage.layer.cornerRadius = AppConfiguration.PortFolioTableViewConfig.LabelPercentageCornerRadius
             cell.percentage.clipsToBounds = true
+            
+            //the first cell is used to addPortFolio button and delete button, so we must delete 1 before index item
+            
+            if indexPath.row <= Quote.sharedInstance.count(){
+                let index:Int = indexPath.row - 1
+                if let s = Quote.sharedInstance.indexItem(index){
+                    cell.symbol.text = s.symbol?.uppercaseString
+                    cell.price.text = s.lastTradePrice
+                }
+                
+                
+            }
+        
             return cell
         }
         
@@ -69,11 +82,27 @@ class PortFolioTableViewController :UITableViewController,quoteDelegate{
         //let quoteVC = storyboard.instantiateViewControllerWithIdentifier("searchVC")
         
         let searchSymbolTabVC = searchSymbolTableViewController(nibName: "searchSymbolTableView", bundle: nil)
+        
+        searchSymbolTabVC.delegate = self
 
         let nvController:UINavigationController = UINavigationController(rootViewController: searchSymbolTabVC)
         nvController.navigationBar.barStyle = UIBarStyle.Default
         
         self.presentViewController(nvController, animated: true, completion: nil)
+    }
+    
+    func updatePortFolioWithNewQuote(quote:SimpleQuote) {
+        //print("get:\(quote.name)")
+        
+        var detail = SymbolDetail()
+        detail.symbol = quote.symbol
+        detail.Name = quote.name
+        detail.dayChange = quote.change
+        detail.lastTradePrice = quote.lastTradePrice
+        
+        Quote.sharedInstance.addSymbol(detail)
+        
+        self.tableView.reloadData()
     }
     
     

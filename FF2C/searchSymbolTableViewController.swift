@@ -13,12 +13,15 @@ import SwiftyJSON
 struct SimpleQuote {
     var name:String
     var symbol:String
+    var lastTradePrice:String
+    var change:String
 }
 
 class searchSymbolTableViewController: UITableViewController,UISearchBarDelegate {
     
     var searchSymbolBar:UISearchBar?
     var resultArray:[SimpleQuote]?
+    var delegate:quoteDelegate?
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -74,6 +77,21 @@ class searchSymbolTableViewController: UITableViewController,UISearchBarDelegate
         return cell
     }
     
+    //when one row selected
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if indexPath.row >= resultArray?.count{
+            return
+        }
+        else{
+            if let s = resultArray?[indexPath.row]{
+                self.delegate?.updatePortFolioWithNewQuote(s)
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+        }
+        
+    }
+    
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         requestSymbol(searchText)
     }
@@ -88,10 +106,14 @@ class searchSymbolTableViewController: UITableViewController,UISearchBarDelegate
         
         if let name = json["query"]["results"]["quote"]["Name"].string{
             if let symbol = json["query"]["results"]["quote"]["symbol"].string{
-                //print(name)
-                //print(symbol)
-                let t = SimpleQuote(name: name, symbol: symbol)
-                resultArray?.append(t)
+                if let price = json["query"]["results"]["quote"]["LastTradePriceOnly"].string{
+                    if let change = json["query"]["results"]["quote"]["Change"].string{
+                        //print(name)
+                        //print(symbol)
+                        let t = SimpleQuote(name: name, symbol: symbol,lastTradePrice:price,change:change  )
+                        resultArray?.append(t)
+                    }
+                }
             }
         }
         else{
