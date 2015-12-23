@@ -8,6 +8,12 @@
 
 import Foundation
 
+extension Float{
+    func format(f:String)->String{
+        return NSString(format: "%\(f)f", self) as String
+    }
+}
+
 protocol qDelegate {
     func addSymbol(s:SymbolDetail)
     func delSymbol(s:String)
@@ -26,6 +32,30 @@ struct SymbolDetail{
     var dayChange:String?
     var averageDailyVolume:String?
     var lastTradePrice:String?
+    
+    var percentage:String?{
+        get{
+            if let price = lastTradePrice{
+                if let change = dayChange{
+                    
+                    let priceFloat = Float(price)!
+                    let changeFloat = Float(change)!
+                    if priceFloat == 0.0{
+                        return "N/A"
+                    }
+                    
+                    let percentFloat = (changeFloat/(priceFloat + changeFloat))*100
+                    
+                    let percentString = percentFloat.format(".2") + "%"
+                    
+                    return percentString
+                }
+            }
+            return "N/A"
+        }
+    }
+    
+    
 }
 
 

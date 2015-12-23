@@ -67,6 +67,7 @@ class PortFolioTableViewController :UITableViewController,quoteDelegate{
                 if let s = Quote.sharedInstance.indexItem(index){
                     cell.symbol.text = s.symbol?.uppercaseString
                     cell.price.text = s.lastTradePrice
+                    cell.percentage.text = s.percentage
                 }
                 
                 
