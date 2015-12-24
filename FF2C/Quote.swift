@@ -69,6 +69,10 @@ class Quote:qDelegate {
     
     init(){
         symbolArray = Array<SymbolDetail>()
+        
+        let editCell:SymbolDetail = SymbolDetail(symbol: "EDITCELL", Name: nil, daysHigh: nil, daysLLow: nil, yearHigh: nil, yearLow: nil, dayChange: nil, averageDailyVolume: nil, lastTradePrice: nil)
+        
+        symbolArray.append(editCell)
     }
     
     //return true = exit, return false = not existed
@@ -106,9 +110,10 @@ class Quote:qDelegate {
     
     func delSymbol(s: String) {
         if symbolExited(s) == true{
-            for i in 0...symbolArray.count{
+            for i in 0...(symbolArray.count-1){
                 if symbolArray[i].symbol == s{
                     symbolArray.removeAtIndex(i)
+                    break
                 }
             }
             

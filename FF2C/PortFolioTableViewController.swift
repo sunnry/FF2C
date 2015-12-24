@@ -36,7 +36,7 @@ class PortFolioTableViewController :UITableViewController,quoteDelegate{
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return AppConfiguration.PortFolioTableViewConfig.DefaultTotalCellNum
+        return Quote.sharedInstance.count()
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath)-> CGFloat {
@@ -60,10 +60,10 @@ class PortFolioTableViewController :UITableViewController,quoteDelegate{
             cell.percentage.layer.cornerRadius = AppConfiguration.PortFolioTableViewConfig.LabelPercentageCornerRadius
             cell.percentage.clipsToBounds = true
             
-            //the first cell is used to addPortFolio button and delete button, so we must delete 1 before index item
+            //the first cell is used to addPortFolio button, but i have ocupied it with EDITCELL
             
             if indexPath.row <= Quote.sharedInstance.count(){
-                let index:Int = indexPath.row - 1
+                let index:Int = indexPath.row
                 if let s = Quote.sharedInstance.indexItem(index){
                     cell.symbol.text = s.symbol?.uppercaseString
                     cell.price.text = s.lastTradePrice
@@ -74,6 +74,26 @@ class PortFolioTableViewController :UITableViewController,quoteDelegate{
             }
         
             return cell
+        }
+        
+    }
+    
+    //enable delete tableview item when user slide cell after return true
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete{
+            //because the first cell used for Portfolio edit, so portfolio index start from 1
+            if let cell:PortFolioHoldCell = tableView.cellForRowAtIndexPath(indexPath) as? PortFolioHoldCell{
+                if let symbol = cell.symbol.text{
+                    Quote.sharedInstance.delSymbol(symbol)
+                    self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+                }
+                
+            }
+            
         }
         
     }
