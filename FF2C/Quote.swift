@@ -79,7 +79,7 @@ class Quote:qDelegate {
     private func symbolExited(symbol:String)->Bool{
         
         for item in symbolArray{
-            if item.symbol == symbol{
+            if item.symbol?.uppercaseString == symbol{
                 return true
             }
         }
@@ -111,7 +111,7 @@ class Quote:qDelegate {
     func delSymbol(s: String) {
         if symbolExited(s) == true{
             for i in 0...(symbolArray.count-1){
-                if symbolArray[i].symbol == s{
+                if symbolArray[i].symbol?.uppercaseString == s{
                     symbolArray.removeAtIndex(i)
                     break
                 }
