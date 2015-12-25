@@ -12,16 +12,29 @@ import UIKit
 class QuoteDetailScrollViewController:UIViewController {
     
     var symbol:String?
+    var nvBackButton:UIBarButtonItem?
     
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?,symbol:String?){
-        self.symbol = nil
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+
+        self.symbol = nil
+        
+        nvBackButton = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.Plain, target: self, action:"nvBackButtonAction:")
         
         if let s = symbol{
             self.symbol = s
         }
     }
+
+    func nvBackButtonAction(sender: UIBarButtonItem){
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationItem.leftBarButtonItem = nvBackButton
+    }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
