@@ -98,6 +98,25 @@ class PortFolioTableViewController :UITableViewController,quoteDelegate{
         
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if indexPath.row == AppConfiguration.PortFolioTableViewConfig.FirstRow{
+            return
+        }
+        
+        if let cell:PortFolioHoldCell = tableView.cellForRowAtIndexPath(indexPath) as? PortFolioHoldCell{
+            if let symbol = cell.symbol.text{
+                let quoteDetailScrollCtrl:QuoteDetailScrollViewController = QuoteDetailScrollViewController(nibName: "QuoteDetailScrollViewController", bundle: nil, symbol: symbol)
+                
+                let nvCtrl:UINavigationController = UINavigationController(rootViewController: quoteDetailScrollCtrl)
+                
+                nvCtrl.navigationBar.barStyle = UIBarStyle.Default
+                
+                self.presentViewController(nvCtrl, animated: true, completion: nil)
+            }
+        }
+    }
+    
     func didShowQuoteController() {
         //let storyboard = UIStoryboard(name: "Main", bundle: nil)
         //let quoteVC = storyboard.instantiateViewControllerWithIdentifier("searchVC")

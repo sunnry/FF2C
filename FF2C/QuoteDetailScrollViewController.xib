@@ -5,21 +5,19 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingTableViewController" customModule="FF2C" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuoteDetailScrollViewController" customModule="FF2C" customModuleProvider="target">
             <connections>
-                <outlet property="view" destination="nqI-0P-m4r" id="gSP-S9-hHm"/>
+                <outlet property="view" destination="Jmb-Os-dVx" id="e06-7b-OVw"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="nqI-0P-m4r">
+        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" id="Jmb-Os-dVx">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="dataSource" destination="-1" id="Bed-d1-XW3"/>
-                <outlet property="delegate" destination="-1" id="HfI-t5-x1z"/>
+                <outlet property="delegate" destination="-1" id="h8X-qe-nFO"/>
             </connections>
-            <point key="canvasLocation" x="582" y="235"/>
-        </tableView>
+            <point key="canvasLocation" x="297" y="428"/>
+        </scrollView>
     </objects>
 </document>
