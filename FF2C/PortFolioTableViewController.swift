@@ -106,9 +106,9 @@ class PortFolioTableViewController :UITableViewController,quoteDelegate{
         
         if let cell:PortFolioHoldCell = tableView.cellForRowAtIndexPath(indexPath) as? PortFolioHoldCell{
             if let symbol = cell.symbol.text{
-                let quoteDetailScrollCtrl:QuoteDetailScrollViewController = QuoteDetailScrollViewController(nibName: "QuoteDetailScrollViewController", bundle: nil, symbol: symbol)
+                let quoteDetailTableCtrl:QuoteDetailTableViewController = QuoteDetailTableViewController(nibName: "QuoteDetailTableViewController", bundle: nil, symbol: symbol)
                 
-                let nvCtrl:UINavigationController = UINavigationController(rootViewController: quoteDetailScrollCtrl)
+                let nvCtrl:UINavigationController = UINavigationController(rootViewController: quoteDetailTableCtrl)
                 
                 nvCtrl.navigationBar.barStyle = UIBarStyle.Default
                 
@@ -144,7 +144,4 @@ class PortFolioTableViewController :UITableViewController,quoteDelegate{
         
         self.tableView.reloadData()
     }
-    
-    
-    
 }
