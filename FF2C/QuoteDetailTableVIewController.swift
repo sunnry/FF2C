@@ -13,16 +13,23 @@ class QuoteDetailTableViewController: UITableViewController {
     
     var backItem:UIBarButtonItem?
     
+    var symbol:String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         
+        self.tableView.registerNib(UINib(nibName: "QuoteDetailNameCell", bundle: nil), forCellReuseIdentifier: "QuoteDetailNameCell")
+        
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
         self.navigationItem.leftBarButtonItem = backItem
     }
     
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?, symbol:String) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        
+        self.symbol = symbol
         
         backItem = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.Plain, target: self, action:"nvBackButtonAction:")
         
@@ -45,13 +52,28 @@ class QuoteDetailTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell:UITableViewCell = UITableViewCell()
-        return cell
+        
+        if indexPath.row == AppConfiguration.QuoteDetailTableViewConfig.FirstRow{
+            let cell:QuoteDetailNameCell = tableView.dequeueReusableCellWithIdentifier("QuoteDetailNameCell") as! QuoteDetailNameCell
+        
+            if let s = self.symbol {
+                cell.bigSymbol.text = s
+            }
+            
+            return cell
+            
+        }else{
+            let cell:UITableViewCell = UITableViewCell()
+            return cell
+        }
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 20.0
-    }
-    
-    
+        if indexPath.row == AppConfiguration.QuoteDetailTableViewConfig.FirstRow{
+            return AppConfiguration.QuoteDetailTableViewConfig.FirstRowHeight
+        }
+        else{
+            return AppConfiguration.QuoteDetailTableViewConfig.defaultRowHeight
+        }
+    }    
 }

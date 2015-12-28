@@ -34,4 +34,11 @@ struct AppConfiguration {
         static let DefaultTotoalCellNum:Int = 15
         static let RowHeight:CGFloat = 25.0
     }
+    
+    struct QuoteDetailTableViewConfig{
+        static let FirstRow:Int = 0
+        static let FirstRowHeight:CGFloat = 20.0
+        
+        static let defaultRowHeight:CGFloat = 20.0
+    }
 }
