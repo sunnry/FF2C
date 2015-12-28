@@ -21,6 +21,8 @@ class QuoteDetailTableViewController: UITableViewController {
         
         self.tableView.registerNib(UINib(nibName: "QuoteDetailNameCell", bundle: nil), forCellReuseIdentifier: "QuoteDetailNameCell")
         
+        self.tableView.registerNib(UINib(nibName: "QuoteDetailPriceChangeCell", bundle: nil), forCellReuseIdentifier: "QuoteDetailPriceChangeCell")
+        
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
         self.navigationItem.leftBarButtonItem = backItem
@@ -62,7 +64,12 @@ class QuoteDetailTableViewController: UITableViewController {
             
             return cell
             
-        }else{
+        }else if indexPath.row == AppConfiguration.QuoteDetailTableViewConfig.secondRow{
+            let cell:QuoteDetailPriceChangeCell = tableView.dequeueReusableCellWithIdentifier("QuoteDetailPriceChangeCell") as! QuoteDetailPriceChangeCell
+            
+            return cell
+        }
+        else{
             let cell:UITableViewCell = UITableViewCell()
             return cell
         }
@@ -71,6 +78,8 @@ class QuoteDetailTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.row == AppConfiguration.QuoteDetailTableViewConfig.FirstRow{
             return AppConfiguration.QuoteDetailTableViewConfig.FirstRowHeight
+        }else if indexPath.row == AppConfiguration.QuoteDetailTableViewConfig.secondRow{
+            return AppConfiguration.QuoteDetailTableViewConfig.secondRowHeight
         }
         else{
             return AppConfiguration.QuoteDetailTableViewConfig.defaultRowHeight

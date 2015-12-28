@@ -11,6 +11,8 @@
 		A33A6A5E1C227A960034EA87 /* searchSymbolTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A6A5D1C227A960034EA87 /* searchSymbolTableViewController.swift */; };
 		A3422ADF1C30F7590014CE41 /* QuoteDetailNameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3422ADE1C30F7590014CE41 /* QuoteDetailNameCell.xib */; };
 		A3422AE11C30F8B80014CE41 /* QuoteDetailNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3422AE01C30F8B80014CE41 /* QuoteDetailNameCell.swift */; };
+		A3422AE31C310CFA0014CE41 /* QuoteDetailPriceChangeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3422AE21C310CFA0014CE41 /* QuoteDetailPriceChangeCell.swift */; };
+		A3422AE51C310D6E0014CE41 /* QuoteDetailPriceChangeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3422AE41C310D6E0014CE41 /* QuoteDetailPriceChangeCell.xib */; };
 		A37214051C17D37700EAD891 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37214041C17D37700EAD891 /* SettingTableViewController.swift */; };
 		A37214071C17E02100EAD891 /* SettingTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A37214061C17E02100EAD891 /* SettingTableViewController.xib */; };
 		A37214091C17FD0400EAD891 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37214081C17FD0400EAD891 /* AppConfiguration.swift */; };
@@ -61,6 +63,8 @@
 		A33A6A5D1C227A960034EA87 /* searchSymbolTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = searchSymbolTableViewController.swift; sourceTree = "<group>"; };
 		A3422ADE1C30F7590014CE41 /* QuoteDetailNameCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuoteDetailNameCell.xib; sourceTree = "<group>"; };
 		A3422AE01C30F8B80014CE41 /* QuoteDetailNameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteDetailNameCell.swift; sourceTree = "<group>"; };
+		A3422AE21C310CFA0014CE41 /* QuoteDetailPriceChangeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteDetailPriceChangeCell.swift; sourceTree = "<group>"; };
+		A3422AE41C310D6E0014CE41 /* QuoteDetailPriceChangeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuoteDetailPriceChangeCell.xib; sourceTree = "<group>"; };
 		A37214041C17D37700EAD891 /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		A37214061C17E02100EAD891 /* SettingTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingTableViewController.xib; sourceTree = "<group>"; };
 		A37214081C17FD0400EAD891 /* AppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
@@ -151,6 +155,8 @@
 				A37F7B9C1C1A948100DD008D /* AddPortFolioCell.xib */,
 				A3422AE01C30F8B80014CE41 /* QuoteDetailNameCell.swift */,
 				A3422ADE1C30F7590014CE41 /* QuoteDetailNameCell.xib */,
+				A3422AE21C310CFA0014CE41 /* QuoteDetailPriceChangeCell.swift */,
+				A3422AE41C310D6E0014CE41 /* QuoteDetailPriceChangeCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -346,6 +352,7 @@
 				A37F7B931C1A6A8300DD008D /* PortFolioHoldCell.xib in Resources */,
 				A3422ADF1C30F7590014CE41 /* QuoteDetailNameCell.xib in Resources */,
 				A372140E1C18014200EAD891 /* SettingTableViewCell.xib in Resources */,
+				A3422AE51C310D6E0014CE41 /* QuoteDetailPriceChangeCell.xib in Resources */,
 				A38214041C156533006A75C8 /* Main.storyboard in Resources */,
 				A33A6A5C1C227A650034EA87 /* searchSymbolTableView.xib in Resources */,
 			);
@@ -424,6 +431,7 @@
 				A38214011C156533006A75C8 /* ViewController.swift in Sources */,
 				A37F7B9F1C1A949700DD008D /* AddPortFolioCell.swift in Sources */,
 				A37F7B951C1A6CD800DD008D /* PortFolioTableViewController.swift in Sources */,
+				A3422AE31C310CFA0014CE41 /* QuoteDetailPriceChangeCell.swift in Sources */,
 				A37214091C17FD0400EAD891 /* AppConfiguration.swift in Sources */,
 				A33A6A5E1C227A960034EA87 /* searchSymbolTableViewController.swift in Sources */,
 				A37F7B911C1A692200DD008D /* PortFolioHoldCell.swift in Sources */,

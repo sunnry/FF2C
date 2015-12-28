@@ -39,6 +39,9 @@ struct AppConfiguration {
         static let FirstRow:Int = 0
         static let FirstRowHeight:CGFloat = 20.0
         
+        static let secondRow:Int = 1
+        static let secondRowHeight:CGFloat = 20.0
+        
         static let defaultRowHeight:CGFloat = 20.0
     }
 }
