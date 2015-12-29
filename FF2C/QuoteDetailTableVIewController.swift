@@ -15,6 +15,8 @@ class QuoteDetailTableViewController: UITableViewController {
     
     var symbol:String?
     
+    var lineViewContrller:QuoteLineViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
@@ -26,6 +28,8 @@ class QuoteDetailTableViewController: UITableViewController {
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
         self.navigationItem.leftBarButtonItem = backItem
+        
+        lineViewContrller = QuoteLineViewController()
     }
     
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?, symbol:String) {
@@ -68,6 +72,14 @@ class QuoteDetailTableViewController: UITableViewController {
             let cell:QuoteDetailPriceChangeCell = tableView.dequeueReusableCellWithIdentifier("QuoteDetailPriceChangeCell") as! QuoteDetailPriceChangeCell
             
             return cell
+        }else if indexPath.row == AppConfiguration.QuoteDetailTableViewConfig.lineTableRow{
+            let cell:UITableViewCell = UITableViewCell()
+            
+            if let ctrl = lineViewContrller{
+                cell.contentView.addSubview(ctrl.view)
+                self.addChildViewController(ctrl)
+            }
+            return cell
         }
         else{
             let cell:UITableViewCell = UITableViewCell()
@@ -80,9 +92,21 @@ class QuoteDetailTableViewController: UITableViewController {
             return AppConfiguration.QuoteDetailTableViewConfig.FirstRowHeight
         }else if indexPath.row == AppConfiguration.QuoteDetailTableViewConfig.secondRow{
             return AppConfiguration.QuoteDetailTableViewConfig.secondRowHeight
+        }else if indexPath.row == AppConfiguration.QuoteDetailTableViewConfig.lineTableRow{
+            return AppConfiguration.QuoteDetailTableViewConfig.lineTableHeight
         }
         else{
             return AppConfiguration.QuoteDetailTableViewConfig.defaultRowHeight
         }
-    }    
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if indexPath.row == AppConfiguration.QuoteDetailTableViewConfig.lineTableRow{
+            //print("\(cell.contentView.frame)")
+            if let ctrl = lineViewContrller{
+                ctrl.view.frame = cell.contentView.frame
+            }
+        }
+    }
 }

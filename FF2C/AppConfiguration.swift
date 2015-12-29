@@ -42,6 +42,9 @@ struct AppConfiguration {
         static let secondRow:Int = 1
         static let secondRowHeight:CGFloat = 20.0
         
+        static let lineTableRow:Int = 2
+        static let lineTableHeight:CGFloat = 200.0
+        
         static let defaultRowHeight:CGFloat = 20.0
     }
 }

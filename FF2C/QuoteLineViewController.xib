@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuoteLineViewController" customModule="FF2C" customModuleProvider="target">
+            <connections>
+                <outlet property="button1M" destination="1f8-q3-zaa" id="vEU-87-VhE"/>
+                <outlet property="button1Y" destination="2Lb-yj-bUA" id="ENe-fJ-zh5"/>
+                <outlet property="button2Y" destination="1Yy-oA-sKH" id="Gp7-gO-sxg"/>
+                <outlet property="button3M" destination="uKP-Js-VyK" id="9lR-AH-cVm"/>
+                <outlet property="button5D" destination="Ucw-kW-CIa" id="M84-Yq-NCT"/>
+                <outlet property="button5Y" destination="MNf-QM-PJ8" id="EVK-Wj-k0g"/>
+                <outlet property="buttonToday" destination="TvJ-Rs-dqJ" id="qVy-hJ-3an"/>
+                <outlet property="lineChartView" destination="JNY-XI-Ap5" id="8vG-9D-0a0"/>
+                <outlet property="view" destination="NTT-sg-pYZ" id="qPt-p2-I0x"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="NTT-sg-pYZ">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JNY-XI-Ap5" customClass="LineChartView" customModule="Charts">
+                    <rect key="frame" x="15" y="8" width="570" height="554"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ucw-kW-CIa">
+                    <rect key="frame" x="355" y="565" width="30" height="27"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="5D">
+                        <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1f8-q3-zaa">
+                    <rect key="frame" x="395" y="565" width="30" height="27"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="1M">
+                        <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uKP-Js-VyK">
+                    <rect key="frame" x="435" y="565" width="30" height="27"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="3M">
+                        <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Lb-yj-bUA">
+                    <rect key="frame" x="475" y="565" width="30" height="27"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="1Y">
+                        <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Yy-oA-sKH">
+                    <rect key="frame" x="515" y="565" width="30" height="27"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="2Y">
+                        <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MNf-QM-PJ8">
+                    <rect key="frame" x="555" y="565" width="30" height="27"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="5Y">
+                        <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TvJ-Rs-dqJ">
+                    <rect key="frame" x="310" y="565" width="35" height="27"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="Today">
+                        <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="MNf-QM-PJ8" secondAttribute="bottom" constant="8" id="0Ok-oX-UKe"/>
+                <constraint firstItem="MNf-QM-PJ8" firstAttribute="leading" secondItem="1Yy-oA-sKH" secondAttribute="trailing" constant="10" id="2s4-Hr-2BO"/>
+                <constraint firstItem="1f8-q3-zaa" firstAttribute="leading" secondItem="Ucw-kW-CIa" secondAttribute="trailing" constant="10" id="4h4-PO-wsz"/>
+                <constraint firstAttribute="bottom" secondItem="TvJ-Rs-dqJ" secondAttribute="bottom" constant="8" id="7Q1-lp-rLy"/>
+                <constraint firstAttribute="bottom" secondItem="uKP-Js-VyK" secondAttribute="bottom" constant="8" id="EUQ-qg-0Jr"/>
+                <constraint firstAttribute="bottom" secondItem="1Yy-oA-sKH" secondAttribute="bottom" constant="8" id="F99-if-t7p"/>
+                <constraint firstItem="1Yy-oA-sKH" firstAttribute="leading" secondItem="2Lb-yj-bUA" secondAttribute="trailing" constant="10" id="FLn-Mb-mIn"/>
+                <constraint firstItem="MNf-QM-PJ8" firstAttribute="top" secondItem="JNY-XI-Ap5" secondAttribute="bottom" constant="3" id="OLZ-ZC-r2W"/>
+                <constraint firstAttribute="bottom" secondItem="2Lb-yj-bUA" secondAttribute="bottom" constant="8" id="QnX-FE-JVW"/>
+                <constraint firstItem="uKP-Js-VyK" firstAttribute="leading" secondItem="1f8-q3-zaa" secondAttribute="trailing" constant="10" id="TWL-eW-g01"/>
+                <constraint firstAttribute="trailing" secondItem="MNf-QM-PJ8" secondAttribute="trailing" constant="15" id="VC7-9L-cBu"/>
+                <constraint firstAttribute="bottom" secondItem="Ucw-kW-CIa" secondAttribute="bottom" constant="8" id="bye-Fx-hGS"/>
+                <constraint firstItem="2Lb-yj-bUA" firstAttribute="leading" secondItem="uKP-Js-VyK" secondAttribute="trailing" constant="10" id="crR-Kk-HYk"/>
+                <constraint firstItem="JNY-XI-Ap5" firstAttribute="leading" secondItem="NTT-sg-pYZ" secondAttribute="leading" constant="15" id="kpx-qi-LT1"/>
+                <constraint firstAttribute="bottom" secondItem="1f8-q3-zaa" secondAttribute="bottom" constant="8" id="ruG-nu-UIr"/>
+                <constraint firstItem="JNY-XI-Ap5" firstAttribute="top" secondItem="NTT-sg-pYZ" secondAttribute="top" constant="8" id="uVV-cg-mBu"/>
+                <constraint firstItem="Ucw-kW-CIa" firstAttribute="leading" secondItem="TvJ-Rs-dqJ" secondAttribute="trailing" constant="10" id="wmp-Zl-a4n"/>
+                <constraint firstAttribute="trailing" secondItem="JNY-XI-Ap5" secondAttribute="trailing" constant="15" id="yW6-18-gcH"/>
+            </constraints>
+            <point key="canvasLocation" x="233" y="363"/>
+        </view>
+    </objects>
+</document>

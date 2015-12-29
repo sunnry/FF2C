@@ -37,6 +37,8 @@
 		A3D77E3D1C27CB0A0075CF33 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D77E3C1C27CB0A0075CF33 /* Quote.swift */; };
 		A3FDC3211C32371A000E31A9 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3FDC31C1C323548000E31A9 /* Charts.framework */; };
 		A3FDC3221C32371A000E31A9 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3FDC31C1C323548000E31A9 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3FDC3291C32450D000E31A9 /* QuoteLineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3FDC3281C32450D000E31A9 /* QuoteLineViewController.xib */; };
+		A3FDC32B1C324524000E31A9 /* QuoteLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FDC32A1C324524000E31A9 /* QuoteLineViewController.swift */; };
 		E197FFDEDFE1143DEB65CF88 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FCE329CDABC065B080AA4F /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -138,6 +140,8 @@
 		A385B7331C2E92B80039F1CC /* QuoteDetailTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuoteDetailTableViewController.xib; sourceTree = "<group>"; };
 		A3D77E3C1C27CB0A0075CF33 /* Quote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		A3FDC3151C323548000E31A9 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = "<group>"; };
+		A3FDC3281C32450D000E31A9 /* QuoteLineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuoteLineViewController.xib; sourceTree = "<group>"; };
+		A3FDC32A1C324524000E31A9 /* QuoteLineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteLineViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +237,7 @@
 		A38213FD1C156533006A75C8 /* FF2C */ = {
 			isa = PBXGroup;
 			children = (
+				A3FDC3271C3244DB000E31A9 /* components */,
 				A372140A1C1800EB00EAD891 /* Cells */,
 				A37214031C17D34500EAD891 /* view controllers */,
 				A382142C1C156688006A75C8 /* PageMenu */,
@@ -282,6 +287,15 @@
 				A3FDC3201C323548000E31A9 /* ChartsTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		A3FDC3271C3244DB000E31A9 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				A3FDC32A1C324524000E31A9 /* QuoteLineViewController.swift */,
+				A3FDC3281C32450D000E31A9 /* QuoteLineViewController.xib */,
+			);
+			name = components;
 			sourceTree = "<group>";
 		};
 		EF8312B2CCEB7E23FB8A42A6 /* Pods */ = {
@@ -437,6 +451,7 @@
 				A37F7B9B1C1A786B00DD008D /* PortFolioTableViewController.xib in Resources */,
 				A38214061C156533006A75C8 /* Assets.xcassets in Resources */,
 				A37F7B9D1C1A948100DD008D /* AddPortFolioCell.xib in Resources */,
+				A3FDC3291C32450D000E31A9 /* QuoteLineViewController.xib in Resources */,
 				A385B7341C2E92B80039F1CC /* QuoteDetailTableViewController.xib in Resources */,
 				A37F7B931C1A6A8300DD008D /* PortFolioHoldCell.xib in Resources */,
 				A3422ADF1C30F7590014CE41 /* QuoteDetailNameCell.xib in Resources */,
@@ -522,6 +537,7 @@
 				A37F7B951C1A6CD800DD008D /* PortFolioTableViewController.swift in Sources */,
 				A3422AE31C310CFA0014CE41 /* QuoteDetailPriceChangeCell.swift in Sources */,
 				A37214091C17FD0400EAD891 /* AppConfiguration.swift in Sources */,
+				A3FDC32B1C324524000E31A9 /* QuoteLineViewController.swift in Sources */,
 				A33A6A5E1C227A960034EA87 /* searchSymbolTableViewController.swift in Sources */,
 				A37F7B911C1A692200DD008D /* PortFolioHoldCell.swift in Sources */,
 				A3422AE11C30F8B80014CE41 /* QuoteDetailNameCell.swift in Sources */,
