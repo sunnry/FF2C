@@ -35,6 +35,8 @@
 		A385B7321C2E92900039F1CC /* QuoteDetailTableVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A385B7311C2E92900039F1CC /* QuoteDetailTableVIewController.swift */; };
 		A385B7341C2E92B80039F1CC /* QuoteDetailTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A385B7331C2E92B80039F1CC /* QuoteDetailTableViewController.xib */; };
 		A3D77E3D1C27CB0A0075CF33 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D77E3C1C27CB0A0075CF33 /* Quote.swift */; };
+		A3FDC3211C32371A000E31A9 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3FDC31C1C323548000E31A9 /* Charts.framework */; };
+		A3FDC3221C32371A000E31A9 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3FDC31C1C323548000E31A9 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E197FFDEDFE1143DEB65CF88 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FCE329CDABC065B080AA4F /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,7 +55,49 @@
 			remoteGlobalIDString = A38213FA1C156533006A75C8;
 			remoteInfo = FF2C;
 		};
+		A3FDC31B1C323548000E31A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3FDC3151C323548000E31A9 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
+		A3FDC31D1C323548000E31A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3FDC3151C323548000E31A9 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A52C5C371BAC5CA400594CDD;
+			remoteInfo = "Charts-TV";
+		};
+		A3FDC31F1C323548000E31A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3FDC3151C323548000E31A9 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06AEE7A21BDC3F8B009875AE;
+			remoteInfo = ChartsTests;
+		};
+		A3FDC3231C32371A000E31A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3FDC3151C323548000E31A9 /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BA8EC3F1A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A3FDC3251C32371A000E31A9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A3FDC3221C32371A000E31A9 /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0C13655F259B2504A87338CC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -93,6 +137,7 @@
 		A385B7311C2E92900039F1CC /* QuoteDetailTableVIewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteDetailTableVIewController.swift; sourceTree = "<group>"; };
 		A385B7331C2E92B80039F1CC /* QuoteDetailTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuoteDetailTableViewController.xib; sourceTree = "<group>"; };
 		A3D77E3C1C27CB0A0075CF33 /* Quote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		A3FDC3151C323548000E31A9 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E197FFDEDFE1143DEB65CF88 /* Pods.framework in Frameworks */,
+				A3FDC3211C32371A000E31A9 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +216,7 @@
 				A38213FC1C156533006A75C8 /* Products */,
 				EF8312B2CCEB7E23FB8A42A6 /* Pods */,
 				0DABBB6FBEE37D46BD72DC1C /* Frameworks */,
+				A3FDC3151C323548000E31A9 /* Charts.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -227,6 +274,16 @@
 			name = PageMenu;
 			sourceTree = "<group>";
 		};
+		A3FDC3161C323548000E31A9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A3FDC31C1C323548000E31A9 /* Charts.framework */,
+				A3FDC31E1C323548000E31A9 /* Charts.framework */,
+				A3FDC3201C323548000E31A9 /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		EF8312B2CCEB7E23FB8A42A6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,10 +306,12 @@
 				A38213F91C156533006A75C8 /* Resources */,
 				583DBEF953E61A7D9DE52E2E /* Embed Pods Frameworks */,
 				DDE56BE635AD72020086D64E /* Copy Pods Resources */,
+				A3FDC3251C32371A000E31A9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A3FDC3241C32371A000E31A9 /* PBXTargetDependency */,
 			);
 			name = FF2C;
 			productName = FF2C;
@@ -329,6 +388,12 @@
 			mainGroup = A38213F21C156532006A75C8;
 			productRefGroup = A38213FC1C156533006A75C8 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = A3FDC3161C323548000E31A9 /* Products */;
+					ProjectRef = A3FDC3151C323548000E31A9 /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				A38213FA1C156533006A75C8 /* FF2C */,
@@ -337,6 +402,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		A3FDC31C1C323548000E31A9 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = A3FDC31B1C323548000E31A9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A3FDC31E1C323548000E31A9 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = A3FDC31D1C323548000E31A9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A3FDC3201C323548000E31A9 /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = A3FDC31F1C323548000E31A9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		A38213F91C156533006A75C8 /* Resources */ = {
@@ -473,6 +562,11 @@
 			target = A38213FA1C156533006A75C8 /* FF2C */;
 			targetProxy = A382141B1C156533006A75C8 /* PBXContainerItemProxy */;
 		};
+		A3FDC3241C32371A000E31A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Charts-iOS";
+			targetProxy = A3FDC3231C32371A000E31A9 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -581,6 +675,7 @@
 			baseConfigurationReference = 9D00B7B3F02B0B5E5AE423D6 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = FF2C/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = none.FF2C;
@@ -593,6 +688,7 @@
 			baseConfigurationReference = 0C13655F259B2504A87338CC /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = FF2C/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = none.FF2C;
