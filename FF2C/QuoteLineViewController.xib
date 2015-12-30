@@ -24,57 +24,78 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JNY-XI-Ap5" customClass="LineChartView" customModule="Charts">
-                    <rect key="frame" x="15" y="8" width="570" height="554"/>
+                    <rect key="frame" x="15" y="8" width="570" height="557"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ucw-kW-CIa">
-                    <rect key="frame" x="355" y="565" width="30" height="27"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <rect key="frame" x="355" y="568" width="30" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <state key="normal" title="5D">
                         <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="button5DAction:" destination="-1" eventType="touchUpInside" id="f8Q-d5-7Xu"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1f8-q3-zaa">
-                    <rect key="frame" x="395" y="565" width="30" height="27"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <rect key="frame" x="395" y="568" width="30" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <state key="normal" title="1M">
                         <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="button1MAction:" destination="-1" eventType="touchUpInside" id="82v-uP-v78"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uKP-Js-VyK">
-                    <rect key="frame" x="435" y="565" width="30" height="27"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <rect key="frame" x="435" y="568" width="30" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <state key="normal" title="3M">
                         <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="button3MAction:" destination="-1" eventType="touchUpInside" id="2PX-n4-yo0"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Lb-yj-bUA">
-                    <rect key="frame" x="475" y="565" width="30" height="27"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <rect key="frame" x="475" y="568" width="30" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <state key="normal" title="1Y">
                         <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="button1YAction:" destination="-1" eventType="touchUpInside" id="nIK-ml-TNC"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Yy-oA-sKH">
-                    <rect key="frame" x="515" y="565" width="30" height="27"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <rect key="frame" x="515" y="568" width="30" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <state key="normal" title="2Y">
                         <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="button2YAction:" destination="-1" eventType="touchUpInside" id="a9a-Fa-ZLr"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MNf-QM-PJ8">
-                    <rect key="frame" x="555" y="565" width="30" height="27"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <rect key="frame" x="555" y="568" width="30" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <state key="normal" title="5Y">
                         <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="button5YAction:" destination="-1" eventType="touchUpInside" id="amm-DJ-VHw"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TvJ-Rs-dqJ">
-                    <rect key="frame" x="310" y="565" width="35" height="27"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <rect key="frame" x="315" y="568" width="30" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <state key="normal" title="Today">
                         <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="ButtonTodayAction:" destination="-1" eventType="touchUpInside" id="a3p-UO-BtG"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

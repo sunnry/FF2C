@@ -29,7 +29,7 @@ class QuoteDetailTableViewController: UITableViewController {
         
         self.navigationItem.leftBarButtonItem = backItem
         
-        lineViewContrller = QuoteLineViewController()
+        lineViewContrller = QuoteLineViewController(nibName: "QuoteLineViewController", bundle: nil, symbol: self.symbol)
     }
     
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?, symbol:String) {
