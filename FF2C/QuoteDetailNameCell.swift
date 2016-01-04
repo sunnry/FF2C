@@ -21,6 +21,8 @@ class QuoteDetailNameCell:UITableViewCell{
     
     @IBOutlet weak var smallName: UILabel!
     
+    var underline:UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -33,14 +35,15 @@ class QuoteDetailNameCell:UITableViewCell{
         //fatalError("init(coder:) has not been implemented")
         
         super.init(coder: aDecoder)
+    }
+    
+    func reformUnderline(width:CGFloat){
         
-        let underline = UIView(frame: CGRect(x: QuoteDetailNameCellConfig.xPos, y: QuoteDetailNameCellConfig.yPos, width: (self.frame.width - QuoteDetailNameCellConfig.xPos*2), height: QuoteDetailNameCellConfig.underlineHeight))
+        underline = UIView(frame: CGRect(x: QuoteDetailNameCellConfig.xPos, y: QuoteDetailNameCellConfig.yPos, width: (width - QuoteDetailNameCellConfig.xPos*2), height: QuoteDetailNameCellConfig.underlineHeight))
         
         underline.backgroundColor = QuoteDetailNameCellConfig.underlineColor
         
         self.contentView.addSubview(underline)
-        
-        
     }
     
 }

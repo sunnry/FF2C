@@ -21,6 +21,8 @@ class QuoteDetailPriceChangeCell: UITableViewCell {
     
     @IBOutlet weak var priceChange: UILabel!
     
+    var underline:UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -33,8 +35,11 @@ class QuoteDetailPriceChangeCell: UITableViewCell {
         //fatalError("init(coder:) has not been implemented")
         
         super.init(coder: aDecoder)
+    }
+    
+    func reformUnderline(width:CGFloat){
         
-        let underline = UIView(frame: CGRect(x: QuoteDetailPriceCellConfig.xPos, y: QuoteDetailPriceCellConfig.yPos, width: (self.frame.width - QuoteDetailPriceCellConfig.xPos*2), height: QuoteDetailPriceCellConfig.underlineHeight))
+        underline = UIView(frame: CGRect(x: QuoteDetailPriceCellConfig.xPos, y: QuoteDetailPriceCellConfig.yPos, width: (width - QuoteDetailPriceCellConfig.xPos*2), height: QuoteDetailPriceCellConfig.underlineHeight))
         
         underline.backgroundColor = QuoteDetailPriceCellConfig.underlineColor
         

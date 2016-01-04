@@ -108,5 +108,15 @@ class QuoteDetailTableViewController: UITableViewController {
                 ctrl.view.frame = cell.contentView.frame
             }
         }
+        else if indexPath.row == AppConfiguration.QuoteDetailTableViewConfig.FirstRow{
+            if let c = cell as? QuoteDetailNameCell{
+                c.reformUnderline(self.view.frame.width)
+            }
+        }
+        else if indexPath.row == AppConfiguration.QuoteDetailTableViewConfig.secondRow{
+            if let c = cell as? QuoteDetailPriceChangeCell{
+                c.reformUnderline(self.view.frame.width)
+            }
+        }
     }
 }
