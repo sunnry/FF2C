@@ -66,10 +66,14 @@ class QuoteDetailTableViewController: UITableViewController {
                 cell.bigSymbol.text = s
             }
             
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
+            
             return cell
             
         }else if indexPath.row == AppConfiguration.QuoteDetailTableViewConfig.secondRow{
             let cell:QuoteDetailPriceChangeCell = tableView.dequeueReusableCellWithIdentifier("QuoteDetailPriceChangeCell") as! QuoteDetailPriceChangeCell
+            
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
             
             return cell
         }else if indexPath.row == AppConfiguration.QuoteDetailTableViewConfig.lineTableRow{
@@ -79,10 +83,16 @@ class QuoteDetailTableViewController: UITableViewController {
                 cell.contentView.addSubview(ctrl.view)
                 self.addChildViewController(ctrl)
             }
+            
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
+            
             return cell
         }
         else{
             let cell:UITableViewCell = UITableViewCell()
+            
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
+            
             return cell
         }
     }
