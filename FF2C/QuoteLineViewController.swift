@@ -21,7 +21,7 @@ class QuoteLineViewController: UIViewController,ChartViewDelegate {
     @IBOutlet weak var button1Y: UIButton!
     @IBOutlet weak var button2Y: UIButton!
     @IBOutlet weak var button5Y: UIButton!
-    
+ 
     
     @IBAction func ButtonTodayAction(sender: AnyObject) {
     }
@@ -69,6 +69,7 @@ class QuoteLineViewController: UIViewController,ChartViewDelegate {
         lineChartView.scaleYEnabled = false
         lineChartView.dragEnabled = false
         lineChartView.drawGridBackgroundEnabled = false
+        lineChartView.descriptionText = ""
         
         lineChartView.rightAxis.enabled = false
         
@@ -76,21 +77,23 @@ class QuoteLineViewController: UIViewController,ChartViewDelegate {
         lineChartView.leftAxis.gridColor = UIColor.lightGrayColor()
         lineChartView.leftAxis.gridLineDashLengths = [2.0]
         lineChartView.leftAxis.gridLineWidth = 0.1
-        lineChartView.leftAxis.labelFont = UIFont.systemFontOfSize(8.0)
+        lineChartView.leftAxis.labelFont = UIFont.systemFontOfSize(5.0)
         lineChartView.leftAxis.labelTextColor = UIColor.lightGrayColor()
         lineChartView.leftAxis.drawAxisLineEnabled = false
-        
+        lineChartView.leftAxis.maxWidth = 15.0
         
         lineChartView.xAxis.labelTextColor = UIColor.lightGrayColor()
-        lineChartView.xAxis.labelFont = UIFont.systemFontOfSize(8.0)
+        lineChartView.xAxis.labelFont = UIFont.systemFontOfSize(5.0)
         lineChartView.xAxis.gridLineWidth = 0.1
         lineChartView.xAxis.gridLineDashLengths = [4.0]
         lineChartView.xAxis.drawAxisLineEnabled = false
         lineChartView.xAxis.labelPosition = .Bottom
         
         
+        //legend is used to control AAPL label display and chart animation direction
         lineChartView.legend.form = .Line
-        //lineChartView.legend.position = .
+        lineChartView.legend.font = UIFont.systemFontOfSize(7.0)
+        lineChartView.legend.position = .BelowChartLeft
         
         
         var xVars:[NSObject]? = [NSObject]()
@@ -107,32 +110,39 @@ class QuoteLineViewController: UIViewController,ChartViewDelegate {
         
         var yVals:[ChartDataEntry]? = [ChartDataEntry]()
         yVals?.append(ChartDataEntry(value: 1.0, xIndex: 0))
+        yVals?.append(ChartDataEntry(value: 2.0, xIndex: 1))
         yVals?.append(ChartDataEntry(value: 2.0, xIndex: 2))
         yVals?.append(ChartDataEntry(value: 20.2, xIndex: 3))
         yVals?.append(ChartDataEntry(value: 12.2, xIndex: 4))
         yVals?.append(ChartDataEntry(value: -2.0, xIndex: 5))
         yVals?.append(ChartDataEntry(value: -9.0, xIndex: 8))
         
-        
         let set1:LineChartDataSet = LineChartDataSet(yVals: yVals)
+        set1.label = "AAPL"
+
         set1.drawCircleHoleEnabled = false
         set1.drawCirclesEnabled = false
         
-        
+        let data:LineChartData = LineChartData(xVals: xVars, dataSet: set1)
+        data.setValueFont(UIFont.systemFontOfSize(5.0))
     
-        var data:LineChartData = LineChartData(xVals: xVars, dataSet: set1)
         data.setDrawValues(true)
-        
-        //var data:LineChartData = LineChartData()
-        //data.addDataSet(set1)
         
         
         lineChartView.data = data
         
-        lineChartView.animate(xAxisDuration: 2.0, easingOption: ChartEasingOption.Linear)
+        lineChartView.animate(xAxisDuration: 1.5, easingOption: ChartEasingOption.Linear)
     }
-    
-    
+    /*
+    func caculateMonth()->[String:String]{
+        var date:NSDate = NSCalendar.date()
+        
+        var formatter:NSDateFormatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        var dateString = formatter.stringFromDate(date)
+        
+    }
+    */
     func requestChart(symbol:String){
         
         let urlString:URLStringConvertible = "https://query.yahooapis.com/v1/public/yql"
