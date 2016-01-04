@@ -9,7 +9,7 @@
 import UIKit
 
 struct QuoteDetailPriceCellConfig{
-    static let underlineHeight:CGFloat = 1.0
+    static let underlineHeight:CGFloat = 0.3
     static let xPos:CGFloat = 15.0
     static let yPos:CGFloat = 19.0
     static let underlineColor:UIColor = UIColor.lightGrayColor()

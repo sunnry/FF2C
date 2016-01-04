@@ -45,6 +45,29 @@ struct AppConfiguration {
         static let lineTableRow:Int = 2
         static let lineTableHeight:CGFloat = 200.0
         
+        static let DayRangeRow:Int = 3
+        static let DayRangeRowHeight:CGFloat = 18.0
+        
+        static let VolumeRow:Int = 4
+        static let VolumeRowHeight:CGFloat = 18.0
+        
+        static let WeeksRow:Int = 5
+        static let WeeksRowHeight:CGFloat = 18.0
+        
+        static let EPSRow:Int = 6
+        static let EPSRowHeight:CGFloat = 18.0
+        
+        static let PERow:Int = 7
+        static let PERowHeight:CGFloat = 18.0
+        
+        static let YieldRow:Int = 8
+        static let YieldRowHeight:CGFloat = 18.0
+        
+        static let MarketCapRow:Int = 9
+        static let MarketCapRowHeight:CGFloat = 18.0
+        
+        
+        
         static let defaultRowHeight:CGFloat = 20.0
     }
 }

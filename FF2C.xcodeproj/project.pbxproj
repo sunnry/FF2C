@@ -35,6 +35,8 @@
 		A385B7321C2E92900039F1CC /* QuoteDetailTableVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A385B7311C2E92900039F1CC /* QuoteDetailTableVIewController.swift */; };
 		A385B7341C2E92B80039F1CC /* QuoteDetailTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A385B7331C2E92B80039F1CC /* QuoteDetailTableViewController.xib */; };
 		A3D77E3D1C27CB0A0075CF33 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D77E3C1C27CB0A0075CF33 /* Quote.swift */; };
+		A3FCA9411C3A1DB1000395B5 /* QuoteDetailCommonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3FCA9401C3A1DB1000395B5 /* QuoteDetailCommonCell.xib */; };
+		A3FCA9451C3A1DCB000395B5 /* QuoteDetailCommonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FCA9441C3A1DCB000395B5 /* QuoteDetailCommonCell.swift */; };
 		A3FDC3211C32371A000E31A9 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3FDC31C1C323548000E31A9 /* Charts.framework */; };
 		A3FDC3221C32371A000E31A9 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3FDC31C1C323548000E31A9 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A3FDC3291C32450D000E31A9 /* QuoteLineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3FDC3281C32450D000E31A9 /* QuoteLineViewController.xib */; };
@@ -139,6 +141,8 @@
 		A385B7311C2E92900039F1CC /* QuoteDetailTableVIewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteDetailTableVIewController.swift; sourceTree = "<group>"; };
 		A385B7331C2E92B80039F1CC /* QuoteDetailTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuoteDetailTableViewController.xib; sourceTree = "<group>"; };
 		A3D77E3C1C27CB0A0075CF33 /* Quote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		A3FCA9401C3A1DB1000395B5 /* QuoteDetailCommonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuoteDetailCommonCell.xib; sourceTree = "<group>"; };
+		A3FCA9441C3A1DCB000395B5 /* QuoteDetailCommonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteDetailCommonCell.swift; sourceTree = "<group>"; };
 		A3FDC3151C323548000E31A9 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = "<group>"; };
 		A3FDC3281C32450D000E31A9 /* QuoteLineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuoteLineViewController.xib; sourceTree = "<group>"; };
 		A3FDC32A1C324524000E31A9 /* QuoteLineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteLineViewController.swift; sourceTree = "<group>"; };
@@ -207,6 +211,8 @@
 				A3422ADE1C30F7590014CE41 /* QuoteDetailNameCell.xib */,
 				A3422AE21C310CFA0014CE41 /* QuoteDetailPriceChangeCell.swift */,
 				A3422AE41C310D6E0014CE41 /* QuoteDetailPriceChangeCell.xib */,
+				A3FCA9441C3A1DCB000395B5 /* QuoteDetailCommonCell.swift */,
+				A3FCA9401C3A1DB1000395B5 /* QuoteDetailCommonCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -456,6 +462,7 @@
 				A37F7B931C1A6A8300DD008D /* PortFolioHoldCell.xib in Resources */,
 				A3422ADF1C30F7590014CE41 /* QuoteDetailNameCell.xib in Resources */,
 				A372140E1C18014200EAD891 /* SettingTableViewCell.xib in Resources */,
+				A3FCA9411C3A1DB1000395B5 /* QuoteDetailCommonCell.xib in Resources */,
 				A3422AE51C310D6E0014CE41 /* QuoteDetailPriceChangeCell.xib in Resources */,
 				A38214041C156533006A75C8 /* Main.storyboard in Resources */,
 				A33A6A5C1C227A650034EA87 /* searchSymbolTableView.xib in Resources */,
@@ -531,6 +538,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3FCA9451C3A1DCB000395B5 /* QuoteDetailCommonCell.swift in Sources */,
 				A372140C1C18012300EAD891 /* SettingTableViewCell.swift in Sources */,
 				A38214011C156533006A75C8 /* ViewController.swift in Sources */,
 				A37F7B9F1C1A949700DD008D /* AddPortFolioCell.swift in Sources */,

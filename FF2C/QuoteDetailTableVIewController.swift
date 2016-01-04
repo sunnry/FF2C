@@ -25,6 +25,8 @@ class QuoteDetailTableViewController: UITableViewController {
         
         self.tableView.registerNib(UINib(nibName: "QuoteDetailPriceChangeCell", bundle: nil), forCellReuseIdentifier: "QuoteDetailPriceChangeCell")
         
+        self.tableView.registerNib(UINib(nibName:"QuoteDetailCommonCell",bundle: nil), forCellReuseIdentifier: "QuoteDetailCommonCell")
+        
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
         self.navigationItem.leftBarButtonItem = backItem
@@ -50,7 +52,7 @@ class QuoteDetailTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 10
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -87,6 +89,61 @@ class QuoteDetailTableViewController: UITableViewController {
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             
             return cell
+        }else if indexPath.row == AppConfiguration.QuoteDetailTableViewConfig.DayRangeRow{
+            let cell:QuoteDetailCommonCell = tableView.dequeueReusableCellWithIdentifier("QuoteDetailCommonCell") as! QuoteDetailCommonCell
+            
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
+            cell.leftLabel.text = "Day Range:"
+            
+            return cell
+        }else if indexPath.row == AppConfiguration.QuoteDetailTableViewConfig.VolumeRow{
+            let cell:QuoteDetailCommonCell = tableView.dequeueReusableCellWithIdentifier("QuoteDetailCommonCell") as! QuoteDetailCommonCell
+            
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
+            cell.leftLabel.text = "Volume:"
+            
+            return cell
+            
+        }else if indexPath.row == AppConfiguration.QuoteDetailTableViewConfig.WeeksRow{
+            let cell:QuoteDetailCommonCell = tableView.dequeueReusableCellWithIdentifier("QuoteDetailCommonCell") as! QuoteDetailCommonCell
+            
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
+            cell.leftLabel.text = "52 Weeks:"
+            
+            return cell
+            
+        }else if indexPath.row == AppConfiguration.QuoteDetailTableViewConfig.PERow{
+            let cell:QuoteDetailCommonCell = tableView.dequeueReusableCellWithIdentifier("QuoteDetailCommonCell") as! QuoteDetailCommonCell
+            
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
+            cell.leftLabel.text = "PE:"
+            
+            return cell
+            
+        }else if indexPath.row == AppConfiguration.QuoteDetailTableViewConfig.YieldRow{
+            let cell:QuoteDetailCommonCell = tableView.dequeueReusableCellWithIdentifier("QuoteDetailCommonCell") as! QuoteDetailCommonCell
+            
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
+            cell.leftLabel.text = "Yield:"
+            
+            return cell
+            
+        }else if indexPath.row == AppConfiguration.QuoteDetailTableViewConfig.MarketCapRow{
+            let cell:QuoteDetailCommonCell = tableView.dequeueReusableCellWithIdentifier("QuoteDetailCommonCell") as! QuoteDetailCommonCell
+            
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
+            cell.leftLabel.text = "Market Cap:"
+            
+            return cell
+            
+        }else if indexPath.row == AppConfiguration.QuoteDetailTableViewConfig.EPSRow{
+            let cell:QuoteDetailCommonCell = tableView.dequeueReusableCellWithIdentifier("QuoteDetailCommonCell") as! QuoteDetailCommonCell
+            
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
+            cell.leftLabel.text = "EPS:"
+            
+            return cell
+            
         }
         else{
             let cell:UITableViewCell = UITableViewCell()
@@ -125,6 +182,41 @@ class QuoteDetailTableViewController: UITableViewController {
         }
         else if indexPath.row == AppConfiguration.QuoteDetailTableViewConfig.secondRow{
             if let c = cell as? QuoteDetailPriceChangeCell{
+                c.reformUnderline(self.view.frame.width)
+            }
+        }
+        else if indexPath.row == AppConfiguration.QuoteDetailTableViewConfig.DayRangeRow{
+            if let c = cell as? QuoteDetailCommonCell{
+                c.reformUnderline(self.view.frame.width)
+            }
+        }
+        else if indexPath.row == AppConfiguration.QuoteDetailTableViewConfig.VolumeRow{
+            if let c = cell as? QuoteDetailCommonCell{
+                c.reformUnderline(self.view.frame.width)
+            }
+        }
+        else if indexPath.row == AppConfiguration.QuoteDetailTableViewConfig.WeeksRow{
+            if let c = cell as? QuoteDetailCommonCell{
+                c.reformUnderline(self.view.frame.width)
+            }
+        }
+        else if indexPath.row == AppConfiguration.QuoteDetailTableViewConfig.YieldRow{
+            if let c = cell as? QuoteDetailCommonCell{
+                c.reformUnderline(self.view.frame.width)
+            }
+        }
+        else if indexPath.row == AppConfiguration.QuoteDetailTableViewConfig.PERow{
+            if let c = cell as? QuoteDetailCommonCell{
+                c.reformUnderline(self.view.frame.width)
+            }
+        }
+        else if indexPath.row == AppConfiguration.QuoteDetailTableViewConfig.MarketCapRow{
+            if let c = cell as? QuoteDetailCommonCell{
+                c.reformUnderline(self.view.frame.width)
+            }
+        }
+        else if indexPath.row == AppConfiguration.QuoteDetailTableViewConfig.EPSRow{
+            if let c = cell as? QuoteDetailCommonCell{
                 c.reformUnderline(self.view.frame.width)
             }
         }
