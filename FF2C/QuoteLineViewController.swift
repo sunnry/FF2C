@@ -11,7 +11,7 @@ import Charts
 import Alamofire
 import SwiftyJSON
 
-class QuoteLineViewController: UIViewController,ChartViewDelegate {
+class QuoteLineViewController: UIViewController,ChartViewDelegate,qLineChartUpdate {
     
     @IBOutlet weak var lineChartView: LineChartView!
     @IBOutlet weak var buttonToday: UIButton!
@@ -21,8 +21,7 @@ class QuoteLineViewController: UIViewController,ChartViewDelegate {
     @IBOutlet weak var button1Y: UIButton!
     @IBOutlet weak var button2Y: UIButton!
     @IBOutlet weak var button5Y: UIButton!
- 
-    
+
     @IBAction func ButtonTodayAction(sender: AnyObject) {
     }
 
@@ -47,8 +46,9 @@ class QuoteLineViewController: UIViewController,ChartViewDelegate {
     
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?,symbol:String?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        
         if let tempSymbol = symbol{
-            requestChart(tempSymbol)
+            Quote.sharedInstance.requestOneMonthChart(tempSymbol, o: self, type: "LineChartView")
         }
     }
 
@@ -133,37 +133,13 @@ class QuoteLineViewController: UIViewController,ChartViewDelegate {
         
         lineChartView.animate(xAxisDuration: 1.5, easingOption: ChartEasingOption.Linear)
     }
-    /*
-    func caculateMonth()->[String:String]{
-        var date:NSDate = NSCalendar.date()
+    
+    func updateLineChartData(data: LineChartData?) {
         
-        var formatter:NSDateFormatter = NSDateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        var dateString = formatter.stringFromDate(date)
-        
-    }
-    */
-    func requestChart(symbol:String){
-        
-        let urlString:URLStringConvertible = "https://query.yahooapis.com/v1/public/yql"
-        let sql:String = "select * from yahoo.finance.historicaldata where symbol = \"" + symbol + "\" and startDate=\"2015-11-18\" and endDate=\"2015-12-18\""
-        
-        let params:[String:AnyObject]? = ["q":sql,"format":"json","diagnostics":"true","env":"store://datatables.org/alltableswithkeys"]
-        
-        Alamofire.request(.GET, urlString, parameters: params).responseJSON{response in
-            switch response.result{
-            case .Success(let _):
-                if let value = response.result.value{
-                    let json = JSON(value)
-                    print("\(json)")
-                    
-                }
-                
-            case .Failure(let error):
-                print("\(error)")
-            }
+        if let d = data{
+            lineChartView.data = d
+            lineChartView.animate(xAxisDuration: 1.0, easingOption: ChartEasingOption.Linear)
         }
-        
-        
     }
+
 }
