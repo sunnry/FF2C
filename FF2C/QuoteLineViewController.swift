@@ -80,7 +80,7 @@ class QuoteLineViewController: UIViewController,ChartViewDelegate,qLineChartUpda
         lineChartView.leftAxis.labelFont = UIFont.systemFontOfSize(5.0)
         lineChartView.leftAxis.labelTextColor = UIColor.lightGrayColor()
         lineChartView.leftAxis.drawAxisLineEnabled = false
-        lineChartView.leftAxis.maxWidth = 15.0
+        lineChartView.leftAxis.maxWidth = 18.0
         
         lineChartView.xAxis.labelTextColor = UIColor.lightGrayColor()
         lineChartView.xAxis.labelFont = UIFont.systemFontOfSize(5.0)
@@ -95,43 +95,6 @@ class QuoteLineViewController: UIViewController,ChartViewDelegate,qLineChartUpda
         lineChartView.legend.font = UIFont.systemFontOfSize(7.0)
         lineChartView.legend.position = .BelowChartLeft
         
-        
-        var xVars:[NSObject]? = [NSObject]()
-        xVars?.append("1")
-        xVars?.append("2")
-        xVars?.append("3")
-        xVars?.append("4")
-        xVars?.append("5")
-        xVars?.append("6")
-        xVars?.append("7")
-        xVars?.append("8")
-        xVars?.append("9")
-        xVars?.append("10")
-        
-        var yVals:[ChartDataEntry]? = [ChartDataEntry]()
-        yVals?.append(ChartDataEntry(value: 1.0, xIndex: 0))
-        yVals?.append(ChartDataEntry(value: 2.0, xIndex: 1))
-        yVals?.append(ChartDataEntry(value: 2.0, xIndex: 2))
-        yVals?.append(ChartDataEntry(value: 20.2, xIndex: 3))
-        yVals?.append(ChartDataEntry(value: 12.2, xIndex: 4))
-        yVals?.append(ChartDataEntry(value: -2.0, xIndex: 5))
-        yVals?.append(ChartDataEntry(value: -9.0, xIndex: 8))
-        
-        let set1:LineChartDataSet = LineChartDataSet(yVals: yVals)
-        set1.label = "AAPL"
-
-        set1.drawCircleHoleEnabled = false
-        set1.drawCirclesEnabled = false
-        
-        let data:LineChartData = LineChartData(xVals: xVars, dataSet: set1)
-        data.setValueFont(UIFont.systemFontOfSize(5.0))
-    
-        data.setDrawValues(true)
-        
-        
-        lineChartView.data = data
-        
-        lineChartView.animate(xAxisDuration: 1.5, easingOption: ChartEasingOption.Linear)
     }
     
     func updateLineChartData(data: LineChartData?) {

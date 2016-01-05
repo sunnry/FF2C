@@ -11,7 +11,7 @@ import UIKit
 
 protocol quoteDelegate:class{
     func didShowQuoteController()
-    func updatePortFolioWithNewQuote(quote:SimpleQuote)
+    func updatePortFolioWithNewQuote(quote:SymbolDetail)
 }
 
 
@@ -131,14 +131,19 @@ class PortFolioTableViewController :UITableViewController,quoteDelegate{
         self.presentViewController(nvController, animated: true, completion: nil)
     }
     
-    func updatePortFolioWithNewQuote(quote:SimpleQuote) {
+    func updatePortFolioWithNewQuote(quote:SymbolDetail) {
         //print("get:\(quote.name)")
         
         var detail = SymbolDetail()
         detail.symbol = quote.symbol
-        detail.Name = quote.name
-        detail.dayChange = quote.change
+        detail.Name = quote.Name
+        detail.dayChange = quote.dayChange
         detail.lastTradePrice = quote.lastTradePrice
+        detail.daysHigh = quote.daysHigh
+        detail.daysLLow = quote.daysLLow
+        detail.averageDailyVolume = quote.averageDailyVolume
+        detail.yearHigh = quote.yearHigh
+        detail.yearLow = quote.yearLow
         
         Quote.sharedInstance.addSymbol(detail)
         

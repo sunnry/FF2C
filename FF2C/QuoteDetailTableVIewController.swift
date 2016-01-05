@@ -15,6 +15,8 @@ class QuoteDetailTableViewController: UITableViewController {
     
     var symbol:String?
     
+    var q:SymbolDetail?
+    
     var lineViewContrller:QuoteLineViewController?
     
     override func viewDidLoad() {
@@ -32,6 +34,9 @@ class QuoteDetailTableViewController: UITableViewController {
         self.navigationItem.leftBarButtonItem = backItem
         
         lineViewContrller = QuoteLineViewController(nibName: "QuoteLineViewController", bundle: nil, symbol: self.symbol)
+        if let s = symbol{
+            q = Quote.sharedInstance.searchItem(s)
+        }
     }
     
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?, symbol:String) {
@@ -68,6 +73,10 @@ class QuoteDetailTableViewController: UITableViewController {
                 cell.bigSymbol.text = s
             }
             
+            if let n = q?.Name{
+                cell.smallName.text = n
+            }
+            
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             
             return cell
@@ -76,6 +85,14 @@ class QuoteDetailTableViewController: UITableViewController {
             let cell:QuoteDetailPriceChangeCell = tableView.dequeueReusableCellWithIdentifier("QuoteDetailPriceChangeCell") as! QuoteDetailPriceChangeCell
             
             cell.selectionStyle = UITableViewCellSelectionStyle.None
+            
+            if let p = q?.lastTradePrice{
+                cell.currentPrice.text = p
+            }
+            
+            if let c = q?.dayChange{
+                cell.priceChange.text = c
+            }
             
             return cell
         }else if indexPath.row == AppConfiguration.QuoteDetailTableViewConfig.lineTableRow{
@@ -94,6 +111,9 @@ class QuoteDetailTableViewController: UITableViewController {
             
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             cell.leftLabel.text = "Day Range:"
+            if let dr = q?.dayChange{
+                cell.rightLabel.text = dr
+            }
             
             return cell
         }else if indexPath.row == AppConfiguration.QuoteDetailTableViewConfig.VolumeRow{
@@ -101,6 +121,9 @@ class QuoteDetailTableViewController: UITableViewController {
             
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             cell.leftLabel.text = "Volume:"
+            if let v = q?.averageDailyVolume{
+                cell.rightLabel.text = v
+            }
             
             return cell
             
@@ -109,6 +132,11 @@ class QuoteDetailTableViewController: UITableViewController {
             
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             cell.leftLabel.text = "52 Weeks:"
+            if let wl = q?.yearLow{
+                if let wh = q?.yearHigh{
+                    cell.rightLabel.text = wl + " - " + wh
+                }
+            }
             
             return cell
             

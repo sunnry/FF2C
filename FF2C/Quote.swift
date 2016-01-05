@@ -118,6 +118,15 @@ class Quote:qDelegate {
         return symbolArray[index]
     }
     
+    func searchItem(symbol:String)->SymbolDetail?{
+        for i in symbolArray{
+            if i.symbol?.uppercaseString == symbol.uppercaseString{
+                return i
+            }
+        }
+        return nil
+    }
+    
     
     func count() -> Int {
         return symbolArray.count

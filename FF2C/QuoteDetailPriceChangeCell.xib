@@ -22,7 +22,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFR-V5-fgj">
-                        <rect key="frame" x="84" y="1" width="24" height="17"/>
+                        <rect key="frame" x="86" y="1" width="24" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -32,7 +32,7 @@
                     <constraint firstItem="Gcw-YS-wlN" firstAttribute="leading" secondItem="h4t-FF-rDt" secondAttribute="leadingMargin" constant="15" id="bQl-qJ-8qr"/>
                     <constraint firstAttribute="bottomMargin" secondItem="NFR-V5-fgj" secondAttribute="bottom" constant="-7" id="pJb-Hf-YRu"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Gcw-YS-wlN" secondAttribute="bottom" constant="-7" id="sK2-3Q-fcc"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="NFR-V5-fgj" secondAttribute="trailing" constant="204" id="toF-0i-aC7"/>
+                    <constraint firstItem="NFR-V5-fgj" firstAttribute="leading" secondItem="Gcw-YS-wlN" secondAttribute="trailing" constant="39" id="sVV-R1-HWo"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

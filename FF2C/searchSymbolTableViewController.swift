@@ -20,7 +20,7 @@ struct SimpleQuote {
 class searchSymbolTableViewController: UITableViewController,UISearchBarDelegate {
     
     var searchSymbolBar:UISearchBar?
-    var resultArray:[SimpleQuote]?
+    var resultArray:[SymbolDetail]?
     var delegate:quoteDelegate?
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
@@ -30,7 +30,7 @@ class searchSymbolTableViewController: UITableViewController,UISearchBarDelegate
         searchSymbolBar?.showsCancelButton = true
         searchSymbolBar?.delegate = self
         
-        resultArray = Array<SimpleQuote>()
+        resultArray = Array<SymbolDetail>()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -69,7 +69,7 @@ class searchSymbolTableViewController: UITableViewController,UISearchBarDelegate
         if let count = resultArray?.count{
             if count > 0 && indexPath.row < count {
                 if let q = resultArray?[indexPath.row]{
-                        cell.textLabel?.text = q.name
+                        cell.textLabel?.text = q.Name
                 }
             }
         }
@@ -108,10 +108,29 @@ class searchSymbolTableViewController: UITableViewController,UISearchBarDelegate
             if let symbol = json["query"]["results"]["quote"]["symbol"].string{
                 if let price = json["query"]["results"]["quote"]["LastTradePriceOnly"].string{
                     if let change = json["query"]["results"]["quote"]["Change"].string{
-                        //print(name)
-                        //print(symbol)
-                        let t = SimpleQuote(name: name, symbol: symbol,lastTradePrice:price,change:change  )
-                        resultArray?.append(t)
+                        if let dh = json["query"]["results"]["quote"]["DaysHigh"].string{
+                            if let dl = json["query"]["results"]["quote"]["DaysLow"].string{
+                                if let adv = json["query"]["results"]["quote"]["AverageDailyVolume"].string{
+                                    if let yh = json["query"]["results"]["quote"]["YearHigh"].string{
+                                        if let yl = json["query"]["results"]["quote"]["YearLow"].string{
+                                            //print(name)
+                                            //print(symbol)
+                                            var t = SymbolDetail()
+                                            t.Name = name
+                                            t.symbol = symbol
+                                            t.lastTradePrice = price
+                                            t.dayChange = change
+                                            t.daysHigh = dh
+                                            t.daysLLow = dl
+                                            t.averageDailyVolume = adv
+                                            t.yearHigh = yh
+                                            t.yearLow = yl
+                                            resultArray?.append(t)
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -134,6 +153,7 @@ class searchSymbolTableViewController: UITableViewController,UISearchBarDelegate
             case .Success(let _):
                 if let value = response.result.value{
                     let json = JSON(value)
+                    print(json)
                     self.dealJson(json)
                 }
                 
