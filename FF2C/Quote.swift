@@ -186,25 +186,30 @@ class Quote:qDelegate {
     }
     
     func dealHistoryChartJsonData(json:JSON,symbol:String){
-        
-        let quoteJson = json["query"]["results"]["quote"]
-    
+
         var xVar:[NSObject]? = [NSObject]()
         var yVals:[ChartDataEntry]? = [ChartDataEntry]()
         
-        for (key , subJson):(String, JSON) in quoteJson{
-            if let date = subJson["Date"].string{
+        let quoteJson = json["query"]["results"]["quote"]
+        
+        let count = quoteJson.count
+        //print(quoteJson.count)
+        
+        var c = count - 1
+        var index:Int = 0
+        while c >= 0{
+            let jsonItem = quoteJson[c]
+            if let date = jsonItem["Date"].string{
                 xVar?.append(date)
-                
-                if let keyInt = Int(key){
-                    if let value = subJson["Close"].string{
-                        if let valueD = Double(value){
-                            yVals?.append(ChartDataEntry(value:valueD, xIndex: keyInt))
-                        }
+                    
+                if let value = jsonItem["Close"].string{
+                    if let valueD = Double(value){
+                        yVals?.append(ChartDataEntry(value: valueD, xIndex: index))
+                        index = index + 1
+                        c = c - 1
                     }
                 }
             }
-            //print(subJson)
         }
         
         let dataSet:LineChartDataSet = LineChartDataSet(yVals: yVals)
