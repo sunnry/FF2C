@@ -81,6 +81,7 @@ class QuoteLineViewController: UIViewController,ChartViewDelegate,qLineChartUpda
         lineChartView.leftAxis.labelTextColor = UIColor.lightGrayColor()
         lineChartView.leftAxis.drawAxisLineEnabled = false
         lineChartView.leftAxis.maxWidth = 18.0
+        lineChartView.leftAxis.startAtZeroEnabled = false
         
         lineChartView.xAxis.labelTextColor = UIColor.lightGrayColor()
         lineChartView.xAxis.labelFont = UIFont.systemFontOfSize(5.0)
