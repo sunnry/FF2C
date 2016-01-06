@@ -345,6 +345,7 @@ class Quote:qDelegate {
         dataSet.label = symbol
         dataSet.drawCircleHoleEnabled = false
         dataSet.drawCirclesEnabled = false
+        dataSet.drawFilledEnabled = true
         
         let data:LineChartData = LineChartData(xVals: xVar, dataSet: dataSet)
         
@@ -520,6 +521,7 @@ class Quote:qDelegate {
         dataSet.label = symbol
         dataSet.drawCircleHoleEnabled = false
         dataSet.drawCirclesEnabled = false
+        dataSet.drawFilledEnabled = true
         
         let data:LineChartData = LineChartData(xVals: xVar, dataSet: dataSet)
         
