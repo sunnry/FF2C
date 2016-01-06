@@ -29,18 +29,37 @@ class QuoteLineViewController: UIViewController,ChartViewDelegate,qLineChartUpda
 
     @IBAction func button5DAction(sender: AnyObject) {
         
+        if let tempSymbol = self.symbol{
+            Quote.sharedInstance.request5DChartData(tempSymbol, o: self, type: "LineChartView")
+        }
     }
     
     @IBAction func button1MAction(sender: AnyObject) {
+        
+        if let tempSymbol = self.symbol{
+            Quote.sharedInstance.requestOneMonthChartData(tempSymbol, o: self, type: "LineChartView")
+        }
     }
     
     @IBAction func button3MAction(sender: AnyObject) {
+        
+        if let tempSymbol = self.symbol{
+            Quote.sharedInstance.request3MonthChartData(tempSymbol, o: self, type: "LineChartView")
+        }
     }
 
     @IBAction func button1YAction(sender: AnyObject) {
+        
+        if let tempSymbol = self.symbol{
+            Quote.sharedInstance.request1YearChartData(tempSymbol, o: self, type: "LineChartView")
+        }
     }
     
     @IBAction func button2YAction(sender: AnyObject) {
+        
+        if let tempSymbol = self.symbol{
+            Quote.sharedInstance.request2YearChartData(tempSymbol, o: self, type: "LineChartView")
+        }
     }
     
     @IBAction func button5YAction(sender: AnyObject) {
@@ -52,7 +71,7 @@ class QuoteLineViewController: UIViewController,ChartViewDelegate,qLineChartUpda
         self.symbol = symbol
         
         if let tempSymbol = symbol{
-            Quote.sharedInstance.requestOneMonthChart(tempSymbol, o: self, type: "LineChartView")
+            Quote.sharedInstance.requestOneMonthChartData(tempSymbol, o: self, type: "LineChartView")
         }
     }
 

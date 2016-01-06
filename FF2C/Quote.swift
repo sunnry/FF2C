@@ -359,7 +359,39 @@ class Quote:qDelegate {
         
     }
     
-    func requestOneMonthChart(symbol:String,o:AnyObject,type:String){
+    
+    func request5DChartData(symbol:String,o:AnyObject,type:String){
+        chartDelegate = o
+        delegateType = type
+        
+        if let t = today{
+            if let fiveD = fiveDay{
+                let sql:String = "select * from yahoo.finance.historicaldata where symbol = \"" + symbol + "\" and startDate=\"" + fiveD + "\" and endDate=\"" + t + "\""
+                
+                let params:[String:AnyObject]? = ["q":sql,"format":"json","diagnostics":"true","env":"store://datatables.org/alltableswithkeys"]
+                
+                Alamofire.request(.GET, urlString, parameters: params).responseJSON{response in
+                    switch response.result{
+                    case .Success(let _):
+                        if let value = response.result.value{
+                            let json = JSON(value)
+                            self.dealHistoryChartJsonData(json, symbol: symbol)
+                            print("\(json)")
+                            
+                        }
+                        
+                    case .Failure(let error):
+                        print("\(error)")
+                    }
+                }
+                
+            }
+        }
+
+    }
+    
+    
+    func requestOneMonthChartData(symbol:String,o:AnyObject,type:String){
         
         chartDelegate = o
         delegateType = type
@@ -367,6 +399,99 @@ class Quote:qDelegate {
         if let t = today{
             if let agoMonth = monthAgo{
                 let sql:String = "select * from yahoo.finance.historicaldata where symbol = \"" + symbol + "\" and startDate=\"" + agoMonth + "\" and endDate=\"" + t + "\""
+                
+                let params:[String:AnyObject]? = ["q":sql,"format":"json","diagnostics":"true","env":"store://datatables.org/alltableswithkeys"]
+                
+                Alamofire.request(.GET, urlString, parameters: params).responseJSON{response in
+                    switch response.result{
+                    case .Success(let _):
+                        if let value = response.result.value{
+                            let json = JSON(value)
+                            self.dealHistoryChartJsonData(json, symbol: symbol)
+                            //print("\(json)")
+                            
+                        }
+                        
+                    case .Failure(let error):
+                        print("\(error)")
+                    }
+                }
+                
+            }
+        }
+    }
+    
+    
+    func request3MonthChartData(symbol:String,o:AnyObject,type:String){
+        
+        chartDelegate = o
+        delegateType = type
+        
+        if let t = today{
+            if let threeMonth = threeMonthAgo{
+                let sql:String = "select * from yahoo.finance.historicaldata where symbol = \"" + symbol + "\" and startDate=\"" + threeMonth + "\" and endDate=\"" + t + "\""
+                
+                let params:[String:AnyObject]? = ["q":sql,"format":"json","diagnostics":"true","env":"store://datatables.org/alltableswithkeys"]
+                
+                Alamofire.request(.GET, urlString, parameters: params).responseJSON{response in
+                    switch response.result{
+                    case .Success(let _):
+                        if let value = response.result.value{
+                            let json = JSON(value)
+                            self.dealHistoryChartJsonData(json, symbol: symbol)
+                            //print("\(json)")
+                            
+                        }
+                        
+                    case .Failure(let error):
+                        print("\(error)")
+                    }
+                }
+                
+            }
+        }
+    }
+    
+    
+    func request1YearChartData(symbol:String,o:AnyObject,type:String){
+        
+        chartDelegate = o
+        delegateType = type
+        
+        if let t = today{
+            if let oneY = oneYear{
+                let sql:String = "select * from yahoo.finance.historicaldata where symbol = \"" + symbol + "\" and startDate=\"" + oneY + "\" and endDate=\"" + t + "\""
+                
+                let params:[String:AnyObject]? = ["q":sql,"format":"json","diagnostics":"true","env":"store://datatables.org/alltableswithkeys"]
+                
+                Alamofire.request(.GET, urlString, parameters: params).responseJSON{response in
+                    switch response.result{
+                    case .Success(let _):
+                        if let value = response.result.value{
+                            let json = JSON(value)
+                            self.dealHistoryChartJsonData(json, symbol: symbol)
+                            //print("\(json)")
+                            
+                        }
+                        
+                    case .Failure(let error):
+                        print("\(error)")
+                    }
+                }
+                
+            }
+        }
+    }
+    
+    
+    func request2YearChartData(symbol:String,o:AnyObject,type:String){
+        
+        chartDelegate = o
+        delegateType = type
+        
+        if let t = today{
+            if let twoY = twoYear{
+                let sql:String = "select * from yahoo.finance.historicaldata where symbol = \"" + symbol + "\" and startDate=\"" + twoY + "\" and endDate=\"" + t + "\""
                 
                 let params:[String:AnyObject]? = ["q":sql,"format":"json","diagnostics":"true","env":"store://datatables.org/alltableswithkeys"]
                 
@@ -388,5 +513,6 @@ class Quote:qDelegate {
             }
         }
     }
+    
     
 }
