@@ -162,6 +162,10 @@ class QuoteDetailTableViewController: UITableViewController {
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             cell.leftLabel.text = "Market Cap:"
             
+            if let c = q?.marketCap{
+                cell.rightLabel.text = c
+            }
+            
             return cell
             
         }else if indexPath.row == AppConfiguration.QuoteDetailTableViewConfig.EPSRow{

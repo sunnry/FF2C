@@ -39,6 +39,7 @@ struct SymbolDetail{
     var dayChange:String?
     var averageDailyVolume:String?
     var lastTradePrice:String?
+    var marketCap:String?
     
     var percentage:String?{
         get{
@@ -113,7 +114,7 @@ class Quote:qDelegate {
         
         symbolArray = Array<SymbolDetail>()
         
-        let editCell:SymbolDetail = SymbolDetail(symbol: "EDITCELL", Name: nil, daysHigh: nil, daysLLow: nil, yearHigh: nil, yearLow: nil, dayChange: nil, averageDailyVolume: nil, lastTradePrice: nil)
+        let editCell:SymbolDetail = SymbolDetail(symbol: "EDITCELL", Name: nil, daysHigh: nil, daysLLow: nil, yearHigh: nil, yearLow: nil, dayChange: nil, averageDailyVolume: nil, lastTradePrice: nil, marketCap:nil )
         
         symbolArray.append(editCell)
     }
@@ -376,7 +377,7 @@ class Quote:qDelegate {
                         if let value = response.result.value{
                             let json = JSON(value)
                             self.dealHistoryChartJsonData(json, symbol: symbol)
-                            print("\(json)")
+                            //print("\(json)")
                             
                         }
                         

@@ -144,6 +144,7 @@ class PortFolioTableViewController :UITableViewController,quoteDelegate{
         detail.averageDailyVolume = quote.averageDailyVolume
         detail.yearHigh = quote.yearHigh
         detail.yearLow = quote.yearLow
+        detail.marketCap = quote.marketCap
         
         Quote.sharedInstance.addSymbol(detail)
         

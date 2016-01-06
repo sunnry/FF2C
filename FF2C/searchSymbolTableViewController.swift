@@ -113,19 +113,23 @@ class searchSymbolTableViewController: UITableViewController,UISearchBarDelegate
                                 if let adv = json["query"]["results"]["quote"]["AverageDailyVolume"].string{
                                     if let yh = json["query"]["results"]["quote"]["YearHigh"].string{
                                         if let yl = json["query"]["results"]["quote"]["YearLow"].string{
-                                            //print(name)
-                                            //print(symbol)
-                                            var t = SymbolDetail()
-                                            t.Name = name
-                                            t.symbol = symbol
-                                            t.lastTradePrice = price
-                                            t.dayChange = change
-                                            t.daysHigh = dh
-                                            t.daysLLow = dl
-                                            t.averageDailyVolume = adv
-                                            t.yearHigh = yh
-                                            t.yearLow = yl
-                                            resultArray?.append(t)
+                                            if let mc = json["query"]["results"]["quote"]["MarketCapitalization"].string{
+                                                //print(name)
+                                                //print(symbol)
+                                                var t = SymbolDetail()
+                                                t.Name = name
+                                                t.symbol = symbol
+                                                t.lastTradePrice = price
+                                                t.dayChange = change
+                                                t.daysHigh = dh
+                                                t.daysLLow = dl
+                                                t.averageDailyVolume = adv
+                                                t.yearHigh = yh
+                                                t.yearLow = yl
+                                                t.marketCap = mc
+                                                print(t.marketCap)
+                                                resultArray?.append(t)
+                                            }
                                         }
                                     }
                                 }
@@ -153,7 +157,7 @@ class searchSymbolTableViewController: UITableViewController,UISearchBarDelegate
             case .Success(let _):
                 if let value = response.result.value{
                     let json = JSON(value)
-                    //print(json)
+                    print(json)
                     self.dealJson(json)
                 }
                 
