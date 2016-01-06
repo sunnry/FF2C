@@ -21,12 +21,14 @@ class QuoteLineViewController: UIViewController,ChartViewDelegate,qLineChartUpda
     @IBOutlet weak var button1Y: UIButton!
     @IBOutlet weak var button2Y: UIButton!
     @IBOutlet weak var button5Y: UIButton!
+    
+    var symbol:String?
 
     @IBAction func ButtonTodayAction(sender: AnyObject) {
     }
 
     @IBAction func button5DAction(sender: AnyObject) {
-        print("5D pressed")
+        
     }
     
     @IBAction func button1MAction(sender: AnyObject) {
@@ -46,6 +48,8 @@ class QuoteLineViewController: UIViewController,ChartViewDelegate,qLineChartUpda
     
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?,symbol:String?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        
+        self.symbol = symbol
         
         if let tempSymbol = symbol{
             Quote.sharedInstance.requestOneMonthChart(tempSymbol, o: self, type: "LineChartView")

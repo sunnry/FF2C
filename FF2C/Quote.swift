@@ -81,6 +81,10 @@ class Quote:qDelegate {
     
     var fiveDay:String?
     
+    var threeMonthAgo:String?
+   
+    var oneYear:String?
+    
     var twoYear:String?
     
     var fiveYear:String?
@@ -96,6 +100,10 @@ class Quote:qDelegate {
         monthAgo = caculateMonthAgoFromToday()
         
         fiveDay = caculate5Day()
+        
+        threeMonthAgo = caculate3MonthAgo()
+        
+        oneYear = caculate1YAgo()
         
         twoYear = caculate2YAgo()
         
@@ -217,6 +225,50 @@ class Quote:qDelegate {
         
         return nil
     }
+
+    func caculate3MonthAgo()->String?{
+        
+        let calendar = NSCalendar.currentCalendar()
+        
+        let components = calendar.components([NSCalendarUnit.Year,NSCalendarUnit.Month, NSCalendarUnit.Day,NSCalendarUnit.Hour], fromDate: NSDate())
+        
+        components.month = components.month - 3
+        
+        let date = calendar.dateFromComponents(components)
+        
+        let formatter:NSDateFormatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        if let d = date{
+            let dateString = formatter.stringFromDate(d)
+            //print("3 month caculate : \(dateString)")
+            return dateString
+        }
+        
+        return nil
+    }
+
+    func caculate1YAgo()->String?{
+        
+        let calendar = NSCalendar.currentCalendar()
+        
+        let components = calendar.components([NSCalendarUnit.Year,NSCalendarUnit.Month, NSCalendarUnit.Day,NSCalendarUnit.Hour], fromDate: NSDate())
+        
+        components.year = components.year - 1
+        
+        let date = calendar.dateFromComponents(components)
+        
+        let formatter:NSDateFormatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        if let d = date{
+            let dateString = formatter.stringFromDate(d)
+            //print("1Y = \(dateString)")
+            return dateString
+        }
+        return nil
+    }
+    
     
     func caculate2YAgo()->String?{
         
