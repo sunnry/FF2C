@@ -63,6 +63,10 @@ class QuoteLineViewController: UIViewController,ChartViewDelegate,qLineChartUpda
     }
     
     @IBAction func button5YAction(sender: AnyObject) {
+        
+        if let tempSymbol = self.symbol{
+            Quote.sharedInstance.request5YearChartData(tempSymbol, o: self, type: "LineChartView")
+        }
     }
     
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?,symbol:String?) {

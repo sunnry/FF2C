@@ -484,24 +484,70 @@ class Quote:qDelegate {
     }
     
     
+    enum WIKIStock:Int{
+        case Date = 0,Open,High,Low,Close,Volume,ExDividend,SplitRatio,AdjOpen,AdjHigh,AdjLow,AdjClose,AdjVolume
+        
+    }
+    
+    func dealWIKIHistoryChartJsonData(json:JSON,symbol:String){
+        
+        var xVar:[NSObject]? = [NSObject]()
+        var yVals:[ChartDataEntry]? = [ChartDataEntry]()
+        
+        let jsonData = json["dataset"]["data"]
+        
+        let count = jsonData.count
+        
+        var c = count - 1
+        var index:Int = 0
+        
+        while c >= 0{
+            let jsonItem = jsonData[c]
+            //print(jsonItem)
+            if let date = jsonItem[WIKIStock.Date.rawValue].string{
+                xVar?.append(date)
+                if let close = jsonItem[WIKIStock.AdjClose.rawValue].double{
+                    yVals?.append(ChartDataEntry(value: close, xIndex: index))
+                }
+            }
+        
+            index = index + 1
+            c = c - 1
+        }
+        
+        let dataSet:LineChartDataSet = LineChartDataSet(yVals: yVals)
+        dataSet.label = symbol
+        dataSet.drawCircleHoleEnabled = false
+        dataSet.drawCirclesEnabled = false
+        
+        let data:LineChartData = LineChartData(xVals: xVar, dataSet: dataSet)
+        
+        data.setValueFont(UIFont.systemFontOfSize(5.0))
+        
+        data.setDrawValues(true)
+        
+        if delegateType == "LineChartView"{
+            if let d = chartDelegate as? QuoteLineViewController{
+                d.updateLineChartData(data)
+            }
+        }
+    }
+    
     func request2YearChartData(symbol:String,o:AnyObject,type:String){
         
         chartDelegate = o
         delegateType = type
         
-        if let t = today{
             if let twoY = twoYear{
-                let sql:String = "select * from yahoo.finance.historicaldata where symbol = \"" + symbol + "\" and startDate=\"" + twoY + "\" and endDate=\"" + t + "\""
+                let request:String = "https://www.quandl.com/api/v3/datasets/WIKI/A.json?start_date=" + twoY
                 
-                let params:[String:AnyObject]? = ["q":sql,"format":"json","diagnostics":"true","env":"store://datatables.org/alltableswithkeys"]
-                
-                Alamofire.request(.GET, urlString, parameters: params).responseJSON{response in
+                Alamofire.request(.GET, request, parameters: nil).responseJSON{response in
                     switch response.result{
                     case .Success(let _):
                         if let value = response.result.value{
                             let json = JSON(value)
-                            self.dealHistoryChartJsonData(json, symbol: symbol)
-                            print("\(json)")
+                            self.dealWIKIHistoryChartJsonData(json, symbol: symbol)
+                            //print("\(json)")
                             
                         }
                         
@@ -511,7 +557,35 @@ class Quote:qDelegate {
                 }
                 
             }
+        
+    }
+
+    
+    func request5YearChartData(symbol:String,o:AnyObject,type:String){
+        
+        chartDelegate = o
+        delegateType = type
+        
+        if let fiveY = fiveYear{
+            let request:String = "https://www.quandl.com/api/v3/datasets/WIKI/A.json?start_date=" + fiveY
+            
+            Alamofire.request(.GET, request, parameters: nil).responseJSON{response in
+                switch response.result{
+                case .Success(let _):
+                    if let value = response.result.value{
+                        let json = JSON(value)
+                        self.dealWIKIHistoryChartJsonData(json, symbol: symbol)
+                        //print("\(json)")
+                        
+                    }
+                    
+                case .Failure(let error):
+                    print("\(error)")
+                }
+            }
+            
         }
+        
     }
     
     
