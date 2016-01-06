@@ -79,6 +79,12 @@ class Quote:qDelegate {
     
     var today:String?
     
+    var fiveDay:String?
+    
+    var twoYear:String?
+    
+    var fiveYear:String?
+    
     static let sharedInstance:Quote = {
        return Quote()
     }()
@@ -88,6 +94,12 @@ class Quote:qDelegate {
         today = caculateToday()
         
         monthAgo = caculateMonthAgoFromToday()
+        
+        fiveDay = caculate5Day()
+        
+        twoYear = caculate2YAgo()
+        
+        fiveYear = caculate5YAgo()
         
         urlString = "https://query.yahooapis.com/v1/public/yql"
         
@@ -164,6 +176,27 @@ class Quote:qDelegate {
         return dateString
     }
     
+    func caculate5Day()->String?{
+        let calendar = NSCalendar.currentCalendar()
+        
+        let components = calendar.components([NSCalendarUnit.Year,NSCalendarUnit.Month, NSCalendarUnit.Day,NSCalendarUnit.Hour], fromDate: NSDate())
+        
+        components.day = components.day - 7
+        
+        let date = calendar.dateFromComponents(components)
+        
+        let formatter:NSDateFormatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        if let d = date{
+            let dateString = formatter.stringFromDate(d)
+            //print("5D caculate result : \(dateString)")
+            return dateString
+        }
+        
+        return nil
+    }
+    
     func caculateMonthAgoFromToday()->String?{
         
         let calendar = NSCalendar.currentCalendar()
@@ -179,6 +212,49 @@ class Quote:qDelegate {
         
         if let d = date{
             let dateString = formatter.stringFromDate(d)
+            return dateString
+        }
+        
+        return nil
+    }
+    
+    func caculate2YAgo()->String?{
+        
+        let calendar = NSCalendar.currentCalendar()
+        
+        let components = calendar.components([NSCalendarUnit.Year,NSCalendarUnit.Month, NSCalendarUnit.Day,NSCalendarUnit.Hour], fromDate: NSDate())
+        
+        components.year = components.year - 2
+        
+        let date = calendar.dateFromComponents(components)
+        
+        let formatter:NSDateFormatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        if let d = date{
+            let dateString = formatter.stringFromDate(d)
+            //print("2Y = \(dateString)")
+            return dateString
+        }
+        return nil
+    }
+    
+    func caculate5YAgo()->String?{
+        
+        let calendar = NSCalendar.currentCalendar()
+        
+        let components = calendar.components([NSCalendarUnit.Year,NSCalendarUnit.Month, NSCalendarUnit.Day,NSCalendarUnit.Hour], fromDate: NSDate())
+        
+        components.year = components.year - 5
+        
+        let date = calendar.dateFromComponents(components)
+        
+        let formatter:NSDateFormatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        if let d = date{
+            let dateString = formatter.stringFromDate(d)
+            //print("5Y = \(dateString)")
             return dateString
         }
         

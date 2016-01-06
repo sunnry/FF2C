@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FF2C/Quote.swift"
-            timestampString = "473694828.193693"
+            timestampString = "473739371.971754"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "236"
-            endingLineNumber = "236"
+            startingLineNumber = "312"
+            endingLineNumber = "312"
             landmarkName = "requestOneMonthChart(_:o:type:)"
             landmarkType = "5">
          </BreakpointContent>

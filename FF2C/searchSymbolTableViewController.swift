@@ -153,7 +153,7 @@ class searchSymbolTableViewController: UITableViewController,UISearchBarDelegate
             case .Success(let _):
                 if let value = response.result.value{
                     let json = JSON(value)
-                    print(json)
+                    //print(json)
                     self.dealJson(json)
                 }
                 
