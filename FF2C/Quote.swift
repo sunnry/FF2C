@@ -542,9 +542,10 @@ class Quote:qDelegate {
         delegateType = type
         
             if let twoY = twoYear{
-                let request:String = "https://www.quandl.com/api/v3/datasets/WIKI/" + symbol + ".json?start_date=" + twoY
+                let request:String = "https://www.quandl.com/api/v3/datasets/WIKI/" + symbol + ".json"
+                let params:[String:AnyObject]? = ["start_date":twoY,"api_key":"LWz5Kzq7nR8_5cewDs76"]
                 
-                Alamofire.request(.GET, request, parameters: nil).responseJSON{response in
+                Alamofire.request(.GET, request, parameters: params).responseJSON{response in
                     switch response.result{
                     case .Success(let _):
                         if let value = response.result.value{
@@ -570,9 +571,10 @@ class Quote:qDelegate {
         delegateType = type
         
         if let fiveY = fiveYear{
-            let request:String = "https://www.quandl.com/api/v3/datasets/WIKI/" + symbol + ".json?start_date=" + fiveY
+            let request:String = "https://www.quandl.com/api/v3/datasets/WIKI/" + symbol + ".json"
+            let params:[String:AnyObject]? = ["start_date":fiveY,"api_key":"LWz5Kzq7nR8_5cewDs76"]
             
-            Alamofire.request(.GET, request, parameters: nil).responseJSON{response in
+            Alamofire.request(.GET, request, parameters: params).responseJSON{response in
                 switch response.result{
                 case .Success(let _):
                     if let value = response.result.value{
