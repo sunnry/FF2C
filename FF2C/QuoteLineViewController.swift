@@ -90,7 +90,7 @@ class QuoteLineViewController: UIViewController,ChartViewDelegate,qLineChartUpda
         lineChartView.delegate = self
         //lineChartView.backgroundColor = UIColor.orangeColor()
 
-        lineChartView.noDataText = "无法得到有效的数据源"
+        lineChartView.noDataText = "请等待..."
         lineChartView.drawBordersEnabled = false
         lineChartView.scaleXEnabled = false
         lineChartView.scaleYEnabled = false
@@ -130,6 +130,8 @@ class QuoteLineViewController: UIViewController,ChartViewDelegate,qLineChartUpda
         if let d = data{
             lineChartView.data = d
             lineChartView.animate(xAxisDuration: 1.0, easingOption: ChartEasingOption.Linear)
+        }else{
+            lineChartView.noDataText = "由于网络问题，无法得到有效的数据源"
         }
     }
 

@@ -106,42 +106,67 @@ class searchSymbolTableViewController: UITableViewController,UISearchBarDelegate
         
         if let name = json["query"]["results"]["quote"]["Name"].string{
             if let symbol = json["query"]["results"]["quote"]["symbol"].string{
+                var t = SymbolDetail()
+                t.Name = name
+                t.symbol = symbol
+                
                 if let price = json["query"]["results"]["quote"]["LastTradePriceOnly"].string{
-                    if let change = json["query"]["results"]["quote"]["Change"].string{
-                        if let dh = json["query"]["results"]["quote"]["DaysHigh"].string{
-                            if let dl = json["query"]["results"]["quote"]["DaysLow"].string{
-                                if let adv = json["query"]["results"]["quote"]["AverageDailyVolume"].string{
-                                    if let yh = json["query"]["results"]["quote"]["YearHigh"].string{
-                                        if let yl = json["query"]["results"]["quote"]["YearLow"].string{
-                                            if let mc = json["query"]["results"]["quote"]["MarketCapitalization"].string{
-                                                //print(name)
-                                                //print(symbol)
-                                                var t = SymbolDetail()
-                                                t.Name = name
-                                                t.symbol = symbol
-                                                t.lastTradePrice = price
-                                                t.dayChange = change
-                                                t.daysHigh = dh
-                                                t.daysLLow = dl
-                                                t.averageDailyVolume = adv
-                                                t.yearHigh = yh
-                                                t.yearLow = yl
-                                                t.marketCap = mc
-                                                print(t.marketCap)
-                                                resultArray?.append(t)
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    t.lastTradePrice = price
+                }else{
+                    t.lastTradePrice = "N/A"
                 }
+                
+                if let change = json["query"]["results"]["quote"]["Change"].string{
+                    t.dayChange = change
+                }else{
+                    t.dayChange = "N/A"
+                }
+                
+                if let dh = json["query"]["results"]["quote"]["DaysHigh"].string{
+                    t.daysHigh = dh
+                }else{
+                    t.daysHigh = "N/A"
+                }
+                
+                if let dl = json["query"]["results"]["quote"]["DaysLow"].string{
+                    t.daysLLow = dl
+                }else{
+                    t.daysLLow = "N/A"
+                }
+                
+                if let adv = json["query"]["results"]["quote"]["AverageDailyVolume"].string{
+                    t.averageDailyVolume = adv
+                }else{
+                    t.averageDailyVolume = "N/A"
+                }
+                
+                if let yh = json["query"]["results"]["quote"]["YearHigh"].string{
+                    t.yearHigh = yh
+                }else{
+                    t.yearHigh = "N/A"
+                }
+                
+                if let yl = json["query"]["results"]["quote"]["YearLow"].string{
+                    t.yearLow = yl
+                }else{
+                    t.yearLow = "N/A"
+                }
+                
+                if let mc = json["query"]["results"]["quote"]["MarketCapitalization"].string{
+                    t.marketCap = mc
+                }else{
+                    t.marketCap = "N/A"
+                }
+                
+                resultArray?.append(t)
+                
+            }else{
+                print("can not parse symbol from result")
             }
+        }else{
+            print("can not parse name from result")
         }
-        else{
-            print("seach symbol json parse error")
-        }
+        
         self.tableView.reloadData()
     }
     
@@ -157,7 +182,7 @@ class searchSymbolTableViewController: UITableViewController,UISearchBarDelegate
             case .Success(let _):
                 if let value = response.result.value{
                     let json = JSON(value)
-                    print(json)
+                    //print(json)
                     self.dealJson(json)
                 }
                 

@@ -549,8 +549,8 @@ class Quote:qDelegate {
                     case .Success(let _):
                         if let value = response.result.value{
                             let json = JSON(value)
-                            self.dealWIKIHistoryChartJsonData(json, symbol: symbol)
                             //print("\(json)")
+                            self.dealWIKIHistoryChartJsonData(json, symbol: symbol)
                             
                         }
                         
