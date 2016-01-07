@@ -15,7 +15,7 @@ struct AppConfiguration {
     struct SettingTableViewConfig {
         static let SectionNum:Int = 1
         static let TotoalCellNum:Int = 5
-        static let RowHeight:CGFloat = 64.0
+        static let RowHeight:CGFloat = 40.0
     }
     
     struct PortFolioTableViewConfig{

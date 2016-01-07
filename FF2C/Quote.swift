@@ -46,6 +46,10 @@ struct SymbolDetail{
             if let price = lastTradePrice{
                 if let change = dayChange{
                     
+                    if change == "N/A"{
+                        return change
+                    }
+                    
                     let priceFloat = Float(price)!
                     let changeFloat = Float(change)!
                     if priceFloat == 0.0{
