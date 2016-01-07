@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuoteLineViewController" customModule="FF2C" customModuleProvider="target">
             <connections>
+                <outlet property="activeIndicator" destination="x9X-eX-LiL" id="wum-6w-EuT"/>
                 <outlet property="button1M" destination="1f8-q3-zaa" id="vEU-87-VhE"/>
                 <outlet property="button1Y" destination="2Lb-yj-bUA" id="ENe-fJ-zh5"/>
                 <outlet property="button2Y" destination="1Yy-oA-sKH" id="Gp7-gO-sxg"/>
@@ -25,7 +26,17 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JNY-XI-Ap5" customClass="LineChartView" customModule="Charts">
                     <rect key="frame" x="15" y="8" width="570" height="568"/>
+                    <subviews>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="x9X-eX-LiL">
+                            <rect key="frame" x="267" y="265" width="37" height="37"/>
+                            <color key="color" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        </activityIndicatorView>
+                    </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="x9X-eX-LiL" firstAttribute="centerX" secondItem="JNY-XI-Ap5" secondAttribute="centerX" id="TEf-T2-PT7"/>
+                        <constraint firstItem="x9X-eX-LiL" firstAttribute="centerY" secondItem="JNY-XI-Ap5" secondAttribute="centerY" id="UK7-oa-tph"/>
+                    </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ucw-kW-CIa">
                     <rect key="frame" x="355" y="576" width="30" height="21"/>

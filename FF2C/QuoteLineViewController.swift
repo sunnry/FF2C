@@ -14,6 +14,8 @@ import SwiftyJSON
 class QuoteLineViewController: UIViewController,ChartViewDelegate,qLineChartUpdate {
     
     @IBOutlet weak var lineChartView: LineChartView!
+    @IBOutlet weak var activeIndicator: UIActivityIndicatorView!
+    
     @IBOutlet weak var buttonToday: UIButton!
     @IBOutlet weak var button5D: UIButton!
     @IBOutlet weak var button1M: UIButton!
@@ -30,6 +32,7 @@ class QuoteLineViewController: UIViewController,ChartViewDelegate,qLineChartUpda
     @IBAction func button5DAction(sender: AnyObject) {
         
         if let tempSymbol = self.symbol{
+            activeIndicator.startAnimating()
             Quote.sharedInstance.request5DChartData(tempSymbol, o: self, type: "LineChartView")
         }
     }
@@ -37,6 +40,7 @@ class QuoteLineViewController: UIViewController,ChartViewDelegate,qLineChartUpda
     @IBAction func button1MAction(sender: AnyObject) {
         
         if let tempSymbol = self.symbol{
+            activeIndicator.startAnimating()
             Quote.sharedInstance.requestOneMonthChartData(tempSymbol, o: self, type: "LineChartView")
         }
     }
@@ -44,6 +48,7 @@ class QuoteLineViewController: UIViewController,ChartViewDelegate,qLineChartUpda
     @IBAction func button3MAction(sender: AnyObject) {
         
         if let tempSymbol = self.symbol{
+            activeIndicator.startAnimating()
             Quote.sharedInstance.request3MonthChartData(tempSymbol, o: self, type: "LineChartView")
         }
     }
@@ -51,6 +56,7 @@ class QuoteLineViewController: UIViewController,ChartViewDelegate,qLineChartUpda
     @IBAction func button1YAction(sender: AnyObject) {
         
         if let tempSymbol = self.symbol{
+            activeIndicator.startAnimating()
             Quote.sharedInstance.request1YearChartData(tempSymbol, o: self, type: "LineChartView")
         }
     }
@@ -58,6 +64,7 @@ class QuoteLineViewController: UIViewController,ChartViewDelegate,qLineChartUpda
     @IBAction func button2YAction(sender: AnyObject) {
         
         if let tempSymbol = self.symbol{
+            activeIndicator.startAnimating()
             Quote.sharedInstance.request2YearChartData(tempSymbol, o: self, type: "LineChartView")
         }
     }
@@ -65,6 +72,7 @@ class QuoteLineViewController: UIViewController,ChartViewDelegate,qLineChartUpda
     @IBAction func button5YAction(sender: AnyObject) {
         
         if let tempSymbol = self.symbol{
+            activeIndicator.startAnimating()
             Quote.sharedInstance.request5YearChartData(tempSymbol, o: self, type: "LineChartView")
         }
     }
@@ -126,6 +134,8 @@ class QuoteLineViewController: UIViewController,ChartViewDelegate,qLineChartUpda
     }
     
     func updateLineChartData(data: LineChartData?) {
+        
+        activeIndicator.stopAnimating()
         
         if let d = data{
             lineChartView.data = d
