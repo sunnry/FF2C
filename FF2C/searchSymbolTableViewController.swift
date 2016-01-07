@@ -19,7 +19,7 @@ struct SimpleQuote {
 
 class searchSymbolTableViewController: UITableViewController,UISearchBarDelegate {
     
-    var searchSymbolBar:UISearchBar?
+    var searchSymbolBar:UISearchBarWithActivityIndicator?
     var resultArray:[SymbolDetail]?
     var delegate:quoteDelegate?
     
@@ -93,6 +93,7 @@ class searchSymbolTableViewController: UITableViewController,UISearchBarDelegate
     }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        searchSymbolBar?.startActivity()
         requestSymbol(searchText)
     }
     
@@ -101,6 +102,7 @@ class searchSymbolTableViewController: UITableViewController,UISearchBarDelegate
     }
     
     func dealJson(json:JSON){
+        searchSymbolBar?.finishActivity()
         
         resultArray?.removeAll()
         
