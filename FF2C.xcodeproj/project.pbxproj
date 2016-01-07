@@ -34,6 +34,7 @@
 		A382142E1C1566F7006A75C8 /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A382142D1C1566F7006A75C8 /* CAPSPageMenu.swift */; };
 		A385B7321C2E92900039F1CC /* QuoteDetailTableVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A385B7311C2E92900039F1CC /* QuoteDetailTableVIewController.swift */; };
 		A385B7341C2E92B80039F1CC /* QuoteDetailTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A385B7331C2E92B80039F1CC /* QuoteDetailTableViewController.xib */; };
+		A3D128DA1C3E36D10039DACF /* UISearchBarWithActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D128D91C3E36D10039DACF /* UISearchBarWithActivityIndicator.swift */; };
 		A3D77E3D1C27CB0A0075CF33 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D77E3C1C27CB0A0075CF33 /* Quote.swift */; };
 		A3FCA9411C3A1DB1000395B5 /* QuoteDetailCommonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3FCA9401C3A1DB1000395B5 /* QuoteDetailCommonCell.xib */; };
 		A3FCA9451C3A1DCB000395B5 /* QuoteDetailCommonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FCA9441C3A1DCB000395B5 /* QuoteDetailCommonCell.swift */; };
@@ -140,6 +141,7 @@
 		A382142D1C1566F7006A75C8 /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAPSPageMenu.swift; sourceTree = "<group>"; };
 		A385B7311C2E92900039F1CC /* QuoteDetailTableVIewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteDetailTableVIewController.swift; sourceTree = "<group>"; };
 		A385B7331C2E92B80039F1CC /* QuoteDetailTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuoteDetailTableViewController.xib; sourceTree = "<group>"; };
+		A3D128D91C3E36D10039DACF /* UISearchBarWithActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISearchBarWithActivityIndicator.swift; sourceTree = "<group>"; };
 		A3D77E3C1C27CB0A0075CF33 /* Quote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		A3FCA9401C3A1DB1000395B5 /* QuoteDetailCommonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuoteDetailCommonCell.xib; sourceTree = "<group>"; };
 		A3FCA9441C3A1DCB000395B5 /* QuoteDetailCommonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteDetailCommonCell.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 		A3FDC3271C3244DB000E31A9 /* components */ = {
 			isa = PBXGroup;
 			children = (
+				A3D128D91C3E36D10039DACF /* UISearchBarWithActivityIndicator.swift */,
 				A3FDC32A1C324524000E31A9 /* QuoteLineViewController.swift */,
 				A3FDC3281C32450D000E31A9 /* QuoteLineViewController.xib */,
 			);
@@ -539,6 +542,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3FCA9451C3A1DCB000395B5 /* QuoteDetailCommonCell.swift in Sources */,
+				A3D128DA1C3E36D10039DACF /* UISearchBarWithActivityIndicator.swift in Sources */,
 				A372140C1C18012300EAD891 /* SettingTableViewCell.swift in Sources */,
 				A38214011C156533006A75C8 /* ViewController.swift in Sources */,
 				A37F7B9F1C1A949700DD008D /* AddPortFolioCell.swift in Sources */,

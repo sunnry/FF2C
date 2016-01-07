@@ -26,7 +26,7 @@ class searchSymbolTableViewController: UITableViewController,UISearchBarDelegate
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
-        searchSymbolBar = UISearchBar()
+        searchSymbolBar = UISearchBarWithActivityIndicator()
         searchSymbolBar?.showsCancelButton = true
         searchSymbolBar?.delegate = self
         
