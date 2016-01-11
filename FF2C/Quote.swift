@@ -94,11 +94,14 @@ class Quote:qDelegate {
     
     var fiveYear:String?
     
+    var xmlParser:SymbolXmlParser?
+    
     static let sharedInstance:Quote = {
        return Quote()
     }()
     
     init(){
+        xmlParser = SymbolXmlParser()
         
         today = caculateToday()
         
@@ -121,6 +124,12 @@ class Quote:qDelegate {
         let editCell:SymbolDetail = SymbolDetail(symbol: "EDITCELL", Name: nil, daysHigh: nil, daysLLow: nil, yearHigh: nil, yearLow: nil, dayChange: nil, averageDailyVolume: nil, lastTradePrice: nil, marketCap:nil )
         
         symbolArray.append(editCell)
+        
+        if let loadArray = xmlParser?.loadXmlResources(){
+            for item in loadArray{
+                symbolArray.append(item)
+            }
+        }
     }
     
     //return true = exit, return false = not existed
@@ -163,6 +172,7 @@ class Quote:qDelegate {
                 symbolArray.append(s)
             }
         }
+        xmlParser?.saveXmlResources()
     }
     
     func delSymbol(s: String) {
@@ -175,6 +185,7 @@ class Quote:qDelegate {
             }
             
         }
+        xmlParser?.saveXmlResources()
     }
     
     func updateSymbol(name: String, s: SymbolDetail) {

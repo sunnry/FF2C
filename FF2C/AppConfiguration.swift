@@ -12,6 +12,13 @@ import CoreGraphics
 
 
 struct AppConfiguration {
+    
+    struct XmlParser {
+        static let name = "symbols"
+        static let format = "xml"
+        static let fullname = "symbols.xml"
+    }
+    
     struct SettingTableViewConfig {
         static let SectionNum:Int = 1
         static let TotoalCellNum:Int = 5
