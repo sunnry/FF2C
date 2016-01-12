@@ -23,6 +23,9 @@ class PortFolioTableViewController :UITableViewController,quoteDelegate{
     override func viewDidLoad(){
         super.viewDidLoad()
         
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl?.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
+        
         self.tableView.registerNib(UINib(nibName: "PortFolioHoldCell", bundle: nil), forCellReuseIdentifier: "PortFolioHoldCell")
         
         self.tableView.registerNib(UINib(nibName: "AddPortFolioCell", bundle: nil), forCellReuseIdentifier: "AddPortFolioCell")
@@ -30,6 +33,9 @@ class PortFolioTableViewController :UITableViewController,quoteDelegate{
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
     }
     
+    func refresh(refreshControl:UIRefreshControl){
+        refreshControl.endRefreshing()
+    }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return AppConfiguration.PortFolioTableViewConfig.SectionNum
