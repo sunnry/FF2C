@@ -14,7 +14,6 @@ class AddPortFolioCell: UITableViewCell {
     
     @IBOutlet weak var addButton: UIButton!
     
-    @IBOutlet weak var DelButton: UIButton!
     
     weak var delegate:quoteDelegate?
     
