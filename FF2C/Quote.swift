@@ -21,10 +21,14 @@ protocol qLineChartUpdate{
     func updateLineChartData(data : LineChartData?)
 }
 
+protocol PortFolioUpdate{
+    func updateAllPortFolio(update:Bool)
+}
+
 protocol qDelegate {
     func addSymbol(s:SymbolDetail)
     func delSymbol(s:String)
-    func updateSymbol(name:String,s:SymbolDetail)
+    func updateSymbol(s:SymbolDetail)
     func count()->Int
     func indexItem(index:Int)->SymbolDetail?
 }
@@ -74,6 +78,9 @@ struct SymbolDetail{
 class Quote:qDelegate {
 
     var chartDelegate:AnyObject?
+    var chartDelegateType:String?
+    
+    var delegate:AnyObject?
     var delegateType:String?
     
     var symbolArray:[SymbolDetail]!
@@ -188,7 +195,23 @@ class Quote:qDelegate {
         xmlParser?.saveXmlResources()
     }
     
-    func updateSymbol(name: String, s: SymbolDetail) {
+    func updateSymbol(s: SymbolDetail) {
+        if let symbol = s.symbol{
+            if symbolExited(symbol) == true{
+                for i in 0...(symbolArray.count - 1){
+                    if symbolArray[i].symbol?.uppercaseString == symbol.uppercaseString{
+                        symbolArray[i].dayChange = s.dayChange
+                        symbolArray[i].daysHigh = s.daysHigh
+                        symbolArray[i].daysLLow = s.daysLLow
+                        symbolArray[i].lastTradePrice = s.lastTradePrice
+                        symbolArray[i].marketCap = s.marketCap
+                        symbolArray[i].yearHigh = s.yearHigh
+                        symbolArray[i].yearLow = s.yearLow
+                        symbolArray[i].averageDailyVolume = s.averageDailyVolume
+                    }
+                }
+            }
+        }
         //symbolArray?.updateValue(s, forKey: name)
     }
     
@@ -368,7 +391,7 @@ class Quote:qDelegate {
         
         data.setDrawValues(true)
         
-        if delegateType == "LineChartView"{
+        if chartDelegateType == "LineChartView"{
             if let d = chartDelegate as? QuoteLineViewController{
                 d.updateLineChartData(data)
             }
@@ -379,7 +402,7 @@ class Quote:qDelegate {
     
     func request5DChartData(symbol:String,o:AnyObject,type:String){
         chartDelegate = o
-        delegateType = type
+        chartDelegateType = type
         
         if let t = today{
             if let fiveD = fiveDay{
@@ -411,7 +434,7 @@ class Quote:qDelegate {
     func requestOneMonthChartData(symbol:String,o:AnyObject,type:String){
         
         chartDelegate = o
-        delegateType = type
+        chartDelegateType = type
         
         if let t = today{
             if let agoMonth = monthAgo{
@@ -442,7 +465,7 @@ class Quote:qDelegate {
     func request3MonthChartData(symbol:String,o:AnyObject,type:String){
         
         chartDelegate = o
-        delegateType = type
+        chartDelegateType = type
         
         if let t = today{
             if let threeMonth = threeMonthAgo{
@@ -473,7 +496,7 @@ class Quote:qDelegate {
     func request1YearChartData(symbol:String,o:AnyObject,type:String){
         
         chartDelegate = o
-        delegateType = type
+        chartDelegateType = type
         
         if let t = today{
             if let oneY = oneYear{
@@ -544,7 +567,7 @@ class Quote:qDelegate {
         
         data.setDrawValues(true)
         
-        if delegateType == "LineChartView"{
+        if chartDelegateType == "LineChartView"{
             if let d = chartDelegate as? QuoteLineViewController{
                 d.updateLineChartData(data)
             }
@@ -554,7 +577,7 @@ class Quote:qDelegate {
     func request2YearChartData(symbol:String,o:AnyObject,type:String){
         
         chartDelegate = o
-        delegateType = type
+        chartDelegateType = type
         
             if let twoY = twoYear{
                 let request:String = "https://www.quandl.com/api/v3/datasets/WIKI/" + symbol + ".json"
@@ -583,7 +606,7 @@ class Quote:qDelegate {
     func request5YearChartData(symbol:String,o:AnyObject,type:String){
         
         chartDelegate = o
-        delegateType = type
+        chartDelegateType = type
         
         if let fiveY = fiveYear{
             let request:String = "https://www.quandl.com/api/v3/datasets/WIKI/" + symbol + ".json"
@@ -606,6 +629,147 @@ class Quote:qDelegate {
             
         }
         
+    }
+    
+    
+    func dealSymbolsJson(json:JSON){
+        let quoteJson = json["query"]["results"]["quote"]
+        
+        let count = quoteJson.count
+        
+        if count > 0{
+            
+            var c = count - 1
+            
+            while c >= 0{
+                let jsonItem = quoteJson[c]
+                print(jsonItem)
+                
+                if let name = jsonItem["Name"].string{
+                    if let symbol = jsonItem["symbol"].string{
+                
+                        var detail:SymbolDetail = SymbolDetail()
+                        detail.Name = name
+                        detail.symbol = symbol.uppercaseString
+                        
+                        if let price = jsonItem["LastTradePriceOnly"].string{
+                            detail.lastTradePrice = price
+                        }else{
+                            detail.lastTradePrice = "N/A"
+                        }
+                
+                        if let change = jsonItem["Change"].string{
+                            detail.dayChange = change
+                        }else{
+                            detail.dayChange = "N/A"
+                        }
+                
+                        if let dh = jsonItem["DaysHigh"].string{
+                            detail.daysHigh = dh
+                        }else{
+                            detail.daysHigh = "N/A"
+                        }
+                
+                        if let dl = jsonItem["DaysLow"].string{
+                            detail.daysLLow = dl
+                        }else{
+                            detail.daysLLow = "N/A"
+                        }
+                
+                        if let adv = jsonItem["AverageDailyVolume"].string{
+                            detail.averageDailyVolume = adv
+                        }else{
+                            detail.averageDailyVolume = "N/A"
+                        }
+                
+                        if let yh = jsonItem["YearHigh"].string{
+                            detail.yearHigh = yh
+                        }else{
+                            detail.yearHigh = "N/A"
+                        }
+                
+                        if let yl = jsonItem["YearLow"].string{
+                            detail.yearLow = yl
+                        }else{
+                            detail.yearLow = "N/A"
+                        }
+                
+                        if let mc = jsonItem["MarketCapitalization"].string{
+                            detail.marketCap = mc
+                        }else{
+                            detail.marketCap = "N/A"
+                        }
+                        
+                        self.updateSymbol(detail)
+                    }
+                }
+                c = c - 1
+            }
+        }
+        
+        if delegateType == "PortFolioTableViewController"{
+            if let d = delegate as? PortFolioTableViewController{
+                d.updateAllPortFolio(true)
+            }
+        }
+        
+    }
+    
+    func requestSymbols(symbols:String?){
+        if let s = symbols{
+            let urlString:URLStringConvertible = "https://query.yahooapis.com/v1/public/yql"
+            let sql:String = "select * from yahoo.finance.quote where symbol in" + s
+            let params:[String:AnyObject]? = ["q":sql,"format":"json","diagnostics":"true","env":"store://datatables.org/alltableswithkeys"]
+ 
+            Alamofire.request(.GET, urlString, parameters: params).responseJSON{response in
+                switch response.result{
+                case .Success(let _):
+                    if let value = response.result.value{
+                        let json = JSON(value)
+                        //print(json)
+                        self.dealSymbolsJson(json)
+                    }
+                    
+                case .Failure(let error):
+                    print("\(error)")
+                }
+            }
+            
+        }else{
+            if delegateType == "PortFolioTableViewController"{
+                if let d = delegate as? PortFolioTableViewController{
+                    d.updateAllPortFolio(false)
+                }
+            }
+        }
+    }
+    
+    func refreshPortfolio(d:AnyObject,type:String){
+        delegate = d
+        delegateType = type
+        
+        var symbols:String = "("
+        var n:Int = 0
+        
+        for item in symbolArray{
+            if item.symbol == "EDITCELL"{
+                continue
+            }else{
+                if let s = item.symbol{
+                    symbols = symbols + "\"" + s + "\"" + ","
+                    n = n + 1
+                }
+            }
+        }
+        
+        if n > 0{ //make sure symbols not empty
+            symbols = symbols.substringToIndex(symbols.endIndex.predecessor()) //remove last ","
+            symbols = symbols + ")"
+            print(symbols)
+            requestSymbols(symbols)
+        }else{
+            requestSymbols(nil)
+        }
     }
     
     

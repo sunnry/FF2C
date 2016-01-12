@@ -15,7 +15,7 @@ protocol quoteDelegate:class{
 }
 
 
-class PortFolioTableViewController :UITableViewController,quoteDelegate{
+class PortFolioTableViewController :UITableViewController,quoteDelegate,PortFolioUpdate{
     
     var itemArray:[String] = ["隐私和条款","报告Bug","点赞","退出","empty"]
     var itemImgArray:[String] = ["term","bugs","love","exit","exit"]
@@ -34,7 +34,16 @@ class PortFolioTableViewController :UITableViewController,quoteDelegate{
     }
     
     func refresh(refreshControl:UIRefreshControl){
-        refreshControl.endRefreshing()
+        Quote.sharedInstance.refreshPortfolio(self,type:"PortFolioTableViewController")
+    }
+    
+    func updateAllPortFolio(update: Bool) {
+        if update == false{
+            self.refreshControl?.endRefreshing()
+        }else{
+            self.refreshControl?.endRefreshing()
+            self.tableView.reloadData()
+        }
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
