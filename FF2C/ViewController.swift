@@ -35,6 +35,10 @@ class ViewController: UIViewController {
         folioCtrl.title = "持仓"
         ctrlArray.append(folioCtrl)
         
+        let investCtrl:InvestCollectionViewController = InvestCollectionViewController(nibName:"InvestCollectionViewController",bundle: nil)
+        investCtrl.title = "主题"
+        ctrlArray.append(investCtrl)
+        
         let settingCtrl:SettingTableViewController = SettingTableViewController(nibName: "SettingTableViewController", bundle: nil)
         settingCtrl.title = "设置"
         ctrlArray.append(settingCtrl)

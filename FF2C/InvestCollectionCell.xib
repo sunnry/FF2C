@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="0vD-zQ-zGu" customClass="InvestCollectionCell" customModule="FF2C" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DeH-cc-rui">
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+                    </imageView>
+                    <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tXa-Dw-GcE">
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1nR-eH-AS2">
+                                <rect key="frame" x="35" y="18" width="180" height="180"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="8" y="8" width="139" height="139"/>
+                                </variation>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xoQ-pM-15G">
+                                <rect key="frame" x="2" y="206" width="246" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1nR-eH-AS2" firstAttribute="leading" secondItem="tXa-Dw-GcE" secondAttribute="leading" constant="35" id="46y-7V-mhV"/>
+                            <constraint firstAttribute="trailing" secondItem="xoQ-pM-15G" secondAttribute="trailing" constant="2" id="NNb-N3-Ns0"/>
+                            <constraint firstAttribute="trailing" secondItem="1nR-eH-AS2" secondAttribute="trailing" constant="35" id="OUe-qa-TpX"/>
+                            <constraint firstItem="1nR-eH-AS2" firstAttribute="top" secondItem="tXa-Dw-GcE" secondAttribute="top" constant="18" id="RHc-T7-vQX"/>
+                            <constraint firstAttribute="bottom" secondItem="xoQ-pM-15G" secondAttribute="bottom" constant="23" id="T4q-yI-5Hi"/>
+                            <constraint firstAttribute="bottom" secondItem="1nR-eH-AS2" secondAttribute="bottom" constant="52" id="Wcv-Rw-Xlo"/>
+                            <constraint firstItem="xoQ-pM-15G" firstAttribute="top" secondItem="1nR-eH-AS2" secondAttribute="bottom" constant="8" id="Xs6-iJ-4oz"/>
+                            <constraint firstItem="xoQ-pM-15G" firstAttribute="leading" secondItem="tXa-Dw-GcE" secondAttribute="leading" constant="2" id="dAt-AL-SUC"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="tXa-Dw-GcE" firstAttribute="leading" secondItem="0vD-zQ-zGu" secondAttribute="leading" id="9tU-vh-1dU"/>
+                <constraint firstAttribute="bottom" secondItem="tXa-Dw-GcE" secondAttribute="bottom" id="H64-Na-Aul"/>
+                <constraint firstAttribute="trailing" secondItem="DeH-cc-rui" secondAttribute="trailing" id="LTY-ex-rmr"/>
+                <constraint firstAttribute="bottom" secondItem="DeH-cc-rui" secondAttribute="bottom" id="NQb-tf-ZhA"/>
+                <constraint firstItem="tXa-Dw-GcE" firstAttribute="top" secondItem="0vD-zQ-zGu" secondAttribute="top" id="PCu-Go-NfI"/>
+                <constraint firstAttribute="trailing" secondItem="tXa-Dw-GcE" secondAttribute="trailing" id="SUg-3P-2ga"/>
+                <constraint firstItem="DeH-cc-rui" firstAttribute="top" secondItem="0vD-zQ-zGu" secondAttribute="top" id="gDa-ci-8th"/>
+                <constraint firstItem="DeH-cc-rui" firstAttribute="leading" secondItem="0vD-zQ-zGu" secondAttribute="leading" id="ybc-3K-AZH"/>
+            </constraints>
+            <size key="customSize" width="97" height="85"/>
+            <connections>
+                <outlet property="backgroundImgView" destination="DeH-cc-rui" id="jxP-zz-Kio"/>
+                <outlet property="iconImageView" destination="1nR-eH-AS2" id="cSo-GR-L3S"/>
+                <outlet property="imageLabel" destination="xoQ-pM-15G" id="XCc-QB-d5n"/>
+            </connections>
+            <point key="canvasLocation" x="308" y="280"/>
+        </collectionViewCell>
+    </objects>
+</document>

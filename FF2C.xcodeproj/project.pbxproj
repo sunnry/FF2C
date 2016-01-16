@@ -34,6 +34,10 @@
 		A382142E1C1566F7006A75C8 /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A382142D1C1566F7006A75C8 /* CAPSPageMenu.swift */; };
 		A385B7321C2E92900039F1CC /* QuoteDetailTableVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A385B7311C2E92900039F1CC /* QuoteDetailTableVIewController.swift */; };
 		A385B7341C2E92B80039F1CC /* QuoteDetailTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A385B7331C2E92B80039F1CC /* QuoteDetailTableViewController.xib */; };
+		A3AA2FDB1C474F2A0087E9BF /* InvestCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3AA2FDA1C474F2A0087E9BF /* InvestCollectionViewController.xib */; };
+		A3AA2FDF1C474F620087E9BF /* InvestCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AA2FDE1C474F620087E9BF /* InvestCollectionViewController.swift */; };
+		A3AA2FE11C4754340087E9BF /* InvestCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AA2FE01C4754340087E9BF /* InvestCollectionCell.swift */; };
+		A3AA2FE31C4754510087E9BF /* InvestCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3AA2FE21C4754510087E9BF /* InvestCollectionCell.xib */; };
 		A3D128DA1C3E36D10039DACF /* UISearchBarWithActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D128D91C3E36D10039DACF /* UISearchBarWithActivityIndicator.swift */; };
 		A3D77E3D1C27CB0A0075CF33 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D77E3C1C27CB0A0075CF33 /* Quote.swift */; };
 		A3EC612F1C3F78D4000A41A7 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EC612E1C3F78D4000A41A7 /* GDataXMLNode.m */; };
@@ -143,6 +147,10 @@
 		A382142D1C1566F7006A75C8 /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAPSPageMenu.swift; sourceTree = "<group>"; };
 		A385B7311C2E92900039F1CC /* QuoteDetailTableVIewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteDetailTableVIewController.swift; sourceTree = "<group>"; };
 		A385B7331C2E92B80039F1CC /* QuoteDetailTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuoteDetailTableViewController.xib; sourceTree = "<group>"; };
+		A3AA2FDA1C474F2A0087E9BF /* InvestCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvestCollectionViewController.xib; sourceTree = "<group>"; };
+		A3AA2FDE1C474F620087E9BF /* InvestCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvestCollectionViewController.swift; sourceTree = "<group>"; };
+		A3AA2FE01C4754340087E9BF /* InvestCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvestCollectionCell.swift; sourceTree = "<group>"; };
+		A3AA2FE21C4754510087E9BF /* InvestCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvestCollectionCell.xib; sourceTree = "<group>"; };
 		A3D128D91C3E36D10039DACF /* UISearchBarWithActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISearchBarWithActivityIndicator.swift; sourceTree = "<group>"; };
 		A3D77E3C1C27CB0A0075CF33 /* Quote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		A3EC612C1C3F78D3000A41A7 /* FF2C-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FF2C-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -202,6 +210,8 @@
 				A33A6A5B1C227A650034EA87 /* searchSymbolTableView.xib */,
 				A385B7311C2E92900039F1CC /* QuoteDetailTableVIewController.swift */,
 				A385B7331C2E92B80039F1CC /* QuoteDetailTableViewController.xib */,
+				A3AA2FDE1C474F620087E9BF /* InvestCollectionViewController.swift */,
+				A3AA2FDA1C474F2A0087E9BF /* InvestCollectionViewController.xib */,
 			);
 			name = "view controllers";
 			sourceTree = "<group>";
@@ -221,6 +231,8 @@
 				A3422AE41C310D6E0014CE41 /* QuoteDetailPriceChangeCell.xib */,
 				A3FCA9441C3A1DCB000395B5 /* QuoteDetailCommonCell.swift */,
 				A3FCA9401C3A1DB1000395B5 /* QuoteDetailCommonCell.xib */,
+				A3AA2FE01C4754340087E9BF /* InvestCollectionCell.swift */,
+				A3AA2FE21C4754510087E9BF /* InvestCollectionCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -483,9 +495,11 @@
 				A37F7B931C1A6A8300DD008D /* PortFolioHoldCell.xib in Resources */,
 				A3422ADF1C30F7590014CE41 /* QuoteDetailNameCell.xib in Resources */,
 				A372140E1C18014200EAD891 /* SettingTableViewCell.xib in Resources */,
+				A3AA2FDB1C474F2A0087E9BF /* InvestCollectionViewController.xib in Resources */,
 				A3FCA9411C3A1DB1000395B5 /* QuoteDetailCommonCell.xib in Resources */,
 				A3422AE51C310D6E0014CE41 /* QuoteDetailPriceChangeCell.xib in Resources */,
 				A38214041C156533006A75C8 /* Main.storyboard in Resources */,
+				A3AA2FE31C4754510087E9BF /* InvestCollectionCell.xib in Resources */,
 				A33A6A5C1C227A650034EA87 /* searchSymbolTableView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -562,10 +576,12 @@
 				A3FCA9451C3A1DCB000395B5 /* QuoteDetailCommonCell.swift in Sources */,
 				A3D128DA1C3E36D10039DACF /* UISearchBarWithActivityIndicator.swift in Sources */,
 				A372140C1C18012300EAD891 /* SettingTableViewCell.swift in Sources */,
+				A3AA2FDF1C474F620087E9BF /* InvestCollectionViewController.swift in Sources */,
 				A38214011C156533006A75C8 /* ViewController.swift in Sources */,
 				A37F7B9F1C1A949700DD008D /* AddPortFolioCell.swift in Sources */,
 				A3EC612F1C3F78D4000A41A7 /* GDataXMLNode.m in Sources */,
 				A37F7B951C1A6CD800DD008D /* PortFolioTableViewController.swift in Sources */,
+				A3AA2FE11C4754340087E9BF /* InvestCollectionCell.swift in Sources */,
 				A3422AE31C310CFA0014CE41 /* QuoteDetailPriceChangeCell.swift in Sources */,
 				A37214091C17FD0400EAD891 /* AppConfiguration.swift in Sources */,
 				A3EC61351C3F85BE000A41A7 /* SymbolXmlParser.swift in Sources */,
