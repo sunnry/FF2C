@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         
-        self.title = "菜鸟财经"
+        self.title = "Curve"
         self.navigationController?.navigationBar.barTintColor = UIColor(red:20.0/255.0,green:20.0/255.0,blue:20.0/255.0,alpha:1.0)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
@@ -32,15 +32,15 @@ class ViewController: UIViewController {
         var ctrlArray :[UIViewController] = []
         
         let folioCtrl:UITableViewController = PortFolioTableViewController(nibName: "PortFolioTableViewController", bundle: nil)
-        folioCtrl.title = "持仓"
+        folioCtrl.title = "Portfolio"
         ctrlArray.append(folioCtrl)
         
         let investCtrl:InvestCollectionViewController = InvestCollectionViewController(nibName:"InvestCollectionViewController",bundle: nil)
-        investCtrl.title = "主题"
+        investCtrl.title = "Macro"
         ctrlArray.append(investCtrl)
         
         let settingCtrl:SettingTableViewController = SettingTableViewController(nibName: "SettingTableViewController", bundle: nil)
-        settingCtrl.title = "设置"
+        settingCtrl.title = "Settings"
         ctrlArray.append(settingCtrl)
         
         let params:[CAPSPageMenuOption] = [
@@ -49,7 +49,7 @@ class ViewController: UIViewController {
             .SelectionIndicatorColor(UIColor.orangeColor()),
             .AddBottomMenuHairline(false),
             //.MenuItemFont(UIFont(name: "HelveticaNeue", size: 24.0)!),
-            .MenuItemFont(UIFont(name: "Heiti SC", size: 24.0)!),
+            .MenuItemFont(UIFont(name: "Heiti SC", size: 18.0)!),
             .MenuHeight(50.0),
             .SelectionIndicatorHeight(3.0),
             .MenuItemWidthBasedOnTitleTextWidth(true),

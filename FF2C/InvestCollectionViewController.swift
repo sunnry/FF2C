@@ -49,5 +49,28 @@ class InvestCollectionViewController: UICollectionViewController,UICollectionVie
         return size
     }
     
+    override func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
+        //print("highlight item \(indexPath.row)")
+        
+        if let cell:InvestCollectionCell = collectionView.cellForItemAtIndexPath(indexPath) as? InvestCollectionCell{
+            
+            cell.iconImageView.image = UIImage(named: "plus")
+        }
+        
+    }
+    
+    override func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath) {
+        //print("unhighlight item \(indexPath.row)")
+        
+        if let cell:InvestCollectionCell = collectionView.cellForItemAtIndexPath(indexPath) as? InvestCollectionCell{
+            cell.iconImageView.image = UIImage(named:"term")
+        }
+        
+    }
+    
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        //print("sel item \(indexPath.row)")
+    }
+    
     
 }
