@@ -70,6 +70,17 @@ class InvestCollectionViewController: UICollectionViewController,UICollectionVie
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         //print("sel item \(indexPath.row)")
+        
+        if indexPath.row == 0{
+            let macroVC = MacroScrollViewController(nibName: "MacroScrollViewController", bundle: nil,mask: .OIL)
+            
+            let nvController:UINavigationController = UINavigationController(rootViewController: macroVC)
+            nvController.navigationBar.barStyle = UIBarStyle.Default
+            
+            self.presentViewController(nvController, animated: true, completion: nil)
+
+        }
+        
     }
     
     
