@@ -11,6 +11,33 @@ import Alamofire
 import SwiftyJSON
 import Charts
 
+enum DataTimeSteps{
+    case FiveDay
+    case OneMonth
+    case ThreeMonth
+    case OneYear
+    case TwoYear
+    case FiveYear
+}
+
+enum DataSourceType{
+    case quandl_oil_weekly_stock_report
+    case yql
+}
+
+struct DataSourceParseXYPositon{
+    static let defaultX = 0
+    static let defaultY = 1
+    
+    static let QuandlOilWeeklyStockReportX = 0
+    static let QuandlOilWeeklyStockReportY = 1
+}
+
+enum ViewType{
+    case UniversalLineCharView
+    case LineChartView
+}
+
 extension Float{
     func format(f:String)->String{
         return NSString(format: "%\(f)f", self) as String
@@ -78,7 +105,7 @@ struct SymbolDetail{
 class Quote:qDelegate {
 
     var chartDelegate:AnyObject?
-    var chartDelegateType:String?
+    var chartDelegateType:ViewType?
     
     var delegate:AnyObject?
     var delegateType:String?
@@ -391,7 +418,7 @@ class Quote:qDelegate {
         
         data.setDrawValues(true)
         
-        if chartDelegateType == "LineChartView"{
+        if chartDelegateType == .LineChartView{
             if let d = chartDelegate as? QuoteLineViewController{
                 d.updateLineChartData(data)
             }
@@ -400,7 +427,7 @@ class Quote:qDelegate {
     }
     
     
-    func request5DChartData(symbol:String,o:AnyObject,type:String){
+    func request5DChartData(symbol:String,o:AnyObject?,type:ViewType?){
         chartDelegate = o
         chartDelegateType = type
         
@@ -431,7 +458,7 @@ class Quote:qDelegate {
     }
     
     
-    func requestOneMonthChartData(symbol:String,o:AnyObject,type:String){
+    func requestOneMonthChartData(symbol:String,o:AnyObject,type:ViewType?){
         
         chartDelegate = o
         chartDelegateType = type
@@ -462,7 +489,7 @@ class Quote:qDelegate {
     }
     
     
-    func request3MonthChartData(symbol:String,o:AnyObject,type:String){
+    func request3MonthChartData(symbol:String,o:AnyObject,type:ViewType?){
         
         chartDelegate = o
         chartDelegateType = type
@@ -493,7 +520,7 @@ class Quote:qDelegate {
     }
     
     
-    func request1YearChartData(symbol:String,o:AnyObject,type:String){
+    func request1YearChartData(symbol:String,o:AnyObject,type:ViewType?){
         
         chartDelegate = o
         chartDelegateType = type
@@ -522,7 +549,6 @@ class Quote:qDelegate {
             }
         }
     }
-    
     
     enum WIKIStock:Int{
         case Date = 0,Open,High,Low,Close,Volume,ExDividend,SplitRatio,AdjOpen,AdjHigh,AdjLow,AdjClose,AdjVolume
@@ -567,14 +593,14 @@ class Quote:qDelegate {
         
         data.setDrawValues(true)
         
-        if chartDelegateType == "LineChartView"{
+        if chartDelegateType == .LineChartView{
             if let d = chartDelegate as? QuoteLineViewController{
                 d.updateLineChartData(data)
             }
         }
     }
     
-    func request2YearChartData(symbol:String,o:AnyObject,type:String){
+    func request2YearChartData(symbol:String,o:AnyObject,type:ViewType?){
         
         chartDelegate = o
         chartDelegateType = type
@@ -603,7 +629,7 @@ class Quote:qDelegate {
     }
 
     
-    func request5YearChartData(symbol:String,o:AnyObject,type:String){
+    func request5YearChartData(symbol:String,o:AnyObject,type:ViewType?){
         
         chartDelegate = o
         chartDelegateType = type
@@ -772,9 +798,18 @@ class Quote:qDelegate {
         }
     }
     
-    func dealUniversalChartJsonData(json:JSON){
+    func dealUniversalChartJsonData(json:JSON,source:DataSourceType?,name:String?){
         var xVar:[NSObject]? = [NSObject]()
         var yVals:[ChartDataEntry]? = [ChartDataEntry]()
+        var xVarPos:Int = DataSourceParseXYPositon.defaultX
+        var yVarPos:Int = DataSourceParseXYPositon.defaultY
+        
+        if let s = source{
+            if s == .quandl_oil_weekly_stock_report{
+                xVarPos = DataSourceParseXYPositon.QuandlOilWeeklyStockReportX
+                yVarPos = DataSourceParseXYPositon.QuandlOilWeeklyStockReportY
+            }
+        }
         
         let jsonData = json["dataset"]["data"]
         
@@ -786,9 +821,9 @@ class Quote:qDelegate {
         while c >= 0{
             let jsonItem = jsonData[c]
             //print(jsonItem)
-            if let date = jsonItem[WIKIStock.Date.rawValue].string{
+            if let date = jsonItem[xVarPos].string{
                 xVar?.append(date)
-                if let close = jsonItem[1].double{
+                if let close = jsonItem[yVarPos].double{
                     yVals?.append(ChartDataEntry(value: close, xIndex: index))
                 }
             }
@@ -798,7 +833,7 @@ class Quote:qDelegate {
         }
         
         let dataSet:LineChartDataSet = LineChartDataSet(yVals: yVals)
-        dataSet.label = "WTI每周库存报告"
+        dataSet.label = name
         dataSet.drawCircleHoleEnabled = false
         dataSet.drawCirclesEnabled = false
         dataSet.drawFilledEnabled = true
@@ -809,29 +844,49 @@ class Quote:qDelegate {
         
         data.setDrawValues(true)
         
-        if self.chartDelegateType == "UniversalLineCharView"{
+        if self.chartDelegateType == .UniversalLineCharView{
             if let d = self.chartDelegate as? UniversalLineViewController{
                 d.updateLineChartData(data)
             }
         }
     }
     
-    func universalRequest(url:String?,params:[String:AnyObject]?,source:String?,o:AnyObject,type:String){
+    func universalRequest(name:String?,url:String?,time:DataTimeSteps?,source:DataSourceType?,o:AnyObject?,type:ViewType?){
         self.chartDelegate = o
         self.chartDelegateType = type
         
         if let s = source{
-            if s == "quandl"{
-                if let p = params{
-                    var param = p
+            var param = [String:AnyObject]()
+            if s == .quandl_oil_weekly_stock_report{
+                if let t = time{
+                    
+                    switch t{
+                    case .FiveDay:
+                            param["start_date"] = self.caculate5Day()
+                    case .OneMonth:
+                            param["start_date"] = self.caculateMonthAgoFromToday()
+                    case .ThreeMonth:
+                            param["start_date"] = self.caculate3MonthAgo()
+                    case .OneYear:
+                            param["start_date"] = self.caculate1YAgo()
+                    case .TwoYear:
+                            param["start_date"] = self.caculate2YAgo()
+                    case .FiveYear:
+                            param["start_date"] = self.caculate5YAgo()
+                    default:
+                            param["start_date"] = self.caculate2YAgo()
+                    
+                    }
+                    
                     param["auth_token"] = "LWz5Kzq7nR8_5cewDs76"
+                    
                     if let u = url{
                         Alamofire.request(.GET, u, parameters: param).responseJSON{response in
                             switch response.result{
                                 case .Success(let _):
                                     if let value = response.result.value{
                                         let json = JSON(value)
-                                        self.dealUniversalChartJsonData(json)
+                                        self.dealUniversalChartJsonData(json,source: source,name: name)
                                         print("\(json)")
                                     }
                             

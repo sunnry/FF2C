@@ -37,8 +37,8 @@ class UniversalLineViewController: UIViewController,ChartViewDelegate,qLineChart
     var symbol:String?
     
     var url:String?
-    var params:[String:AnyObject]?
-    var source:String?
+    var time:DataTimeSteps?
+    var source:DataSourceType?
     
     
     override func viewDidLoad() {
@@ -96,7 +96,7 @@ class UniversalLineViewController: UIViewController,ChartViewDelegate,qLineChart
         
     }
     
-    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?,des:String?,name:String?,symbol:String?,level:String?,url:String?,params:[String:AnyObject]?,source:String?) {
+    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?,des:String?,name:String?,symbol:String?,level:String?,url:String?,time:DataTimeSteps?,source:DataSourceType?) {
         
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
@@ -106,10 +106,10 @@ class UniversalLineViewController: UIViewController,ChartViewDelegate,qLineChart
         self.des = des
         
         self.url = url
-        self.params = params
+        self.time = time
         self.source = source
         
-        Quote.sharedInstance.universalRequest(url, params: params, source: source,o: self,type: "UniversalLineCharView")
+        Quote.sharedInstance.universalRequest(name,url: url, time: time, source: source,o: self,type:.UniversalLineCharView)
         
     }
 
@@ -127,9 +127,11 @@ class UniversalLineViewController: UIViewController,ChartViewDelegate,qLineChart
     }
     
     @IBAction func oneYearButtonClicked(sender: AnyObject) {
+        Quote.sharedInstance.universalRequest(self.name, url: self.url, time: .OneYear, source: self.source, o: self, type:.UniversalLineCharView)
     }
     
     @IBAction func fiveYearButtonClicked(sender: AnyObject) {
+        Quote.sharedInstance.universalRequest(self.name, url: self.url, time: .FiveYear, source: self.source, o: self, type:.UniversalLineCharView)
     }
     
     @IBAction func tenYearButtonClicked(sender: AnyObject) {

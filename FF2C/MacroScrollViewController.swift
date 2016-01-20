@@ -15,6 +15,17 @@ enum MacroScrollViewMask:Int{
     case US
 }
 
+struct UniversalParams{
+    struct EIA_WEEKLY_OIL{
+        static let url = "https://www.quandl.com/api/v3/datasets/FLYINGSQRL/WEEKLY_US_CRUDE_OIL_STOCKS.json"
+        static let name = "EIA每周库存周报"
+        static let level = "High"
+        static let source = DataSourceType.quandl_oil_weekly_stock_report
+    
+    }
+}
+
+
 class MacroScrollViewController: UIViewController,UIScrollViewDelegate {
     
     var backItem:UIBarButtonItem?
@@ -73,7 +84,7 @@ class MacroScrollViewController: UIViewController,UIScrollViewDelegate {
         
         if mask == MacroScrollViewMask.OIL{
             masks = mask
-            let universalVC = UniversalLineViewController(nibName: "UniversalLineViewController", bundle: nil, des: "美国能源署每周公布的能源库存报告是石油市场的重要报考", name: "EIA每周库存周报", symbol: "oil", level: "High",url: "https://www.quandl.com/api/v3/datasets/FLYINGSQRL/WEEKLY_US_CRUDE_OIL_STOCKS.json",params: ["start_date":"2013-01-08"],source: "quandl")
+            let universalVC = UniversalLineViewController(nibName: "UniversalLineViewController", bundle: nil, des: nil, name: UniversalParams.EIA_WEEKLY_OIL.name, symbol: nil, level: UniversalParams.EIA_WEEKLY_OIL.level,url: UniversalParams.EIA_WEEKLY_OIL.url,time:.TwoYear,source: UniversalParams.EIA_WEEKLY_OIL.source)
             
             ctrlsArray.append(universalVC)
             

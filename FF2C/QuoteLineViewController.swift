@@ -33,7 +33,7 @@ class QuoteLineViewController: UIViewController,ChartViewDelegate,qLineChartUpda
         
         if let tempSymbol = self.symbol{
             activeIndicator.startAnimating()
-            Quote.sharedInstance.request5DChartData(tempSymbol, o: self, type: "LineChartView")
+            Quote.sharedInstance.request5DChartData(tempSymbol, o: self, type:.LineChartView)
         }
     }
     
@@ -41,7 +41,7 @@ class QuoteLineViewController: UIViewController,ChartViewDelegate,qLineChartUpda
         
         if let tempSymbol = self.symbol{
             activeIndicator.startAnimating()
-            Quote.sharedInstance.requestOneMonthChartData(tempSymbol, o: self, type: "LineChartView")
+            Quote.sharedInstance.requestOneMonthChartData(tempSymbol, o: self, type: .LineChartView)
         }
     }
     
@@ -49,7 +49,7 @@ class QuoteLineViewController: UIViewController,ChartViewDelegate,qLineChartUpda
         
         if let tempSymbol = self.symbol{
             activeIndicator.startAnimating()
-            Quote.sharedInstance.request3MonthChartData(tempSymbol, o: self, type: "LineChartView")
+            Quote.sharedInstance.request3MonthChartData(tempSymbol, o: self, type: .LineChartView)
         }
     }
 
@@ -57,7 +57,7 @@ class QuoteLineViewController: UIViewController,ChartViewDelegate,qLineChartUpda
         
         if let tempSymbol = self.symbol{
             activeIndicator.startAnimating()
-            Quote.sharedInstance.request1YearChartData(tempSymbol, o: self, type: "LineChartView")
+            Quote.sharedInstance.request1YearChartData(tempSymbol, o: self, type: .LineChartView)
         }
     }
     
@@ -65,7 +65,7 @@ class QuoteLineViewController: UIViewController,ChartViewDelegate,qLineChartUpda
         
         if let tempSymbol = self.symbol{
             activeIndicator.startAnimating()
-            Quote.sharedInstance.request2YearChartData(tempSymbol, o: self, type: "LineChartView")
+            Quote.sharedInstance.request2YearChartData(tempSymbol, o: self, type: .LineChartView)
         }
     }
     
@@ -73,7 +73,7 @@ class QuoteLineViewController: UIViewController,ChartViewDelegate,qLineChartUpda
         
         if let tempSymbol = self.symbol{
             activeIndicator.startAnimating()
-            Quote.sharedInstance.request5YearChartData(tempSymbol, o: self, type: "LineChartView")
+            Quote.sharedInstance.request5YearChartData(tempSymbol, o: self, type: .LineChartView)
         }
     }
     
@@ -83,7 +83,7 @@ class QuoteLineViewController: UIViewController,ChartViewDelegate,qLineChartUpda
         self.symbol = symbol
         
         if let tempSymbol = symbol{
-            Quote.sharedInstance.requestOneMonthChartData(tempSymbol, o: self, type: "LineChartView")
+            Quote.sharedInstance.requestOneMonthChartData(tempSymbol, o: self, type: .LineChartView)
         }
     }
 
