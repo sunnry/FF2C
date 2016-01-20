@@ -28,9 +28,9 @@ class MacroScrollViewController: UIViewController,UIScrollViewDelegate {
         
         let count = ctrlsArray.count
         
+        let xoffset:CGFloat = 0
+        var yoffset:CGFloat = 0
         if count > 0{
-            var xoffset:CGFloat = 0
-            var yoffset:CGFloat = 0
             for ctrl in ctrlsArray{
                 let point = CGPoint(x: xoffset, y: yoffset)
                 let size = CGSize(width: self.view.frame.width, height: (self.view.frame.height/5)*3)
@@ -40,10 +40,19 @@ class MacroScrollViewController: UIViewController,UIScrollViewDelegate {
                 yoffset = ctrl.view.frame.height + yoffset
             }
         }
+        
+        if let v = self.view as? UIScrollView{
+            v.directionalLockEnabled = true
+            v.showsHorizontalScrollIndicator = true
+            let newSize = CGSizeMake(self.view.frame.width, yoffset)
+            v.contentSize = newSize
+        }
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.blackColor()
         
         self.navigationItem.leftBarButtonItem = backItem
 
@@ -64,9 +73,11 @@ class MacroScrollViewController: UIViewController,UIScrollViewDelegate {
         
         if mask == MacroScrollViewMask.OIL{
             masks = mask
-            let universalVC = UniversalLineViewController(nibName: "UniversalLineViewController", bundle: nil, des: "xxxxxxxxxxxx", name: "oil ", symbol: "oil", level: "High")
+            let universalVC = UniversalLineViewController(nibName: "UniversalLineViewController", bundle: nil, des: "美国能源署每周公布的能源库存报告是石油市场的重要报考", name: "EIA每周库存周报", symbol: "oil", level: "High",url: "https://www.quandl.com/api/v3/datasets/FLYINGSQRL/WEEKLY_US_CRUDE_OIL_STOCKS.json",params: ["start_date":"2013-01-08"],source: "quandl")
             
             ctrlsArray.append(universalVC)
+            
+            
         }
     }
 

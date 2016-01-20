@@ -772,5 +772,80 @@ class Quote:qDelegate {
         }
     }
     
+    func dealUniversalChartJsonData(json:JSON){
+        var xVar:[NSObject]? = [NSObject]()
+        var yVals:[ChartDataEntry]? = [ChartDataEntry]()
+        
+        let jsonData = json["dataset"]["data"]
+        
+        let count = jsonData.count
+        
+        var c = count - 1
+        var index:Int = 0
+        
+        while c >= 0{
+            let jsonItem = jsonData[c]
+            //print(jsonItem)
+            if let date = jsonItem[WIKIStock.Date.rawValue].string{
+                xVar?.append(date)
+                if let close = jsonItem[1].double{
+                    yVals?.append(ChartDataEntry(value: close, xIndex: index))
+                }
+            }
+            
+            index = index + 1
+            c = c - 1
+        }
+        
+        let dataSet:LineChartDataSet = LineChartDataSet(yVals: yVals)
+        dataSet.label = "WTI每周库存报告"
+        dataSet.drawCircleHoleEnabled = false
+        dataSet.drawCirclesEnabled = false
+        dataSet.drawFilledEnabled = true
+        
+        let data:LineChartData = LineChartData(xVals: xVar, dataSet: dataSet)
+        
+        data.setValueFont(UIFont.systemFontOfSize(5.0))
+        
+        data.setDrawValues(true)
+        
+        if self.chartDelegateType == "UniversalLineCharView"{
+            if let d = self.chartDelegate as? UniversalLineViewController{
+                d.updateLineChartData(data)
+            }
+        }
+    }
+    
+    func universalRequest(url:String?,params:[String:AnyObject]?,source:String?,o:AnyObject,type:String){
+        self.chartDelegate = o
+        self.chartDelegateType = type
+        
+        if let s = source{
+            if s == "quandl"{
+                if let p = params{
+                    var param = p
+                    param["auth_token"] = "LWz5Kzq7nR8_5cewDs76"
+                    if let u = url{
+                        Alamofire.request(.GET, u, parameters: param).responseJSON{response in
+                            switch response.result{
+                                case .Success(let _):
+                                    if let value = response.result.value{
+                                        let json = JSON(value)
+                                        self.dealUniversalChartJsonData(json)
+                                        print("\(json)")
+                                    }
+                            
+                                case .Failure(let error):
+                                    print("\(error)")
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+        
+    }
+    
     
 }

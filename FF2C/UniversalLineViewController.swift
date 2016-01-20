@@ -9,7 +9,7 @@
 import UIKit
 import Charts
 
-class UniversalLineViewController: UIViewController,ChartViewDelegate {
+class UniversalLineViewController: UIViewController,ChartViewDelegate,qLineChartUpdate {
     
     @IBOutlet weak var usualLineChartView: LineChartView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -35,6 +35,10 @@ class UniversalLineViewController: UIViewController,ChartViewDelegate {
     var name:String?
     var level:String?
     var symbol:String?
+    
+    var url:String?
+    var params:[String:AnyObject]?
+    var source:String?
     
     
     override func viewDidLoad() {
@@ -92,7 +96,7 @@ class UniversalLineViewController: UIViewController,ChartViewDelegate {
         
     }
     
-    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?,des:String?,name:String?,symbol:String?,level:String?) {
+    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?,des:String?,name:String?,symbol:String?,level:String?,url:String?,params:[String:AnyObject]?,source:String?) {
         
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
@@ -100,6 +104,12 @@ class UniversalLineViewController: UIViewController,ChartViewDelegate {
         self.symbol = symbol
         self.level = level
         self.des = des
+        
+        self.url = url
+        self.params = params
+        self.source = source
+        
+        Quote.sharedInstance.universalRequest(url, params: params, source: source,o: self,type: "UniversalLineCharView")
         
     }
 
@@ -123,6 +133,16 @@ class UniversalLineViewController: UIViewController,ChartViewDelegate {
     }
     
     @IBAction func tenYearButtonClicked(sender: AnyObject) {
+    }
+    
+    func updateLineChartData(data : LineChartData?){
+        if let d = data{
+            usualLineChartView.data = d
+            usualLineChartView.animate(xAxisDuration: 1.0, easingOption: ChartEasingOption.Linear)
+        }else{
+            usualLineChartView.noDataText = "由于网络问题，无法得到有效的数据源"
+        }
+
     }
     
     
