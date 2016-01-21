@@ -43,6 +43,7 @@ class UniversalLineViewController: UIViewController,ChartViewDelegate,qLineChart
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.indicator.startAnimating()
         
         if let description = self.des{
             descriptionLabel.text = description
@@ -96,7 +97,7 @@ class UniversalLineViewController: UIViewController,ChartViewDelegate,qLineChart
         
     }
     
-    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?,des:String?,name:String?,symbol:String?,level:String?,url:String?,time:DataTimeSteps?,source:DataSourceType?) {
+    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?,des:String?,name:String?,symbol:String?,level:String?,url:String?,time:DataTimeSteps?,source:DataSourceType?,startRequest:Bool?) {
         
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
@@ -109,7 +110,11 @@ class UniversalLineViewController: UIViewController,ChartViewDelegate,qLineChart
         self.time = time
         self.source = source
         
-        Quote.sharedInstance.universalRequest(name,url: url, time: time, source: source,o: self,type:.UniversalLineCharView)
+        if let b = startRequest{
+            if b == true{
+                Quote.sharedInstance.universalRequest(name,url: url, time: time, source: source,o: self,type:.UniversalLineCharView)
+            }
+        }
         
     }
 
@@ -118,26 +123,38 @@ class UniversalLineViewController: UIViewController,ChartViewDelegate,qLineChart
     }
     
     @IBAction func fiveDayButtonClicked(sender: AnyObject) {
+        self.indicator.startAnimating()
+        Quote.sharedInstance.universalRequest(self.name, url: self.url, time: .FiveDay, source: self.source, o: self, type:.UniversalLineCharView)
     }
     
     @IBAction func oneMonthButtonClicked(sender: AnyObject) {
+        self.indicator.startAnimating()
+        Quote.sharedInstance.universalRequest(self.name, url: self.url, time: .OneMonth, source: self.source, o: self, type:.UniversalLineCharView)
     }
     
     @IBAction func threeMonthButtonClicked(sender: AnyObject) {
+        self.indicator.startAnimating()
+        Quote.sharedInstance.universalRequest(self.name, url: self.url, time: .ThreeMonth, source: self.source, o: self, type:.UniversalLineCharView)        
     }
     
     @IBAction func oneYearButtonClicked(sender: AnyObject) {
+        self.indicator.startAnimating()
         Quote.sharedInstance.universalRequest(self.name, url: self.url, time: .OneYear, source: self.source, o: self, type:.UniversalLineCharView)
     }
     
     @IBAction func fiveYearButtonClicked(sender: AnyObject) {
+        self.indicator.startAnimating()
         Quote.sharedInstance.universalRequest(self.name, url: self.url, time: .FiveYear, source: self.source, o: self, type:.UniversalLineCharView)
     }
     
     @IBAction func tenYearButtonClicked(sender: AnyObject) {
+        self.indicator.startAnimating()
+        Quote.sharedInstance.universalRequest(self.name, url: self.url, time: .TenYear, source: self.source, o: self, type:.UniversalLineCharView)
     }
     
     func updateLineChartData(data : LineChartData?){
+        self.indicator.stopAnimating()
+        
         if let d = data{
             usualLineChartView.data = d
             usualLineChartView.animate(xAxisDuration: 1.0, easingOption: ChartEasingOption.Linear)

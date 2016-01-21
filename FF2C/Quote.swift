@@ -18,10 +18,12 @@ enum DataTimeSteps{
     case OneYear
     case TwoYear
     case FiveYear
+    case TenYear
 }
 
 enum DataSourceType{
     case quandl_oil_weekly_stock_report
+    case quandl_oil_opec_price
     case yql
 }
 
@@ -378,6 +380,28 @@ class Quote:qDelegate {
         
         return nil
     }
+    
+    func caculate10YAgo()->String?{
+        let calendar = NSCalendar.currentCalendar()
+        
+        let components = calendar.components([NSCalendarUnit.Year,NSCalendarUnit.Month, NSCalendarUnit.Day,NSCalendarUnit.Hour], fromDate: NSDate())
+        
+        components.year = components.year - 10
+        
+        let date = calendar.dateFromComponents(components)
+        
+        let formatter:NSDateFormatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        if let d = date{
+            let dateString = formatter.stringFromDate(d)
+            //print("10Y = \(dateString)")
+            return dateString
+        }
+        
+        return nil
+    }
+    
     
     func dealHistoryChartJsonData(json:JSON,symbol:String){
 
@@ -857,7 +881,7 @@ class Quote:qDelegate {
         
         if let s = source{
             var param = [String:AnyObject]()
-            if s == .quandl_oil_weekly_stock_report{
+            if s == .quandl_oil_weekly_stock_report || s == .quandl_oil_opec_price{
                 if let t = time{
                     
                     switch t{
@@ -873,12 +897,17 @@ class Quote:qDelegate {
                             param["start_date"] = self.caculate2YAgo()
                     case .FiveYear:
                             param["start_date"] = self.caculate5YAgo()
+                    case .TenYear:
+                            param["start_date"] = self.caculate10YAgo()
                     default:
                             param["start_date"] = self.caculate2YAgo()
                     
                     }
                     
                     param["auth_token"] = "LWz5Kzq7nR8_5cewDs76"
+                    
+                    print(url)
+                    print(param)
                     
                     if let u = url{
                         Alamofire.request(.GET, u, parameters: param).responseJSON{response in

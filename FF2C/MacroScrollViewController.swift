@@ -23,6 +23,13 @@ struct UniversalParams{
         static let source = DataSourceType.quandl_oil_weekly_stock_report
     
     }
+    
+    struct OPEC_OIL_PRICE{
+        static let url = "https://www.quandl.com/api/v3/datasets/OPEC/ORB.json"
+        static let name = "OPEC原油均价"
+        static let level = "Normal"
+        static let source = DataSourceType.quandl_oil_opec_price
+    }
 }
 
 
@@ -84,9 +91,16 @@ class MacroScrollViewController: UIViewController,UIScrollViewDelegate {
         
         if mask == MacroScrollViewMask.OIL{
             masks = mask
-            let universalVC = UniversalLineViewController(nibName: "UniversalLineViewController", bundle: nil, des: nil, name: UniversalParams.EIA_WEEKLY_OIL.name, symbol: nil, level: UniversalParams.EIA_WEEKLY_OIL.level,url: UniversalParams.EIA_WEEKLY_OIL.url,time:.TwoYear,source: UniversalParams.EIA_WEEKLY_OIL.source)
+            
+            let universalVC = UniversalLineViewController(nibName: "UniversalLineViewController", bundle: nil, des: nil, name: UniversalParams.EIA_WEEKLY_OIL.name, symbol: nil, level: UniversalParams.EIA_WEEKLY_OIL.level,url: UniversalParams.EIA_WEEKLY_OIL.url,time:.TwoYear,source: UniversalParams.EIA_WEEKLY_OIL.source,startRequest:true)
             
             ctrlsArray.append(universalVC)
+
+
+            let openOilPriceVC = UniversalLineViewController(nibName: "UniversalLineViewController", bundle: nil, des: nil, name: UniversalParams.OPEC_OIL_PRICE.name, symbol: nil, level: UniversalParams.OPEC_OIL_PRICE.level,url: UniversalParams.OPEC_OIL_PRICE.url,time:.TwoYear,source: UniversalParams.OPEC_OIL_PRICE.source,startRequest:false)
+            
+            ctrlsArray.append(openOilPriceVC)
+            
             
             
         }
