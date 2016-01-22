@@ -97,7 +97,7 @@ class UniversalLineViewController: UIViewController,ChartViewDelegate,qLineChart
         
     }
     
-    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?,des:String?,name:String?,symbol:String?,level:String?,url:String?,time:DataTimeSteps?,source:DataSourceType?,startRequest:Bool?) {
+    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?,des:String?,name:String?,symbol:String?,level:String?,url:String?,time:DataTimeSteps?,source:DataSourceType?) {
         
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
@@ -110,11 +110,7 @@ class UniversalLineViewController: UIViewController,ChartViewDelegate,qLineChart
         self.time = time
         self.source = source
         
-        if let b = startRequest{
-            if b == true{
-                Quote.sharedInstance.universalRequest(name,url: url, time: time, source: source,o: self,type:.UniversalLineCharView)
-            }
-        }
+        Quote.sharedInstance.universalRequest(name,url: url, time: time, source: source,o: self,type:.UniversalLineCharView)
         
     }
 

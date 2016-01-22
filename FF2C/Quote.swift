@@ -112,7 +112,7 @@ class Quote:qDelegate {
     var delegate:AnyObject?
     var delegateType:String?
     
-    var symbolArray:[SymbolDetail]!
+    var symbolArray = Array<SymbolDetail>()
     
     var urlString:URLStringConvertible!
     
@@ -131,6 +131,8 @@ class Quote:qDelegate {
     var fiveYear:String?
     
     var xmlParser:SymbolXmlParser?
+    
+    var requestDictionary = [NSURLRequest:AnyObject?]()
     
     static let sharedInstance:Quote = {
        return Quote()
@@ -154,8 +156,6 @@ class Quote:qDelegate {
         fiveYear = caculate5YAgo()
         
         urlString = "https://query.yahooapis.com/v1/public/yql"
-        
-        symbolArray = Array<SymbolDetail>()
         
         let editCell:SymbolDetail = SymbolDetail(symbol: "EDITCELL", Name: nil, daysHigh: nil, daysLLow: nil, yearHigh: nil, yearLow: nil, dayChange: nil, averageDailyVolume: nil, lastTradePrice: nil, marketCap:nil )
         
@@ -822,7 +822,7 @@ class Quote:qDelegate {
         }
     }
     
-    func dealUniversalChartJsonData(json:JSON,source:DataSourceType?,name:String?){
+    func dealUniversalChartJsonData(json:JSON,source:DataSourceType?,name:String?,ulrRequest:NSURLRequest?){
         var xVar:[NSObject]? = [NSObject]()
         var yVals:[ChartDataEntry]? = [ChartDataEntry]()
         var xVarPos:Int = DataSourceParseXYPositon.defaultX
@@ -868,9 +868,11 @@ class Quote:qDelegate {
         
         data.setDrawValues(true)
         
-        if self.chartDelegateType == .UniversalLineCharView{
-            if let d = self.chartDelegate as? UniversalLineViewController{
-                d.updateLineChartData(data)
+        if let request = ulrRequest{
+            if let o = requestDictionary[request]{
+                if let d = o as? UniversalLineViewController{
+                    d.updateLineChartData(data)
+                }
             }
         }
     }
@@ -910,18 +912,24 @@ class Quote:qDelegate {
                     print(param)
                     
                     if let u = url{
-                        Alamofire.request(.GET, u, parameters: param).responseJSON{response in
-                            switch response.result{
-                                case .Success(let _):
-                                    if let value = response.result.value{
-                                        let json = JSON(value)
-                                        self.dealUniversalChartJsonData(json,source: source,name: name)
-                                        print("\(json)")
-                                    }
+                        let request = Alamofire.request(.GET, u, parameters: param)
+                        
+                        if let urlReq = request.request{
+                            requestDictionary[urlReq] = o
+                        }
+                        
+                        request.responseJSON{response in
+                        switch response.result{
+                            case .Success(let _):
+                                if let value = response.result.value{
+                                    let json = JSON(value)
+                                    self.dealUniversalChartJsonData(json,source: source,name: name,ulrRequest:response.request)
+                                    print("\(json)")
+                                }
                             
-                                case .Failure(let error):
-                                    print("\(error)")
-                            }
+                            case .Failure(let error):
+                                print("\(error)")
+                        }
                         }
                     }
 

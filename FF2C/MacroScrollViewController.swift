@@ -92,12 +92,12 @@ class MacroScrollViewController: UIViewController,UIScrollViewDelegate {
         if mask == MacroScrollViewMask.OIL{
             masks = mask
             
-            let universalVC = UniversalLineViewController(nibName: "UniversalLineViewController", bundle: nil, des: nil, name: UniversalParams.EIA_WEEKLY_OIL.name, symbol: nil, level: UniversalParams.EIA_WEEKLY_OIL.level,url: UniversalParams.EIA_WEEKLY_OIL.url,time:.TwoYear,source: UniversalParams.EIA_WEEKLY_OIL.source,startRequest:true)
+            let universalVC = UniversalLineViewController(nibName: "UniversalLineViewController", bundle: nil, des: nil, name: UniversalParams.EIA_WEEKLY_OIL.name, symbol: nil, level: UniversalParams.EIA_WEEKLY_OIL.level,url: UniversalParams.EIA_WEEKLY_OIL.url,time:.TwoYear,source: UniversalParams.EIA_WEEKLY_OIL.source)
             
             ctrlsArray.append(universalVC)
 
 
-            let openOilPriceVC = UniversalLineViewController(nibName: "UniversalLineViewController", bundle: nil, des: nil, name: UniversalParams.OPEC_OIL_PRICE.name, symbol: nil, level: UniversalParams.OPEC_OIL_PRICE.level,url: UniversalParams.OPEC_OIL_PRICE.url,time:.TwoYear,source: UniversalParams.OPEC_OIL_PRICE.source,startRequest:false)
+            let openOilPriceVC = UniversalLineViewController(nibName: "UniversalLineViewController", bundle: nil, des: nil, name: UniversalParams.OPEC_OIL_PRICE.name, symbol: nil, level: UniversalParams.OPEC_OIL_PRICE.level,url: UniversalParams.OPEC_OIL_PRICE.url,time:.TwoYear,source: UniversalParams.OPEC_OIL_PRICE.source)
             
             ctrlsArray.append(openOilPriceVC)
             
