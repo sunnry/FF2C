@@ -403,7 +403,7 @@ class Quote:qDelegate {
     }
     
     
-    func dealHistoryChartJsonData(json:JSON,symbol:String){
+    func dealHistoryChartJsonData(json:JSON,symbol:String,urlRequest:NSURLRequest?){
 
         var xVar:[NSObject]? = [NSObject]()
         var yVals:[ChartDataEntry]? = [ChartDataEntry]()
@@ -441,10 +441,12 @@ class Quote:qDelegate {
         data.setValueFont(UIFont.systemFontOfSize(5.0))
         
         data.setDrawValues(true)
-        
-        if chartDelegateType == .LineChartView{
-            if let d = chartDelegate as? QuoteLineViewController{
-                d.updateLineChartData(data)
+
+        if let request = urlRequest{
+            if let o = requestDictionary[request]{
+                if let d = o as? QuoteLineViewController{
+                    d.updateLineChartData(data)
+                }
             }
         }
         
@@ -452,8 +454,6 @@ class Quote:qDelegate {
     
     
     func request5DChartData(symbol:String,o:AnyObject?,type:ViewType?){
-        chartDelegate = o
-        chartDelegateType = type
         
         if let t = today{
             if let fiveD = fiveDay{
@@ -461,19 +461,25 @@ class Quote:qDelegate {
                 
                 let params:[String:AnyObject]? = ["q":sql,"format":"json","diagnostics":"true","env":"store://datatables.org/alltableswithkeys"]
                 
-                Alamofire.request(.GET, urlString, parameters: params).responseJSON{response in
-                    switch response.result{
-                    case .Success(let _):
-                        if let value = response.result.value{
-                            let json = JSON(value)
-                            self.dealHistoryChartJsonData(json, symbol: symbol)
+                let request = Alamofire.request(.GET, urlString, parameters: params)
+                
+                if let urlReq = request.request{
+                    requestDictionary[urlReq] = o
+                }
+                
+                request.responseJSON{response in
+                switch response.result{
+                case .Success(let _):
+                    if let value = response.result.value{
+                        let json = JSON(value)
+                        self.dealHistoryChartJsonData(json, symbol: symbol,urlRequest: response.request)
                             //print("\(json)")
                             
-                        }
-                        
-                    case .Failure(let error):
-                        print("\(error)")
                     }
+                        
+                case .Failure(let error):
+                    print("\(error)")
+                }
                 }
                 
             }
@@ -484,28 +490,31 @@ class Quote:qDelegate {
     
     func requestOneMonthChartData(symbol:String,o:AnyObject,type:ViewType?){
         
-        chartDelegate = o
-        chartDelegateType = type
-        
         if let t = today{
             if let agoMonth = monthAgo{
                 let sql:String = "select * from yahoo.finance.historicaldata where symbol = \"" + symbol + "\" and startDate=\"" + agoMonth + "\" and endDate=\"" + t + "\""
                 
                 let params:[String:AnyObject]? = ["q":sql,"format":"json","diagnostics":"true","env":"store://datatables.org/alltableswithkeys"]
                 
-                Alamofire.request(.GET, urlString, parameters: params).responseJSON{response in
-                    switch response.result{
-                    case .Success(let _):
-                        if let value = response.result.value{
-                            let json = JSON(value)
-                            self.dealHistoryChartJsonData(json, symbol: symbol)
+                let request = Alamofire.request(.GET, urlString, parameters: params)
+                
+                if let urlReq = request.request{
+                    requestDictionary[urlReq] = o
+                }
+                
+                request.responseJSON{response in
+                switch response.result{
+                case .Success(let _):
+                    if let value = response.result.value{
+                        let json = JSON(value)
+                        self.dealHistoryChartJsonData(json, symbol: symbol,urlRequest: response.request)
                             //print("\(json)")
                             
-                        }
-                        
-                    case .Failure(let error):
-                        print("\(error)")
                     }
+                        
+                case .Failure(let error):
+                    print("\(error)")
+                }
                 }
                 
             }
@@ -515,28 +524,31 @@ class Quote:qDelegate {
     
     func request3MonthChartData(symbol:String,o:AnyObject,type:ViewType?){
         
-        chartDelegate = o
-        chartDelegateType = type
-        
         if let t = today{
             if let threeMonth = threeMonthAgo{
                 let sql:String = "select * from yahoo.finance.historicaldata where symbol = \"" + symbol + "\" and startDate=\"" + threeMonth + "\" and endDate=\"" + t + "\""
                 
                 let params:[String:AnyObject]? = ["q":sql,"format":"json","diagnostics":"true","env":"store://datatables.org/alltableswithkeys"]
                 
-                Alamofire.request(.GET, urlString, parameters: params).responseJSON{response in
-                    switch response.result{
-                    case .Success(let _):
-                        if let value = response.result.value{
-                            let json = JSON(value)
-                            self.dealHistoryChartJsonData(json, symbol: symbol)
-                            //print("\(json)")
+                let request = Alamofire.request(.GET, urlString, parameters: params)
+                
+                if let urlReq = request.request{
+                    requestDictionary[urlReq] = o
+                }
+                
+                request.responseJSON{response in
+                switch response.result{
+                case .Success(let _):
+                    if let value = response.result.value{
+                        let json = JSON(value)
+                        self.dealHistoryChartJsonData(json, symbol: symbol,urlRequest: response.request)
+                        //print("\(json)")
                             
-                        }
-                        
-                    case .Failure(let error):
-                        print("\(error)")
                     }
+                        
+                case .Failure(let error):
+                    print("\(error)")
+                }
                 }
                 
             }
@@ -546,28 +558,31 @@ class Quote:qDelegate {
     
     func request1YearChartData(symbol:String,o:AnyObject,type:ViewType?){
         
-        chartDelegate = o
-        chartDelegateType = type
-        
         if let t = today{
             if let oneY = oneYear{
                 let sql:String = "select * from yahoo.finance.historicaldata where symbol = \"" + symbol + "\" and startDate=\"" + oneY + "\" and endDate=\"" + t + "\""
                 
                 let params:[String:AnyObject]? = ["q":sql,"format":"json","diagnostics":"true","env":"store://datatables.org/alltableswithkeys"]
                 
-                Alamofire.request(.GET, urlString, parameters: params).responseJSON{response in
-                    switch response.result{
-                    case .Success(let _):
-                        if let value = response.result.value{
-                            let json = JSON(value)
-                            self.dealHistoryChartJsonData(json, symbol: symbol)
-                            //print("\(json)")
+                let request = Alamofire.request(.GET, urlString, parameters: params)
+                
+                if let urlReq = request.request{
+                    requestDictionary[urlReq] = o
+                }
+                
+                request.responseJSON{response in
+                switch response.result{
+                case .Success(let _):
+                    if let value = response.result.value{
+                        let json = JSON(value)
+                        self.dealHistoryChartJsonData(json, symbol: symbol,urlRequest: response.request)
+                        //print("\(json)")
                             
-                        }
-                        
-                    case .Failure(let error):
-                        print("\(error)")
                     }
+                        
+                case .Failure(let error):
+                    print("\(error)")
+                }
                 }
                 
             }
@@ -579,7 +594,7 @@ class Quote:qDelegate {
         
     }
     
-    func dealWIKIHistoryChartJsonData(json:JSON,symbol:String){
+    func dealWIKIHistoryChartJsonData(json:JSON,symbol:String,urlRequest:NSURLRequest?){
         
         var xVar:[NSObject]? = [NSObject]()
         var yVals:[ChartDataEntry]? = [ChartDataEntry]()
@@ -617,35 +632,41 @@ class Quote:qDelegate {
         
         data.setDrawValues(true)
         
-        if chartDelegateType == .LineChartView{
-            if let d = chartDelegate as? QuoteLineViewController{
-                d.updateLineChartData(data)
+        if let request = urlRequest{
+            if let o = requestDictionary[request]{
+                if let d = o as? QuoteLineViewController{
+                    d.updateLineChartData(data)
+                }
             }
         }
+        
     }
     
     func request2YearChartData(symbol:String,o:AnyObject,type:ViewType?){
         
-        chartDelegate = o
-        chartDelegateType = type
-        
             if let twoY = twoYear{
-                let request:String = "https://www.quandl.com/api/v3/datasets/WIKI/" + symbol + ".json"
+                let url:String = "https://www.quandl.com/api/v3/datasets/WIKI/" + symbol + ".json"
                 let params:[String:AnyObject]? = ["start_date":twoY,"api_key":"LWz5Kzq7nR8_5cewDs76"]
                 
-                Alamofire.request(.GET, request, parameters: params).responseJSON{response in
-                    switch response.result{
-                    case .Success(let _):
-                        if let value = response.result.value{
-                            let json = JSON(value)
-                            //print("\(json)")
-                            self.dealWIKIHistoryChartJsonData(json, symbol: symbol)
+                let request = Alamofire.request(.GET, url, parameters: params)
+
+                if let urlReq = request.request{
+                    requestDictionary[urlReq] = o
+                }
+                
+                request.responseJSON{response in
+                switch response.result{
+                case .Success(let _):
+                    if let value = response.result.value{
+                        let json = JSON(value)
+                        //print("\(json)")
+                        self.dealWIKIHistoryChartJsonData(json, symbol: symbol,urlRequest: response.request)
                             
-                        }
-                        
-                    case .Failure(let error):
-                        print("\(error)")
                     }
+                        
+                case .Failure(let error):
+                        print("\(error)")
+                }
                 }
                 
             }
@@ -655,26 +676,29 @@ class Quote:qDelegate {
     
     func request5YearChartData(symbol:String,o:AnyObject,type:ViewType?){
         
-        chartDelegate = o
-        chartDelegateType = type
-        
         if let fiveY = fiveYear{
-            let request:String = "https://www.quandl.com/api/v3/datasets/WIKI/" + symbol + ".json"
+            let url:String = "https://www.quandl.com/api/v3/datasets/WIKI/" + symbol + ".json"
             let params:[String:AnyObject]? = ["start_date":fiveY,"api_key":"LWz5Kzq7nR8_5cewDs76"]
             
-            Alamofire.request(.GET, request, parameters: params).responseJSON{response in
-                switch response.result{
-                case .Success(let _):
-                    if let value = response.result.value{
-                        let json = JSON(value)
-                        self.dealWIKIHistoryChartJsonData(json, symbol: symbol)
-                        //print("\(json)")
+            let request = Alamofire.request(.GET, url, parameters: params)
+            
+            if let urlReq = request.request{
+                requestDictionary[urlReq] = o
+            }
+                
+            request.responseJSON{response in
+            switch response.result{
+            case .Success(let _):
+                if let value = response.result.value{
+                    let json = JSON(value)
+                    self.dealWIKIHistoryChartJsonData(json, symbol: symbol,urlRequest:response.request)
+                    //print("\(json)")
                         
-                    }
-                    
-                case .Failure(let error):
-                    print("\(error)")
                 }
+                    
+            case .Failure(let error):
+                print("\(error)")
+            }
             }
             
         }
@@ -878,8 +902,6 @@ class Quote:qDelegate {
     }
     
     func universalRequest(name:String?,url:String?,time:DataTimeSteps?,source:DataSourceType?,o:AnyObject?,type:ViewType?){
-        self.chartDelegate = o
-        self.chartDelegateType = type
         
         if let s = source{
             var param = [String:AnyObject]()
