@@ -79,6 +79,15 @@ class InvestCollectionViewController: UICollectionViewController,UICollectionVie
             
             self.presentViewController(nvController, animated: true, completion: nil)
 
+        }else if indexPath.row == 1{
+            
+            let macroVC = MacroScrollViewController(nibName: "MacroScrollViewController", bundle: nil,mask: .CHINA)
+            
+            let nvController:UINavigationController = UINavigationController(rootViewController: macroVC)
+            nvController.navigationBar.barStyle = UIBarStyle.Default
+            
+            self.presentViewController(nvController, animated: true, completion: nil)
+            
         }
         
     }

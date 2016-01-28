@@ -37,6 +37,14 @@ struct UniversalParams{
         static let level = "High"
         static let source = DataSourceType.quandl_oil_baker_oil_split
     }
+    
+    
+    struct CHINA_CPI{
+        static let url = "https://www.quandl.com/api/v3/datasets/WORLDBANK/CHN_FP_CPI_TOTL_ZG.json"
+        static let name = "中国CPI指数"
+        static let level = "High"
+        static let source = DataSourceType.quandl_china_cpi_index
+    }
 }
 
 
@@ -111,10 +119,12 @@ class MacroScrollViewController: UIViewController,UIScrollViewDelegate {
             let bakerVC = UniversalLineViewController(nibName: "UniversalLineViewController", bundle: nil, des: nil, name: UniversalParams.BAKE_OIL_SPLIT.name, symbol: nil, level: UniversalParams.BAKE_OIL_SPLIT.level,url: UniversalParams.BAKE_OIL_SPLIT.url,time:.TenYear ,source: UniversalParams.BAKE_OIL_SPLIT.source)
             
             ctrlsArray.append(bakerVC)
+        }else if mask == MacroScrollViewMask.CHINA{
+            masks = mask
             
+            let cpiVC = UniversalLineViewController(nibName: "UniversalLineViewController", bundle: nil, des: nil, name: UniversalParams.CHINA_CPI.name, symbol: nil, level: UniversalParams.CHINA_CPI.level,url: UniversalParams.CHINA_CPI.url,time:.TenYear ,source: UniversalParams.CHINA_CPI.source)
             
-            
-            
+            ctrlsArray.append(cpiVC)
         }
     }
 

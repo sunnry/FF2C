@@ -26,6 +26,8 @@ enum DataSourceType{
     case quandl_oil_opec_price
     case quandl_oil_baker_oil_split
     case yql
+    
+    case quandl_china_cpi_index
 }
 
 struct DataSourceParseXYPositon{
@@ -906,7 +908,7 @@ class Quote:qDelegate {
         
         if let s = source{
             var param = [String:AnyObject]()
-            if s == .quandl_oil_weekly_stock_report || s == .quandl_oil_opec_price || s == .quandl_oil_baker_oil_split{
+            if s == .quandl_oil_weekly_stock_report || s == .quandl_oil_opec_price || s == .quandl_oil_baker_oil_split || s == .quandl_china_cpi_index{
                 if let t = time{
                     
                     switch t{
