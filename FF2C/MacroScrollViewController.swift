@@ -45,6 +45,13 @@ struct UniversalParams{
         static let level = "High"
         static let source = DataSourceType.quandl_china_cpi_index
     }
+    
+    struct CHINA_EXTERNAL_DEBT{
+        static let url = "https://www.quandl.com/api/v3/datasets/STATCHINA/H0809.json"
+        static let name = "中国对外债务"
+        static let level = "Normal"
+        static let source = DataSourceType.quandl_china_external_debt
+    }
 }
 
 
@@ -125,6 +132,10 @@ class MacroScrollViewController: UIViewController,UIScrollViewDelegate {
             let cpiVC = UniversalLineViewController(nibName: "UniversalLineViewController", bundle: nil, des: nil, name: UniversalParams.CHINA_CPI.name, symbol: nil, level: UniversalParams.CHINA_CPI.level,url: UniversalParams.CHINA_CPI.url,time:.TenYear ,source: UniversalParams.CHINA_CPI.source)
             
             ctrlsArray.append(cpiVC)
+            
+            let debtVC = UniversalLineViewController(nibName: "UniversalLineViewController", bundle: nil, des: nil, name: UniversalParams.CHINA_EXTERNAL_DEBT.name, symbol: nil, level: UniversalParams.CHINA_EXTERNAL_DEBT.level,url: UniversalParams.CHINA_EXTERNAL_DEBT.url,time:.TenYear ,source: UniversalParams.CHINA_EXTERNAL_DEBT.source)
+            
+            ctrlsArray.append(debtVC)
         }
     }
 
