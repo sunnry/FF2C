@@ -30,6 +30,13 @@ struct UniversalParams{
         static let level = "Normal"
         static let source = DataSourceType.quandl_oil_opec_price
     }
+    
+    struct BAKE_OIL_SPLIT{
+        static let url = "https://www.quandl.com/api/v3/datasets/BKRHUGHES/OILGAS_SPLIT.json"
+        static let name = "贝克休斯北美油井数量"
+        static let level = "High"
+        static let source = DataSourceType.quandl_oil_baker_oil_split
+    }
 }
 
 
@@ -100,6 +107,11 @@ class MacroScrollViewController: UIViewController,UIScrollViewDelegate {
             let openOilPriceVC = UniversalLineViewController(nibName: "UniversalLineViewController", bundle: nil, des: nil, name: UniversalParams.OPEC_OIL_PRICE.name, symbol: nil, level: UniversalParams.OPEC_OIL_PRICE.level,url: UniversalParams.OPEC_OIL_PRICE.url,time:.TwoYear,source: UniversalParams.OPEC_OIL_PRICE.source)
             
             ctrlsArray.append(openOilPriceVC)
+            
+            let bakerVC = UniversalLineViewController(nibName: "UniversalLineViewController", bundle: nil, des: nil, name: UniversalParams.BAKE_OIL_SPLIT.name, symbol: nil, level: UniversalParams.BAKE_OIL_SPLIT.level,url: UniversalParams.BAKE_OIL_SPLIT.url,time:.TenYear ,source: UniversalParams.BAKE_OIL_SPLIT.source)
+            
+            ctrlsArray.append(bakerVC)
+            
             
             
             
