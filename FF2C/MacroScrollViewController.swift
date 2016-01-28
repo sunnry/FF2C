@@ -38,6 +38,13 @@ struct UniversalParams{
         static let source = DataSourceType.quandl_oil_baker_oil_split
     }
     
+    struct GAS_OIL_FUTURE_OPEN_2018{
+        static let url = "https://www.quandl.com/api/v3/datasets/ICE/GZ2018.json"
+        static let name = "2018油气期货新开合约"
+        static let level = "High"
+        static let source = DataSourceType.quandl_gas_oil_future_open_2018
+    }
+    
     
     struct CHINA_CPI{
         static let url = "https://www.quandl.com/api/v3/datasets/WORLDBANK/CHN_FP_CPI_TOTL_ZG.json"
@@ -126,6 +133,11 @@ class MacroScrollViewController: UIViewController,UIScrollViewDelegate {
             let bakerVC = UniversalLineViewController(nibName: "UniversalLineViewController", bundle: nil, des: nil, name: UniversalParams.BAKE_OIL_SPLIT.name, symbol: nil, level: UniversalParams.BAKE_OIL_SPLIT.level,url: UniversalParams.BAKE_OIL_SPLIT.url,time:.TenYear ,source: UniversalParams.BAKE_OIL_SPLIT.source)
             
             ctrlsArray.append(bakerVC)
+            
+            let oil_futureVC = UniversalLineViewController(nibName: "UniversalLineViewController", bundle: nil, des: nil, name: UniversalParams.GAS_OIL_FUTURE_OPEN_2018.name, symbol: nil, level: UniversalParams.GAS_OIL_FUTURE_OPEN_2018.level,url: UniversalParams.GAS_OIL_FUTURE_OPEN_2018.url,time:.TwoYear ,source: UniversalParams.GAS_OIL_FUTURE_OPEN_2018.source)
+            
+            ctrlsArray.append(oil_futureVC)
+            
         }else if mask == MacroScrollViewMask.CHINA{
             masks = mask
             
