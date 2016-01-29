@@ -12,7 +12,7 @@ import UIKit
 enum MacroScrollViewMask:Int{
     case OIL
     case CHINA
-    case US
+    case USA
 }
 
 struct UniversalParams{
@@ -31,6 +31,7 @@ struct UniversalParams{
         static let source = DataSourceType.quandl_oil_opec_price
     }
     
+    /*https://www.quandl.com/data/BKRHUGHES/OILGAS_SPLIT-Baker-Hughes-Oil-Gas-Split*/
     struct BAKE_OIL_SPLIT{
         static let url = "https://www.quandl.com/api/v3/datasets/BKRHUGHES/OILGAS_SPLIT.json"
         static let name = "贝克休斯北美油井数量"
@@ -38,6 +39,7 @@ struct UniversalParams{
         static let source = DataSourceType.quandl_oil_baker_oil_split
     }
     
+    /*https://www.quandl.com/data/ICE/GZ2018-Gas-Oil-Futures-December-2018-GZ2018*/
     struct GAS_OIL_FUTURE_OPEN_2018{
         static let url = "https://www.quandl.com/api/v3/datasets/ICE/GZ2018.json"
         static let name = "2018油气期货新开合约"
@@ -45,7 +47,7 @@ struct UniversalParams{
         static let source = DataSourceType.quandl_gas_oil_future_open_2018
     }
     
-    
+    /*https://www.quandl.com/data/WORLDBANK/CHN_FP_CPI_TOTL_ZG-China-Inflation-consumer-prices-annual?utm_medium=graph&utm_source=quandl*/
     struct CHINA_CPI{
         static let url = "https://www.quandl.com/api/v3/datasets/WORLDBANK/CHN_FP_CPI_TOTL_ZG.json"
         static let name = "中国CPI指数"
@@ -53,11 +55,20 @@ struct UniversalParams{
         static let source = DataSourceType.quandl_china_cpi_index
     }
     
+    /*https://www.quandl.com/data/STATCHINA/H0809-Outstanding-of-Debts-of-Central-Government*/
     struct CHINA_EXTERNAL_DEBT{
         static let url = "https://www.quandl.com/api/v3/datasets/STATCHINA/H0809.json"
         static let name = "中国对外债务"
         static let level = "Normal"
         static let source = DataSourceType.quandl_china_external_debt
+    }
+    
+    /*https://www.quandl.com/data/RATEINF/INFLATION_USA-Inflation-YOY-USA*/
+    struct USA_INFLATION_RATE{
+        static let url = "https://www.quandl.com/api/v3/datasets/RATEINF/INFLATION_USA.json"
+        static let name = "美国通胀率"
+        static let level = "High"
+        static let source = DataSourceType.quandl_usa_inflation_rate
     }
 }
 
@@ -148,6 +159,14 @@ class MacroScrollViewController: UIViewController,UIScrollViewDelegate {
             let debtVC = UniversalLineViewController(nibName: "UniversalLineViewController", bundle: nil, des: nil, name: UniversalParams.CHINA_EXTERNAL_DEBT.name, symbol: nil, level: UniversalParams.CHINA_EXTERNAL_DEBT.level,url: UniversalParams.CHINA_EXTERNAL_DEBT.url,time:.TenYear ,source: UniversalParams.CHINA_EXTERNAL_DEBT.source)
             
             ctrlsArray.append(debtVC)
+        }else if mask == MacroScrollViewMask.USA{
+            masks = mask
+
+            let usaInflationVC = UniversalLineViewController(nibName: "UniversalLineViewController", bundle: nil, des: nil, name: UniversalParams.USA_INFLATION_RATE.name, symbol: nil, level: UniversalParams.USA_INFLATION_RATE.level,url: UniversalParams.USA_INFLATION_RATE.url,time:.TenYear ,source: UniversalParams.USA_INFLATION_RATE.source)
+            
+            ctrlsArray.append(usaInflationVC)
+            
+            
         }
     }
 
